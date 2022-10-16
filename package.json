@@ -1,0 +1,50 @@
+{
+  "name": "grade-doh-model",
+  "version": "0.0.1",
+  "description": "Implementation of the the Government Revenue And Development Estimators Determinants Of Health (GRADE-DOH) economic model.",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stuwilmur/GRADE-DOH-model.git"
+  },
+  "keywords": [
+    "grade-doh",
+    "econometric"
+  ],
+  "author": {
+    "name" : "Stuart Murray",
+    "url": "https://orcid.org/0000-0003-2871-8375"
+},
+  "contributors": [
+    {
+      "name": "Stephen Hall",
+      "url": "https://orcid.org/0000-0001-6068-8749"
+    },
+    {
+      "name": "Bernadette O'Hare",
+      "url": "https://orcid.org/0000-0003-1730-7941"
+    },
+    {
+      "name": "Marisol Lopez",
+      "url": "https://orcid.org/0000-0003-0293-7334"
+    }
+  ],
+  "type": "module",
+  "files": [
+    "src/*.js"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stuwilmur/GRADE-DOH-model/issues"
+  },
+  "homepage": "https://github.com/stuwilmur/GRADE-DOH-model#readme",
+  "devDependencies": {
+    "eslint": "^8.25.0",
+    "eslint-config-google": "^0.14.0"
+  }
+}
