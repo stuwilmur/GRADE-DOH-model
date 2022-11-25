@@ -1,5 +1,9 @@
-const mymodule = require('../src/basic-water.cjs');
+const basicWater = require('../src/basic-water.cjs');
 
-test('checks a in = a out', () => {
-  expect(mymodule.f(1)).toBe(1);
+test('checks estimate returns expected value', () => {
+  expect(basicWater.estimate(1)).toBe(1);
+});
+
+test('checks invert returns expected value', () => {
+  expect(basicWater.invert(1)).toBe(1);
 });
