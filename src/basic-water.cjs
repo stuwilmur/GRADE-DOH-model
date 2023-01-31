@@ -53,8 +53,8 @@ function invert(target, governance) {
     coefficients.get(2) +
     coefficients.get(22) * g.polstab +
     coefficients.get(24) * g.rulelaw;
-  const res = Math.log(100.0 / target - 1.0) / A + B;
-  return res;
+  const result = Math.log(100.0 / target - 1.0) / A + B;
+  return result;
 }
 
 module.exports = {
