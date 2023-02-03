@@ -52,9 +52,9 @@ function estimate(grpc, governance) {
 function invert(target, governance) {
   const A = -(
     coefficients.get(1) +
-    coefficients.get(11) * governance.CORRUPTION +
-    coefficients.get(13) * governance.REGQUALITY +
-    coefficients.get(16) * governance.VOICE
+    coefficients.get(11) * governance.corruption +
+    coefficients.get(13) * governance.regquality +
+    coefficients.get(16) * governance.voice
   );
   const B =
     coefficients.get(2) +

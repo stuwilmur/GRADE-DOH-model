@@ -25,18 +25,18 @@ function estimate(grpc, governance) {
       Math.exp(
         -(
           coefficients.get(1) +
-          coefficients.get(12) * governance.POLSTAB +
-          coefficients.get(15) * governance.GOVEFFECT +
-          coefficients.get(16) * governance.VOICE
+          coefficients.get(12) * governance.polstab +
+          coefficients.get(15) * governance.goveffect +
+          coefficients.get(16) * governance.voice
         ) *
           (grpc -
             (-coefficients.get(2) +
-              coefficients.get(21) * governance.CORRUPTION +
-              coefficients.get(22) * governance.POLSTAB +
-              coefficients.get(23) * governance.REGQUALITY +
-              coefficients.get(25) * governance.GOVEFFECT +
+              coefficients.get(21) * governance.corruption +
+              coefficients.get(22) * governance.polstab +
+              coefficients.get(23) * governance.regquality +
+              coefficients.get(25) * governance.goveffect +
               // eslint-disable-next-line comma-dangle
-              coefficients.get(26) * governance.VOICE))
+              coefficients.get(26) * governance.voice))
       ));
 
   return result;
@@ -52,17 +52,17 @@ function estimate(grpc, governance) {
 function invert(target, governance) {
   const A = -(
     coefficients.get(1) +
-    coefficients.get(12) * governance.POLSTAB +
-    coefficients.get(15) * governance.GOVEFFECT +
-    coefficients.get(16) * governance.VOICE
+    coefficients.get(12) * governance.polstab +
+    coefficients.get(15) * governance.goveffect +
+    coefficients.get(16) * governance.voice
   );
   const B =
     -coefficients.get(2) +
-    coefficients.get(21) * governance.CORRUPTION +
-    coefficients.get(22) * governance.POLSTAB +
-    coefficients.get(23) * governance.REGQUALITY +
-    coefficients.get(25) * governance.GOVEFFECT +
-    coefficients.get(26) * governance.VOICE;
+    coefficients.get(21) * governance.corruption +
+    coefficients.get(22) * governance.polstab +
+    coefficients.get(23) * governance.regquality +
+    coefficients.get(25) * governance.goveffect +
+    coefficients.get(26) * governance.voice;
   const result = Math.log(100.0 / target - 1.0) / A + B;
   return result;
 }
