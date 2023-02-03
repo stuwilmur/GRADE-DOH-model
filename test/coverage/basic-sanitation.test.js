@@ -1,4 +1,4 @@
-const basicSanitation = require('../src/basic-sanitation.cjs');
+const basicSanitation = require('../../src/coverage/basic-sanitation.cjs');
 
 test('checks estimate returns expected value', () => {
   expect(basicSanitation.estimate(1)).toBe(1);

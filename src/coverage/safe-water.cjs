@@ -54,8 +54,6 @@ function invert(target, governance) {
   const A = -(
     coefficients.get(1) +
     coefficients.get(11) * governance.corruption +
-    0 * governance.polstab +
-    0 * governance.regquality +
     coefficients.get(14) * governance.rulelaw +
     coefficients.get(15) * governance.goveffect +
     coefficients.get(16) * governance.voice
@@ -65,7 +63,6 @@ function invert(target, governance) {
     coefficients.get(21) * governance.corruption +
     coefficients.get(22) * governance.polstab +
     coefficients.get(23) * governance.regquality +
-    0 * governance.rulelaw +
     coefficients.get(25) * governance.goveffect +
     coefficients.get(26) * governance.voice;
   const result = Math.log(100.0 / target - 1.0) / A + B;

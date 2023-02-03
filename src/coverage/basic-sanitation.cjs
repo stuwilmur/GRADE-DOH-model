@@ -72,7 +72,7 @@ function invert(target, governance) {
     coefficients.get(23) * governance.regquality +
     coefficients.get(25) * governance.goveffect +
     coefficients.get(26) * governance.voice;
-  const result = Math.log(100.0 / _target - 1.0) / A + B;
+  const result = Math.log(100.0 / target - 1.0) / A + B;
   return result;
 }
 

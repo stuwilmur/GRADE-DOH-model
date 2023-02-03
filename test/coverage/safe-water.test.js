@@ -1,4 +1,4 @@
-const safeWater = require('../src/safe-water.cjs');
+const safeWater = require('../../src/coverage/safe-water.cjs');
 
 test('checks estimate returns expected value', () => {
   expect(safeWater.estimate(1)).toBe(1);
