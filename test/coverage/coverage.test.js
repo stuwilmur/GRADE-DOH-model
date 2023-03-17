@@ -1,65 +1,65 @@
 const coverage = require('../../src/coverage/index.cjs');
 
-test('checks estimate returns expected value', () => {
+test('checks estimateBasicSanitation returns expected value', () => {
   expect(coverage.estimateBasicSanitation(1)).toBe(1);
 });
 
-test('checks invert returns expected value', () => {
+test('checks invertBasicSanitation returns expected value', () => {
   expect(coverage.invertBasicSanitation(1)).toBe(1);
 });
 
-test('checks estimate returns expected value', () => {
+test('checks estimateSchoolAttendance returns expected value', () => {
   expect(coverage.estimateSchoolAttendance(1)).toBe(1);
 });
 
-test('checks invert returns expected value', () => {
+test('checks invertSchoolAttendance returns expected value', () => {
   expect(coverage.invertSchoolAttendance(1)).toBe(1);
 });
 
-test('checks estimate returns expected value', () => {
+test('checks estimateImmunisation returns expected value', () => {
   expect(coverage.estimateImmunisation(1)).toBe(1);
 });
 
-test('checks invert returns expected value', () => {
+test('checks invertImmunisation returns expected value', () => {
   expect(coverage.invertImmunisation(1)).toBe(1);
 });
 
-test('checks estimate returns expected value', () => {
+test('checks estimateMaternalSurvival returns expected value', () => {
   expect(coverage.estimateMaternalSurvival(1)).toBe(1);
 });
 
-test('checks invert returns expected value', () => {
+test('checks invertMaternalSurvival returns expected value', () => {
   expect(coverage.invertMaternalSurvival(1)).toBe(1);
 });
 
-test('checks estimate returns expected value', () => {
+test('checks estimateSafeSanitation returns expected value', () => {
   expect(coverage.estimateSafeSanitation(1)).toBe(1);
 });
 
-test('checks invert returns expected value', () => {
+test('checks invertSafeSanitation returns expected value', () => {
   expect(coverage.invertSafeSanitation(1)).toBe(1);
 });
 
-test('checks estimate returns expected value', () => {
+test('checks estimateSafeWater returns expected value', () => {
   expect(coverage.estimateSafeWater(1)).toBe(1);
 });
 
-test('checks invert returns expected value', () => {
+test('checks invertSafeWater returns expected value', () => {
   expect(coverage.invertSafeWater(1)).toBe(1);
 });
 
-test('checks estimate returns expected value', () => {
+test('checks estimateSchoolAttendance returns expected value', () => {
   expect(coverage.estimateSchoolAttendance(1)).toBe(1);
 });
 
-test('checks invert returns expected value', () => {
+test('checks invertSchoolAttendance returns expected value', () => {
   expect(coverage.invertSchoolAttendance(1)).toBe(1);
 });
 
-test('checks estimate returns expected value', () => {
+test('checks estimateUnderFiveSurvival returns expected value', () => {
   expect(coverage.estimateUnderFiveSurvival(1)).toBe(1);
 });
 
-test('checks invert returns expected value', () => {
+test('checks invertUnderFiveSurvival returns expected value', () => {
   expect(coverage.invertUnderFiveSurvival(1)).toBe(1);
 });
