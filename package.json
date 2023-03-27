@@ -17,9 +17,9 @@
     "econometric"
   ],
   "author": {
-    "name" : "Stuart Murray",
+    "name": "Stuart Murray",
     "url": "https://orcid.org/0000-0003-2871-8375"
-},
+  },
   "contributors": [
     {
       "name": "Stephen Hall",
@@ -46,5 +46,8 @@
   "devDependencies": {
     "eslint": "^8.25.0",
     "eslint-config-google": "^0.14.0"
+  },
+  "dependencies": {
+    "micro-table": "^0.3.1"
   }
 }
