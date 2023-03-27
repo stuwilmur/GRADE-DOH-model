@@ -1,4 +1,4 @@
-const governance = require('../../src/governance/index.cjs');
+const governance = require('../../../src/model/governance/index.cjs');
 
 test('checks estimateCorruption returns expected value', () => {
   expect(governance.estimateCorruption(1)).toBe(1);

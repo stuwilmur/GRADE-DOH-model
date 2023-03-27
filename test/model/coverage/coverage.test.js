@@ -1,4 +1,4 @@
-const coverage = require('../../src/coverage/index.cjs');
+const coverage = require('../../../src/model/coverage/index.cjs');
 
 test('checks estimateBasicSanitation returns expected value', () => {
   expect(coverage.estimateBasicSanitation(1)).toBe(1);
