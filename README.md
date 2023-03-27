@@ -7,3 +7,20 @@ The underlying research is documented in the following publications:
 
 ## What is this?
 This package implements the core economic model, and also contains the base data that is used for the calculations.
+
+## Data pipeline
+
+1. The origin base data database Excel workbook [BASE data 27.7.2022.xlsx](https://github.com/stuwilmur/GRADE-DOH-model/blob/main/assets/data/BASE%20data%2027.7.2022%20with%20new%20POP%20data.xlsx) was prepared by Bernadette O'Hare, using data from the WDI and UNU WIDER datasets. Detailed notes on the data sources and preparation are contained in the *Intro and data sources* sheet of the workbook.
+2. The intermediary base data database Excel workbook [Base data 2022.xlsx](https://github.com/stuwilmur/GRADE-DOH-model/blob/main/assets/data/BASE%20data%202022.xlsx) was prepared by taking a copy of the origin base data database [BASE data 27.7.2022](https://github.com/stuwilmur/GRADE-DOH-model/blob/main/assets/data/BASE%20data%2027.7.2022%20with%20new%20POP%20data.xlsx), and calculating the following columns in the *2022 pop data* sheet (those with red headings):
+  - INFANT SURVIVAL 
+  - Number of infants surviving to 1yr
+  - Maternal survival per 100,000 live births
+  - Maternal survival rate %
+  - U5 survival rate (per 1000 live births)
+  - U5 survival %
+  - Number of children surviving to five 
+  - School percent
+3. The base data CSV file used to drive the model [Base data 2022.csv](https://github.com/stuwilmur/GRADE-DOH-model/blob/main/src/data/BASE%20data%202022.csv) was generated from [Base data 2022.xlsx](https://github.com/stuwilmur/GRADE-DOH-model/blob/main/assets/data/BASE%20data%202022.xlsx) as follows:
+  - exporting the *2022 pop data* sheet to .csv format;
+  - adding the column heading `countryyearcode` to the first column;
+  - replacing all instances of `#N/A` and `#VALUE!` with `NaN` using find and replace
