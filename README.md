@@ -25,7 +25,7 @@ This package implements the core economic model, and also contains the base data
 - Number of children surviving to five
 - School percent
 
-3. The intermediate base data CSV file [Base data 2022.csv](https://github.com/stuwilmur/GRADE-DOH-model/blob/main/src/data/BASE%20data%202022.csv) was generated from [Base data 2022.xlsx](https://github.com/stuwilmur/GRADE-DOH-model/blob/main/assets/data/BASE%20data%202022.xlsx) as follows:
+3. The intermediate base data CSV file [Base data 2022.csv](https://github.com/stuwilmur/GRADE-DOH-model/blob/main/src/data/BASE%20data%202022.csv) was generated from [Base data 2022.xlsx](https://github.com/stuwilmur/GRADE-DOH-model/blob/main/assets/data/BASE%20data%202022.xlsx) _2022 pop data_ sheet as follows:
 
 - exporting the _2022 pop data_ sheet to .csv format;
 - adding the column heading `countryyearcode` to the first column;
