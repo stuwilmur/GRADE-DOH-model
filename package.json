@@ -48,6 +48,7 @@
     "eslint-config-google": "^0.14.0"
   },
   "dependencies": {
+    "grade-doh-data": "^0.2.0",
     "micro-table": "^0.3.1"
   }
 }
