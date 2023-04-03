@@ -1,6 +1,7 @@
 {
   "name": "grade-doh-model",
   "version": "0.0.1",
+  "type": "module",
   "description": "Implementation of the the Government Revenue And Development Estimators Determinants Of Health (GRADE-DOH) economic model.",
   "directories": {
     "test": "test"
@@ -34,7 +35,6 @@
       "url": "https://orcid.org/0000-0003-0293-7334"
     }
   ],
-  "type": "module",
   "files": [
     "src/*.cjs"
   ],
