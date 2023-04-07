@@ -8,7 +8,7 @@
  * @param {number} residual Current residual value
  * @return {number} rule of law value
  */
-function estimate(x, x1, x2, grpc, grpc1, residual) {
+export function estimate(x, x1, x2, grpc, grpc1, residual) {
   if (x2 != null) {
     const result =
       x1 -
@@ -24,7 +24,3 @@ function estimate(x, x1, x2, grpc, grpc1, residual) {
     return x;
   }
 }
-
-module.exports = {
-  estimate,
-};

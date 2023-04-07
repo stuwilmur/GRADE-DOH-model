@@ -21,7 +21,7 @@ const coefficients = new Map([
  * @param {object} governance Governance object
  * @return {number} Coverage percentage
  */
-function estimate(grpc, governance) {
+export function estimate(grpc, governance) {
   const result =
     95 +
     (100 - 95) /
@@ -56,7 +56,7 @@ function estimate(grpc, governance) {
  * @param {object} governance Governance object
  * @return {number} Estimated government revenue per capita in USD
  */
-function invert(target, governance) {
+export function invert(target, governance) {
   const A = -(
     coefficients.get(1) +
     coefficients.get(11) * governance.corruption +
@@ -76,8 +76,3 @@ function invert(target, governance) {
   const result = Math.log((100.0 - 95.0) / (target - 95) - 1) / A + B;
   return result;
 }
-
-module.exports = {
-  estimate,
-  invert,
-};

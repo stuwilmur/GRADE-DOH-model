@@ -1,25 +1,25 @@
-const governance = require('../../../src/model/governance/index.cjs');
+import * as governance from '../../../src/model/governance';
 
 test('checks estimateCorruption returns expected value', () => {
-  expect(governance.estimateCorruption(1)).toBe(1);
+  expect(governance.corruption.estimate(1)).toBe(1);
 });
 
 test('checks estimateGovernmentEffectiveness returns expected value', () => {
-  expect(governance.estimateGovernmentEffectiveness(1)).toBe(1);
+  expect(governance.governmentEffectiveness.estimate(1)).toBe(1);
 });
 
 test('checks estimatePoliticalStability returns expected value', () => {
-  expect(governance.estimatePoliticalStability(1)).toBe(1);
+  expect(governance.politicalStability.estimate(1)).toBe(1);
 });
 
 test('checks estimateRegulatoryQuality returns expected value', () => {
-  expect(governance.estimateRegulatoryQuality(1)).toBe(1);
+  expect(governance.regulatoryQuality.estimate(1)).toBe(1);
 });
 
 test('checks estimateRuleOfLaw returns expected value', () => {
-  expect(governance.estimateRuleOfLaw(1)).toBe(1);
+  expect(governance.ruleOfLaw.estimate(1)).toBe(1);
 });
 
 test('checks estimateVoiceAndAccountability returns expected value', () => {
-  expect(governance.estimateVoiceAndAccountability(1)).toBe(1);
+  expect(governance.voiceAndAccountability.estimate(1)).toBe(1);
 });

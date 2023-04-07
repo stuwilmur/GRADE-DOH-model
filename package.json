@@ -1,13 +1,29 @@
 {
   "name": "grade-doh-model",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "type": "module",
   "description": "Implementation of the the Government Revenue And Development Estimators Determinants Of Health (GRADE-DOH) economic model.",
-  "directories": {
-    "test": "test"
-  },
+  "source": "./src/index.js",
+  "module": "./dist/module.js",
+  "jsdelivr": "./dist/module.js",
+  "files": [
+    "./dist/module.js"
+  ],
   "scripts": {
-    "test": "jest"
+    "start": "node ./src/index.js",
+    "test": "jest --coverage",
+    "clear_jest": "jest --clearCache",
+    "make-badges": "istanbul-badges-readme",
+    "build": "parcel build",
+    "lint": "eslint src/*.js",
+    "clean": "rm -rf dist/*",
+    "prepublish": "npm run build",
+    "prebuild": "npm run test && npm run clean",
+    "pretest": "npm run lint",
+    "posttest": "npm run make-badges",
+    "publish_patch": "npm install && npm version patch && npm publish && git push",
+    "publish_minor": "npm install && npm version minor && npm publish && git push",
+    "publish_major": "npm install && npm version major && npm publish && git push"
   },
   "repository": {
     "type": "git",
@@ -18,7 +34,7 @@
     "econometric"
   ],
   "author": {
-    "name": "Stuart Murray",
+    "name": "Stu Murray",
     "url": "https://orcid.org/0000-0003-2871-8375"
   },
   "contributors": [
@@ -35,20 +51,30 @@
       "url": "https://orcid.org/0000-0003-0293-7334"
     }
   ],
-  "files": [
-    "src/*.cjs"
-  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/stuwilmur/GRADE-DOH-model/issues"
   },
   "homepage": "https://github.com/stuwilmur/GRADE-DOH-model#readme",
   "devDependencies": {
-    "eslint": "^8.25.0",
-    "eslint-config-google": "^0.14.0"
+    "@babel/eslint-parser": "^7.19.1",
+    "@babel/plugin-transform-modules-commonjs": "^7.21.2",
+    "eslint": "^8.37.0",
+    "eslint-config-google": "^0.14.0",
+    "istanbul-badges-readme": "^1.8.5",
+    "jest": "^29.5.0",
+    "parcel": "^2.8.0"
   },
   "dependencies": {
-    "grade-doh-data": "^0.2.0",
-    "micro-table": "^0.3.1"
+    "grade-doh-data": "^0.4.2",
+    "micro-table": "^0.5.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^d3$": "<rootDir>/node_modules/d3/dist/d3.min.js"
+    },
+    "coverageReporters": [
+      "json-summary"
+    ]
   }
 }

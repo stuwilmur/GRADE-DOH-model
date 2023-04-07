@@ -8,11 +8,7 @@
  * @param {number} residual Current residual value
  * @return {number} voice and accountability value
  */
-function estimate(x, x1, x2, grpc, grpc1, residual) {
+export function estimate(x, x1, x2, grpc, grpc1, residual) {
   // the model does not forecast voice: return current observed value
   return x;
 }
-
-module.exports = {
-  estimate,
-};
