@@ -61,12 +61,12 @@
     "@babel/plugin-transform-modules-commonjs": "^7.21.2",
     "eslint": "^8.37.0",
     "eslint-config-google": "^0.14.0",
+    "grade-doh-data": "^0.4.2",
     "istanbul-badges-readme": "^1.8.5",
     "jest": "^29.5.0",
     "parcel": "^2.8.0"
   },
   "dependencies": {
-    "grade-doh-data": "^0.4.2",
     "micro-table": "^0.5.0"
   },
   "jest": {
