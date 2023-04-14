@@ -8,12 +8,11 @@
  * @param {number} residual Current residual value
  * @return {number} corruption value
  */
-export function estimate(x, x1, x2, grpc, grpc1, residual) {
+export function estimate(x, x1, x2, grpc, grpc1) {
   const result =
     x1 -
     0.262062915863 -
     0.268386527335 * x1 +
-    0.0388009869267 * Math.log(grpc1) +
-    residual;
+    0.0388009869267 * Math.log(grpc1);
   return result;
 }

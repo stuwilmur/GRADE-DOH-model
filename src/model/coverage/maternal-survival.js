@@ -16,12 +16,12 @@ const coefficients = new Map([
 ]);
 
 /**
- * Estimate maternal survival coverage from the model equations
+ * Calculate maternal survival coverage from the model equations
  * @param {number} grpc Government revenue per capita in USD
  * @param {object} governance Governance object
  * @return {number} Coverage percentage
  */
-export function estimate(grpc, governance) {
+export function calculate(grpc, governance) {
   const result =
     95 +
     (100 - 95) /
@@ -43,7 +43,7 @@ export function estimate(grpc, governance) {
                 coefficients.get(24) * governance.rulelaw +
                 coefficients.get(25) * governance.goveffect +
                 // eslint-disable-next-line comma-dangle
-                coefficients.get(26) * governance.voice))
+                coefficients.get(26) * governance.voice)),
         ));
 
   return result;

@@ -13,12 +13,12 @@ const coefficients = new Map([
 ]);
 
 /**
- * Estimate under-5 survival coverage from the model equations
+ * Calculate under-5 survival coverage from the model equations
  * @param {number} grpc Government revenue per capita in USD
  * @param {object} governance Governance object
  * @return {number} Coverage percentage
  */
-export function estimate(grpc, governance) {
+export function calculate(grpc, governance) {
   const result =
     100 /
     (1 +
@@ -36,7 +36,7 @@ export function estimate(grpc, governance) {
               coefficients.get(23) * governance.regquality +
               coefficients.get(25) * governance.goveffect +
               // eslint-disable-next-line comma-dangle
-              coefficients.get(26) * governance.voice))
+              coefficients.get(26) * governance.voice)),
       ));
 
   return result;

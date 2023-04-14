@@ -1,25 +1,25 @@
 /* eslint-disable indent */
 const coefficients = new Map([
-  [1, 0.002115],
-  [11, 0.001616],
-  [14, 0.001642],
-  [15, -0.001307],
-  [16, -0.000999],
-  [2, 593.1014],
-  [21, -228.0095],
-  [22, 57.83624],
-  [23, -270.407],
-  [25, 143.7995],
-  [26, 168.741],
+  [1, 0.00211451303265],
+  [11, 0.00161631702456],
+  [14, 0.00164245990855],
+  [15, -0.00130743988612],
+  [16, -0.000998711338049],
+  [2, 593.101420816],
+  [21, -228.009525552],
+  [22, 57.8362351257],
+  [23, -270.406995993],
+  [25, 143.799468174],
+  [26, 168.740964493],
 ]);
 
 /**
- * Estimate safe water coverage from the model equations
+ * Calculate safe water coverage from the model equations
  * @param {number} grpc Government revenue per capita in USD
  * @param {object} governance Governance object
  * @return {number} Coverage percentage
  */
-export function estimate(grpc, governance) {
+export function calculate(grpc, governance) {
   const result =
     100 /
     (1 +
@@ -38,7 +38,7 @@ export function estimate(grpc, governance) {
               coefficients.get(23) * governance.regquality +
               coefficients.get(25) * governance.goveffect +
               // eslint-disable-next-line comma-dangle
-              coefficients.get(26) * governance.voice))
+              coefficients.get(26) * governance.voice)),
       ));
   return result;
 }

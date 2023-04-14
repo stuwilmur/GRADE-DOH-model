@@ -1,18 +1,18 @@
 /* eslint-disable indent */
 const coefficients = new Map([
-  [1, 8.14e-5],
-  [11, -1.51e-5],
-  [2, -25232.71],
-  [21, -8328.613],
+  [1, 0.0000814179121452],
+  [11, -0.000015088567052],
+  [2, -25232.7095733],
+  [21, -8328.61260977],
 ]);
 
 /**
- * Estimate immunisation coverage from the model equations
+ * Calculate immunisation coverage from the model equations
  * @param {number} grpc Government revenue per capita in USD
  * @param {object} governance Governance object
  * @return {number} Coverage percentage
  */
-export function estimate(grpc, governance) {
+export function calculate(grpc, governance) {
   const result =
     100 /
     (1 +
@@ -20,7 +20,7 @@ export function estimate(grpc, governance) {
         -(coefficients.get(1) + coefficients.get(11) * governance.polstab) *
           (grpc -
             // eslint-disable-next-line comma-dangle
-            (coefficients.get(2) + coefficients.get(21) * governance.polstab))
+            (coefficients.get(2) + coefficients.get(21) * governance.polstab)),
       ));
 
   return result;

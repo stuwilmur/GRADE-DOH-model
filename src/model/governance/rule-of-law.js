@@ -16,8 +16,7 @@ export function estimate(x, x1, x2, grpc, grpc1, residual) {
       0.0362663179499 * (Math.log(grpc) - Math.log(grpc1)) -
       0.246288840943 * x1 -
       0.040001478273 * (x1 - x2) +
-      0.0287195914492 * Math.log(grpc1) +
-      residual;
+      0.0287195914492 * Math.log(grpc1);
     return result;
   } else {
     // no value for the second lag available: return current observed value

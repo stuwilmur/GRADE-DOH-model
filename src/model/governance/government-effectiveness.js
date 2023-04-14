@@ -8,12 +8,11 @@
  * @param {number} residual Current residual value
  * @return {number} Government effectiveness value
  */
-export function estimate(x, x1, x2, grpc, grpc1, residual) {
+export function estimate(x, x1, x2, grpc, grpc1) {
   const result =
     x1 -
     0.297756094448 -
     0.289017172809 * x1 +
-    0.0445136292801 * Math.log(grpc1) +
-    residual;
+    0.0445136292801 * Math.log(grpc1);
   return result;
 }
