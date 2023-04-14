@@ -1,5 +1,5 @@
 /**
- * Calculates a residual
+ * Calculates a residual and applies it to a fitted value
  * @param {number} valueObserved Observed value
  * @param {number} valueCalculated Calculated value
  * @param {number} valueCalculatedAdjusted Calculate adjusted value
