@@ -1,2 +1,2 @@
-export * from './apply-residual';
+export * from './residual';
 export * from './curry';

@@ -6,32 +6,26 @@ import * as safeSanitation from './safe-sanitation';
 import * as safeWater from './safe-water';
 import * as schoolAttendance from './school-attendance';
 import * as underFiveSurvival from './under-five-survival';
-import {estimateCoverage} from './estimate';
+import {estimate} from './estimate';
 import {curry} from '../utils';
 
 export const estimateBasicSanitation = curry(
-  estimateCoverage,
+  estimate,
   basicSanitation.calculate,
 );
-export const estimateBasicWater = curry(estimateCoverage, basicWater.calculate);
-export const estimateImmunisation = curry(
-  estimateCoverage,
-  immunisation.calculate,
-);
+export const estimateBasicWater = curry(estimate, basicWater.calculate);
+export const estimateImmunisation = curry(estimate, immunisation.calculate);
 export const estimateMaternalSurvival = curry(
-  estimateCoverage,
+  estimate,
   maternalSurvival.calculate,
 );
-export const estimateSafeSanitation = curry(
-  estimateCoverage,
-  safeSanitation.calculate,
-);
-export const estimateSafeWater = curry(estimateCoverage, safeWater.calculate);
+export const estimateSafeSanitation = curry(estimate, safeSanitation.calculate);
+export const estimateSafeWater = curry(estimate, safeWater.calculate);
 export const estimateSchoolAttendance = curry(
-  estimateCoverage,
+  estimate,
   schoolAttendance.calculate,
 );
 export const estimateUnderFiveSurvival = curry(
-  estimateCoverage,
+  estimate,
   underFiveSurvival.calculate,
 );

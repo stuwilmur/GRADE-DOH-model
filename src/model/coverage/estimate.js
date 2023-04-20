@@ -6,15 +6,17 @@ import {applyResidual} from '../utils';
  * 2. Calculates the coverage value from the adjusted grpc and governance
  * 3. Estimates the coverage value by adding the residual to the adjusted
  * coverage value
- * @param {function} coverageCalculator
- * @param {number} coverageObserved
- * @param {number} grpcObserved
- * @param {number} grpcAdjusted
- * @param {object} governanceObserved
- * @param {object} governancedAdjusted
+ * @param {function} coverageCalculator Function which calculates coverage,
+ * of the form:
+ *    coverage = f(grpc, governance)
+ * @param {number} coverageObserved Obvserved value of coverage (percentage)
+ * @param {number} grpcObserved Observed absolute monetary value of GRPC
+ * @param {number} grpcAdjusted Adjusted absolute monetary  of GRPC
+ * @param {object} governanceObserved Observed governance (governance object)
+ * @param {object} governancedAdjusted Adjusted governance (governance object)
  * @return {number} Coverage percentage
  */
-export function estimateCoverage(
+export function estimate(
   coverageCalculator,
   coverageObserved,
   grpcObserved,
