@@ -1,1 +1,1 @@
-export * from './coverage';
+export * from './estimate-coverage';

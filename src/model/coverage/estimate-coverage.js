@@ -1,39 +1,37 @@
-import {applyResidual} from '../utils';
+import * as basicSanitation from './basic-sanitation';
+import * as basicWater from './basic-water';
+import * as immunisation from './immunisation';
+import * as maternalSurvival from './maternal-survival';
+import * as safeSanitation from './safe-sanitation';
+import * as safeWater from './safe-water';
+import * as schoolAttendance from './school-attendance';
+import * as underFiveSurvival from './under-five-survival';
+import {estimateCoverage} from './estimate';
+import {curry} from '../utils';
 
-/**
- * Estimate coverage from the model equations:
- * 1. Calculates the coverage value from the observed grpc and governance
- * 2. Calculates the coverage value from the adjusted grpc and governance
- * 3. Estimates the coverage value by adding the residual to the adjusted
- * coverage value
- * @param {function} coverageCalculator
- * @param {number} coverageObserved
- * @param {number} grpcObserved
- * @param {number} grpcAdjusted
- * @param {object} governanceObserved
- * @param {object} governancedAdjusted
- * @return {number} Coverage percentage
- */
-export function estimateCoverage(
-  coverageCalculator,
-  coverageObserved,
-  grpcObserved,
-  grpcAdjusted,
-  governanceObserved,
-  governancedAdjusted,
-) {
-  const coverageCalculated = coverageCalculator(
-    grpcObserved,
-    governanceObserved,
-  );
-  const coverageAdjustedCalculated = coverageCalculator(
-    grpcAdjusted,
-    governancedAdjusted,
-  );
-  const coverageAdjustedEstimated = applyResidual(
-    coverageObserved,
-    coverageCalculated,
-    coverageAdjustedCalculated,
-  );
-  return coverageAdjustedEstimated;
-}
+export const estimateBasicSanitation = curry(
+  estimateCoverage,
+  basicSanitation.calculate,
+);
+export const estimateBasicWater = curry(estimateCoverage, basicWater.calculate);
+export const estimateImmunisation = curry(
+  estimateCoverage,
+  immunisation.calculate,
+);
+export const estimateMaternalSurvival = curry(
+  estimateCoverage,
+  maternalSurvival.calculate,
+);
+export const estimateSafeSanitation = curry(
+  estimateCoverage,
+  safeSanitation.calculate,
+);
+export const estimateSafeWater = curry(estimateCoverage, safeWater.calculate);
+export const estimateSchoolAttendance = curry(
+  estimateCoverage,
+  schoolAttendance.calculate,
+);
+export const estimateUnderFiveSurvival = curry(
+  estimateCoverage,
+  underFiveSurvival.calculate,
+);
