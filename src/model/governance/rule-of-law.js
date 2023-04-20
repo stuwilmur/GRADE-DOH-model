@@ -1,5 +1,7 @@
 /**
  * Forecast rule of law from the model equations
+ * Forecast relies on two previous forecast values: if either
+ * is unavailable, the current observed value is returned
  * @param {number} x Observed rule of law at current timestep
  * @param {number} x1 Forecast rule of law at previous timestep
  * @param {number} x2 Forecast rule of law at timestep before last
@@ -9,7 +11,9 @@
  * @return {number} rule of law value
  */
 export function estimate(x, x1, x2, grpc, grpc1, residual) {
-  if (x2 != null) {
+  if (x1 == null || x2 == null) {
+    return x;
+  } else {
     const result =
       x1 -
       0.189816187425 +
@@ -18,8 +22,5 @@ export function estimate(x, x1, x2, grpc, grpc1, residual) {
       0.040001478273 * (x1 - x2) +
       0.0287195914492 * Math.log(grpc1);
     return result;
-  } else {
-    // no value for the second lag available: return current observed value
-    return x;
   }
 }

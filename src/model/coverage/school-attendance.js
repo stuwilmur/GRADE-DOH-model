@@ -1,16 +1,4 @@
-/* eslint-disable indent */
-const coefficients = new Map([
-  [1, 0.0000213122024475],
-  [12, -0.00000244341235644],
-  [15, -0.00000448331975672],
-  [16, 0.00000387008646256],
-  [2, -28011.9500401],
-  [21, -5385.62234392],
-  [22, -5740.45815327],
-  [24, 8537.9203346],
-  [25, -17828.8648572],
-  [26, 0.00000387008646256],
-]);
+import {schoolAttendance as coefficients} from './constants';
 
 /**
  * Calculate school attendance coverage from the model equations
@@ -24,19 +12,19 @@ export function calculate(grpc, governance) {
     (1 +
       Math.exp(
         -(
-          coefficients.get(1) +
-          coefficients.get(12) * governance.polstab +
-          coefficients.get(15) * governance.goveffect +
-          coefficients.get(16) * governance.voice
+          coefficients.C1 +
+          coefficients.C12 * governance.polstab +
+          coefficients.C15 * governance.goveffect +
+          coefficients.C16 * governance.voice
         ) *
           (grpc -
-            (coefficients.get(2) +
-              coefficients.get(21) * governance.corruption +
-              coefficients.get(22) * governance.polstab +
-              coefficients.get(24) * governance.rulelaw +
-              coefficients.get(25) * governance.goveffect +
+            (coefficients.C2 +
+              coefficients.C21 * governance.corruption +
+              coefficients.C22 * governance.polstab +
+              coefficients.C24 * governance.rulelaw +
+              coefficients.C25 * governance.goveffect +
               // eslint-disable-next-line comma-dangle
-              coefficients.get(26) * governance.voice)),
+              coefficients.C26 * governance.voice)),
       ));
   return result;
 }
@@ -50,18 +38,18 @@ export function calculate(grpc, governance) {
  */
 export function invert(target, governance) {
   const A = -(
-    coefficients.get(1) +
-    coefficients.get(12) * governance.polstab +
-    coefficients.get(15) * governance.goveffect +
-    coefficients.get(16) * governance.voice
+    coefficients.C1 +
+    coefficients.C12 * governance.polstab +
+    coefficients.C15 * governance.goveffect +
+    coefficients.C16 * governance.voice
   );
   const B =
-    -coefficients.get(2) +
-    coefficients.get(21) * governance.corruption +
-    coefficients.get(22) * governance.polstab +
-    coefficients.get(23) * governance.regquality +
-    coefficients.get(25) * governance.goveffect +
-    coefficients.get(26) * governance.voice;
+    -coefficients.C2 +
+    coefficients.C21 * governance.corruption +
+    coefficients.C22 * governance.polstab +
+    coefficients.C23 * governance.regquality +
+    coefficients.C25 * governance.goveffect +
+    coefficients.C26 * governance.voice;
 
   const result = Math.log(100.0 / target - 1.0) / A + B;
   return result;

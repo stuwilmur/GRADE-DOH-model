@@ -1,13 +1,4 @@
-/* eslint-disable indent */
-const coefficients = new Map([
-  [1, 0.0027770219504],
-  [12, -0.0000816258002121],
-  [14, 0.000788107014288],
-  [15, 0.00101176301477],
-  [2, -154.023241865],
-  [22, 108.336113811],
-  [24, 247.804425954],
-]);
+import {basicWater as coefficients} from './constants';
 
 /**
  * Calculate basic water coverage from the model equations
@@ -21,16 +12,16 @@ export function calculate(grpc, governance) {
     (1 +
       Math.exp(
         -(
-          coefficients.get(1) +
-          coefficients.get(12) * governance.polstab +
-          coefficients.get(14) * governance.rulelaw +
-          coefficients.get(15) * governance.goveffect
+          coefficients.C1 +
+          coefficients.C12 * governance.polstab +
+          coefficients.C14 * governance.rulelaw +
+          coefficients.C15 * governance.goveffect
         ) *
           (grpc -
-            (coefficients.get(2) +
-              coefficients.get(22) * governance.polstab +
+            (coefficients.C2 +
+              coefficients.C22 * governance.polstab +
               // eslint-disable-next-line comma-dangle
-              coefficients.get(24) * governance.rulelaw)),
+              coefficients.C24 * governance.rulelaw)),
       ));
   return result;
 }
@@ -44,15 +35,15 @@ export function calculate(grpc, governance) {
  */
 export function invert(target, governance) {
   const A = -(
-    coefficients.get(1) +
-    coefficients.get(12) * g.polstab +
-    coefficients.get(14) * g.rulelaw +
-    coefficients.get(15) * g.goveffect
+    coefficients.C1 +
+    coefficients.C12 * g.polstab +
+    coefficients.C14 * g.rulelaw +
+    coefficients.C15 * g.goveffect
   );
   const B =
-    coefficients.get(2) +
-    coefficients.get(22) * g.polstab +
-    coefficients.get(24) * g.rulelaw;
+    coefficients.C2 +
+    coefficients.C22 * g.polstab +
+    coefficients.C24 * g.rulelaw;
   const result = Math.log(100.0 / target - 1.0) / A + B;
   return result;
 }

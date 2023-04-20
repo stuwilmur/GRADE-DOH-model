@@ -1,5 +1,7 @@
 /**
  * Forecast government effectiveness from the model equations
+ * Forecast relies on the previous forecast value: if this
+ * is unavailable, the current observed value is returned
  * @param {number} x Observed government effectiveness at current timestep
  * @param {number} x1 Forecast government effectiveness at previous timestep
  * @param {number} x2 Forecast government effectiveness at timestep before last
@@ -9,6 +11,9 @@
  * @return {number} Government effectiveness value
  */
 export function estimate(x, x1, x2, grpc, grpc1) {
+  if (x1 == null) {
+    return x;
+  }
   const result =
     x1 -
     0.297756094448 -

@@ -1,0 +1,10 @@
+export const C1 = 0.000487660315618;
+export const C12 = -0.0000292129327268;
+export const C15 = -0.0000889823437485;
+export const C16 = 0.0000441671186032;
+export const C2 = 5986.3033303;
+export const C21 = 295.792385161;
+export const C22 = -218.908408761;
+export const C23 = -307.070582687;
+export const C25 = -1800.65834264;
+export const C26 = 389.563410216;

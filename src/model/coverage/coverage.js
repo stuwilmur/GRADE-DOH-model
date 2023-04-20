@@ -7,39 +7,31 @@ import * as safeWater from './safe-water';
 import * as schoolAttendance from './school-attendance';
 import * as underFiveSurvival from './under-five-survival';
 import {estimateCoverage} from './estimate-coverage';
+import {curry} from '../utils';
 
-// prettier-ignore
-const curryCalculator =
-  (coverageCalculator) =>
-    (
-      coverageObserved,
-      grpcObserved,
-      grpcAdjusted,
-      governanceObserved,
-      governancedAdjusted,
-    ) =>
-      estimateCoverage(
-        coverageCalculator,
-        coverageObserved,
-        grpcObserved,
-        grpcAdjusted,
-        governanceObserved,
-        governancedAdjusted,
-      );
-
-export const estimateBasicSanitation = curryCalculator(
+export const estimateBasicSanitation = curry(
+  estimateCoverage,
   basicSanitation.calculate,
 );
-export const estimateBasicWater = curryCalculator(basicWater.calculate);
-export const estimateImmunisation = curryCalculator(immunisation.calculate);
-export const estimateMaternalSurvival = curryCalculator(
+export const estimateBasicWater = curry(estimateCoverage, basicWater.calculate);
+export const estimateImmunisation = curry(
+  estimateCoverage,
+  immunisation.calculate,
+);
+export const estimateMaternalSurvival = curry(
+  estimateCoverage,
   maternalSurvival.calculate,
 );
-export const estimateSafeSanitation = curryCalculator(safeSanitation.calculate);
-export const estimateSafeWater = curryCalculator(safeWater.calculate);
-export const estimateSchoolAttendance = curryCalculator(
+export const estimateSafeSanitation = curry(
+  estimateCoverage,
+  safeSanitation.calculate,
+);
+export const estimateSafeWater = curry(estimateCoverage, safeWater.calculate);
+export const estimateSchoolAttendance = curry(
+  estimateCoverage,
   schoolAttendance.calculate,
 );
-export const estimateUnderFiveSurvival = curryCalculator(
+export const estimateUnderFiveSurvival = curry(
+  estimateCoverage,
   underFiveSurvival.calculate,
 );

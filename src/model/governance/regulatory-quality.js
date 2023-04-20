@@ -1,5 +1,7 @@
 /**
  * Forecast regulatory quality from the model equations
+ * Forecast relies on two previous forecast values: if either
+ * is unavailable, the current observed value is returned
  * @param {number} x Observed regulatory quality at current timestep
  * @param {number} x1 Forecast regulatory quality at previous timestep
  * @param {number} x2 Forecast regulatory quality at timestep before last
@@ -9,7 +11,9 @@
  * @return {number} regulatory quality value
  */
 export function estimate(x, x1, x2, grpc, grpc1) {
-  if (x2 != null) {
+  if (x1 == null || x2 == null) {
+    return x;
+  } else {
     const result =
       x1 -
       0.261581113717 -
@@ -17,8 +21,5 @@ export function estimate(x, x1, x2, grpc, grpc1) {
       0.237039319473 * x1 +
       0.0395925282597 * Math.log(grpc1);
     return result;
-  } else {
-    // no value for the second lag available: return current observed value
-    return x;
   }
 }

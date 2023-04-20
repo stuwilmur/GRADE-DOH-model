@@ -1,10 +1,4 @@
-/* eslint-disable indent */
-const coefficients = new Map([
-  [1, 0.0000814179121452],
-  [11, -0.000015088567052],
-  [2, -25232.7095733],
-  [21, -8328.61260977],
-]);
+import {immunisation as coefficients} from './constants';
 
 /**
  * Calculate immunisation coverage from the model equations
@@ -17,10 +11,10 @@ export function calculate(grpc, governance) {
     100 /
     (1 +
       Math.exp(
-        -(coefficients.get(1) + coefficients.get(11) * governance.polstab) *
+        -(coefficients.C1 + coefficients.C11 * governance.polstab) *
           (grpc -
             // eslint-disable-next-line comma-dangle
-            (coefficients.get(2) + coefficients.get(21) * governance.polstab)),
+            (coefficients.C2 + coefficients.C21 * governance.polstab)),
       ));
 
   return result;
@@ -34,8 +28,8 @@ export function calculate(grpc, governance) {
  * @return {number} Estimated government revenue per capita in USD
  */
 export function invert(target, governance) {
-  const A = -(coefficients.get(1) + coefficients.get(11) * governance.polstab);
-  const B = coefficients.get(2) + coefficients.get(21) * governance.polstab;
+  const A = -(coefficients.C1 + coefficients.C11 * governance.polstab);
+  const B = coefficients.C2 + coefficients.C21 * governance.polstab;
   const result = Math.log(100.0 / target - 1.0) / A + B;
   return result;
 }

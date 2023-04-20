@@ -1,19 +1,4 @@
-/* eslint-disable indent */
-const coefficients = new Map([
-  [1, 0.00162428846511],
-  [11, 0.000480954347841],
-  [12, -0.000245303543036],
-  [14, -0.000993435385523],
-  [15, 0.000635303615423],
-  [16, 0.000368281180655],
-  [2, -1708.97971425],
-  [21, 854.424918802],
-  [22, -328.239576261],
-  [23, -193.518329888],
-  [24, -1354.51903559],
-  [25, 488.294796998],
-  [26, 451.468766258],
-]);
+import {maternalSurvival as coefficients} from './constants';
 
 /**
  * Calculate maternal survival coverage from the model equations
@@ -28,22 +13,22 @@ export function calculate(grpc, governance) {
       (1 +
         Math.exp(
           -(
-            coefficients.get(1) +
-            coefficients.get(11) * governance.corruption +
-            coefficients.get(12) * governance.polstab +
-            coefficients.get(14) * governance.rulelaw +
-            coefficients.get(15) * governance.goveffect +
-            coefficients.get(16) * governance.voice
+            coefficients.C1 +
+            coefficients.C11 * governance.corruption +
+            coefficients.C12 * governance.polstab +
+            coefficients.C14 * governance.rulelaw +
+            coefficients.C15 * governance.goveffect +
+            coefficients.C16 * governance.voice
           ) *
             (grpc -
-              (coefficients.get(2) +
-                coefficients.get(21) * governance.corruption +
-                coefficients.get(22) * governance.polstab +
-                coefficients.get(23) * governance.regquality +
-                coefficients.get(24) * governance.rulelaw +
-                coefficients.get(25) * governance.goveffect +
+              (coefficients.C2 +
+                coefficients.C21 * governance.corruption +
+                coefficients.C22 * governance.polstab +
+                coefficients.C23 * governance.regquality +
+                coefficients.C24 * governance.rulelaw +
+                coefficients.C25 * governance.goveffect +
                 // eslint-disable-next-line comma-dangle
-                coefficients.get(26) * governance.voice)),
+                coefficients.C26 * governance.voice)),
         ));
 
   return result;
@@ -58,21 +43,21 @@ export function calculate(grpc, governance) {
  */
 export function invert(target, governance) {
   const A = -(
-    coefficients.get(1) +
-    coefficients.get(11) * governance.corruption +
-    coefficients.get(12) * governance.polstab +
-    coefficients.get(14) * governance.rulelaw +
-    coefficients.get(15) * governance.goveffect +
-    coefficients.get(16) * governance.voice
+    coefficients.C1 +
+    coefficients.C11 * governance.corruption +
+    coefficients.C12 * governance.polstab +
+    coefficients.C14 * governance.rulelaw +
+    coefficients.C15 * governance.goveffect +
+    coefficients.C16 * governance.voice
   );
   const B =
-    coefficients.get(2) +
-    coefficients.get(21) * governance.corruption +
-    coefficients.get(22) * governance.polstab +
-    coefficients.get(23) * governance.regquality +
-    coefficients.get(24) * governance.rulelaw +
-    coefficients.get(25) * governance.goveffect +
-    coefficients.get(26) * governance.voice;
+    coefficients.C2 +
+    coefficients.C21 * governance.corruption +
+    coefficients.C22 * governance.polstab +
+    coefficients.C23 * governance.regquality +
+    coefficients.C24 * governance.rulelaw +
+    coefficients.C25 * governance.goveffect +
+    coefficients.C26 * governance.voice;
   const result = Math.log((100.0 - 95.0) / (target - 95) - 1) / A + B;
   return result;
 }
