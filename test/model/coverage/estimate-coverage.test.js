@@ -58,6 +58,18 @@ measuresToTest.forEach((estimator, measure) => {
     ).toBeCloseTo(testData.grpcAdjusted[measure], digitsTolerance);
   });
 
+  test(`tests ${measure} estimator: reduced grpc, observed governance`, () => {
+    expect(
+      estimator(
+        testData.observed[measure],
+        testData.observed.grpc,
+        testData.grpcReduced.grpc,
+        governanceObserved,
+        governanceObserved,
+      ),
+    ).toBeCloseTo(testData.grpcReduced[measure], digitsTolerance);
+  });
+
   test(`tests ${measure} estimator: observed grpc, adjusted governance`, () => {
     expect(
       estimator(

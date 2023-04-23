@@ -36,14 +36,14 @@ export function calculate(grpc, governance) {
 export function invert(target, governance) {
   const A = -(
     coefficients.C1 +
-    coefficients.C12 * g.polstab +
-    coefficients.C14 * g.rulelaw +
-    coefficients.C15 * g.goveffect
+    coefficients.C12 * governance.polstab +
+    coefficients.C14 * governance.rulelaw +
+    coefficients.C15 * governance.goveffect
   );
   const B =
     coefficients.C2 +
-    coefficients.C22 * g.polstab +
-    coefficients.C24 * g.rulelaw;
+    coefficients.C22 * governance.polstab +
+    coefficients.C24 * governance.rulelaw;
   const result = Math.log(100.0 / target - 1.0) / A + B;
   return result;
 }

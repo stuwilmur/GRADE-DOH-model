@@ -10,7 +10,7 @@ import {calculateResidual} from '../utils';
  *      grpc = f^-1(coverage - residual)
  * where coverage is the target coverage.
  * The following conditions must be satisfied, or the function returns NaN:
- *      0 < observed coverage < target coverage <= 100
+ *      0 < observed coverage <= target coverage <= 100
  * @param {function} coverageCalculator Function which calculates coverage,
  * of the form:
  *      coverage = f(grpc, governance)
@@ -33,7 +33,7 @@ export function targetCoverage(
 ) {
   if (
     coverageTarget > 0 &&
-    coverageTarget > coverageObserved &&
+    coverageTarget >= coverageObserved &&
     coverageTarget <= 100
   ) {
     const coverageCalculated = coverageCalculator(

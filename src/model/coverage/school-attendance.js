@@ -44,10 +44,10 @@ export function invert(target, governance) {
     coefficients.C16 * governance.voice
   );
   const B =
-    -coefficients.C2 +
+    coefficients.C2 +
     coefficients.C21 * governance.corruption +
     coefficients.C22 * governance.polstab +
-    coefficients.C23 * governance.regquality +
+    coefficients.C24 * governance.rulelaw +
     coefficients.C25 * governance.goveffect +
     coefficients.C26 * governance.voice;
 
