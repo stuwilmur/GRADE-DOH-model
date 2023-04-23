@@ -1,11 +1,13 @@
-import * as basicSanitation from './basic-sanitation';
-import * as basicWater from './basic-water';
-import * as immunisation from './immunisation';
-import * as maternalSurvival from './maternal-survival';
-import * as safeSanitation from './safe-sanitation';
-import * as safeWater from './safe-water';
-import * as schoolAttendance from './school-attendance';
-import * as underFiveSurvival from './under-five-survival';
+import {
+  basicSanitation,
+  basicWater,
+  immunisation,
+  maternalSurvival,
+  safeSanitation,
+  safeWater,
+  schoolAttendance,
+  underFiveSurvival,
+} from './measures';
 import {targetCoverage} from './target';
 import {curry2} from '../utils';
 
