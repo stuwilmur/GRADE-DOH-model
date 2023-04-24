@@ -11,10 +11,11 @@ export function calculate(grpc, governance) {
     100 /
     (1 +
       Math.exp(
-        -(coefficients.C1 + coefficients.C11 * governance.polstab) *
+        -(coefficients.C1 + coefficients.C11 * governance.politicalStability) *
           (grpc -
             // eslint-disable-next-line comma-dangle
-            (coefficients.C2 + coefficients.C21 * governance.polstab)),
+            (coefficients.C2 +
+              coefficients.C21 * governance.politicalStability)),
       ));
 
   return result;
@@ -28,8 +29,11 @@ export function calculate(grpc, governance) {
  * @return {number} Estimated government revenue per capita in USD
  */
 export function invert(target, governance) {
-  const A = -(coefficients.C1 + coefficients.C11 * governance.polstab);
-  const B = coefficients.C2 + coefficients.C21 * governance.polstab;
+  const A = -(
+    coefficients.C1 +
+    coefficients.C11 * governance.politicalStability
+  );
+  const B = coefficients.C2 + coefficients.C21 * governance.politicalStability;
   const result = Math.log(100.0 / target - 1.0) / A + B;
   return result;
 }

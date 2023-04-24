@@ -13,15 +13,15 @@ export function calculate(grpc, governance) {
       Math.exp(
         -(
           coefficients.C1 +
-          coefficients.C12 * governance.polstab +
-          coefficients.C14 * governance.rulelaw +
-          coefficients.C15 * governance.goveffect
+          coefficients.C12 * governance.politicalStability +
+          coefficients.C14 * governance.ruleOfLaw +
+          coefficients.C15 * governance.governmentEffectiveness
         ) *
           (grpc -
             (coefficients.C2 +
-              coefficients.C22 * governance.polstab +
+              coefficients.C22 * governance.politicalStability +
               // eslint-disable-next-line comma-dangle
-              coefficients.C24 * governance.rulelaw)),
+              coefficients.C24 * governance.ruleOfLaw)),
       ));
   return result;
 }
@@ -36,14 +36,14 @@ export function calculate(grpc, governance) {
 export function invert(target, governance) {
   const A = -(
     coefficients.C1 +
-    coefficients.C12 * governance.polstab +
-    coefficients.C14 * governance.rulelaw +
-    coefficients.C15 * governance.goveffect
+    coefficients.C12 * governance.politicalStability +
+    coefficients.C14 * governance.ruleOfLaw +
+    coefficients.C15 * governance.governmentEffectiveness
   );
   const B =
     coefficients.C2 +
-    coefficients.C22 * governance.polstab +
-    coefficients.C24 * governance.rulelaw;
+    coefficients.C22 * governance.politicalStability +
+    coefficients.C24 * governance.ruleOfLaw;
   const result = Math.log(100.0 / target - 1.0) / A + B;
   return result;
 }

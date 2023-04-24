@@ -14,17 +14,17 @@ export function calculate(grpc, governance) {
         -(
           coefficients.C1 +
           coefficients.C11 * governance.corruption +
-          coefficients.C13 * governance.regquality +
-          coefficients.C16 * governance.voice
+          coefficients.C13 * governance.regulatoryQuality +
+          coefficients.C16 * governance.voiceAndAccountability
         ) *
           (grpc -
             (coefficients.C2 +
               coefficients.C21 * governance.corruption +
-              coefficients.C23 * governance.regquality +
-              coefficients.C24 * governance.rulelaw +
-              coefficients.C25 * governance.goveffect +
+              coefficients.C23 * governance.regulatoryQuality +
+              coefficients.C24 * governance.ruleOfLaw +
+              coefficients.C25 * governance.governmentEffectiveness +
               // eslint-disable-next-line comma-dangle
-              coefficients.C26 * governance.voice)),
+              coefficients.C26 * governance.voiceAndAccountability)),
       ));
 
   return result;
@@ -41,16 +41,16 @@ export function invert(target, governance) {
   const A = -(
     coefficients.C1 +
     coefficients.C11 * governance.corruption +
-    coefficients.C13 * governance.regquality +
-    coefficients.C16 * governance.voice
+    coefficients.C13 * governance.regulatoryQuality +
+    coefficients.C16 * governance.voiceAndAccountability
   );
   const B =
     coefficients.C2 +
     coefficients.C21 * governance.corruption +
-    coefficients.C23 * governance.regquality +
-    coefficients.C24 * governance.rulelaw +
-    coefficients.C25 * governance.goveffect +
-    coefficients.C26 * governance.voice;
+    coefficients.C23 * governance.regulatoryQuality +
+    coefficients.C24 * governance.ruleOfLaw +
+    coefficients.C25 * governance.governmentEffectiveness +
+    coefficients.C26 * governance.voiceAndAccountability;
   const result = Math.log(100.0 / target - 1.0) / A + B;
 
   return result;

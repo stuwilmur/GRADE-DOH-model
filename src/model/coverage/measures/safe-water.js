@@ -14,18 +14,18 @@ export function calculate(grpc, governance) {
         -(
           coefficients.C1 +
           coefficients.C11 * governance.corruption +
-          coefficients.C14 * governance.rulelaw +
-          coefficients.C15 * governance.goveffect +
-          coefficients.C16 * governance.voice
+          coefficients.C14 * governance.ruleOfLaw +
+          coefficients.C15 * governance.governmentEffectiveness +
+          coefficients.C16 * governance.voiceAndAccountability
         ) *
           (grpc -
             (coefficients.C2 +
               coefficients.C21 * governance.corruption +
-              coefficients.C22 * governance.polstab +
-              coefficients.C23 * governance.regquality +
-              coefficients.C25 * governance.goveffect +
+              coefficients.C22 * governance.politicalStability +
+              coefficients.C23 * governance.regulatoryQuality +
+              coefficients.C25 * governance.governmentEffectiveness +
               // eslint-disable-next-line comma-dangle
-              coefficients.C26 * governance.voice)),
+              coefficients.C26 * governance.voiceAndAccountability)),
       ));
   return result;
 }
@@ -41,17 +41,17 @@ export function invert(target, governance) {
   const A = -(
     coefficients.C1 +
     coefficients.C11 * governance.corruption +
-    coefficients.C14 * governance.rulelaw +
-    coefficients.C15 * governance.goveffect +
-    coefficients.C16 * governance.voice
+    coefficients.C14 * governance.ruleOfLaw +
+    coefficients.C15 * governance.governmentEffectiveness +
+    coefficients.C16 * governance.voiceAndAccountability
   );
   const B =
     coefficients.C2 +
     coefficients.C21 * governance.corruption +
-    coefficients.C22 * governance.polstab +
-    coefficients.C23 * governance.regquality +
-    coefficients.C25 * governance.goveffect +
-    coefficients.C26 * governance.voice;
+    coefficients.C22 * governance.politicalStability +
+    coefficients.C23 * governance.regulatoryQuality +
+    coefficients.C25 * governance.governmentEffectiveness +
+    coefficients.C26 * governance.voiceAndAccountability;
   const result = Math.log(100.0 / target - 1.0) / A + B;
   return result;
 }

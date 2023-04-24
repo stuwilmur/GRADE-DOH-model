@@ -1,5 +1,5 @@
 /**
- * Forecast voice and accountability from the model equations
+ * Forecast voiceAndAccountability and accountability from the model equations
  * @param {number} voiceAndAccountability Observed voice and
  * accountability at current timestep
  * @param {number} voiceAndAccountability1 Forecast voice and
@@ -9,7 +9,7 @@
  * @param {number} grpc Governement revenue per capita at current timestep
  * @param {number} grpc1 Government revenue per capita at previous timestep
  * @param {number} residual Current residual value
- * @return {number} voice and accountability value
+ * @return {number} voiceAndAccountability and accountability value
  */
 export function estimate(
   voiceAndAccountability,
@@ -19,6 +19,7 @@ export function estimate(
   grpc1,
   residual,
 ) {
-  // the model does not forecast voice: return current observed value
+  /* the model does not forecast voice and accountability:
+  return current observed value */
   return voiceAndAccountability;
 }

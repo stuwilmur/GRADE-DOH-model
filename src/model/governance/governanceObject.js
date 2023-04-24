@@ -1,27 +1,27 @@
 /**
  * Create a governance object given values for governance indicators
  * @param {number} _corruption corruption indicator
- * @param {number} _goveffect government effectiveness indicator
- * @param {number} _polstab political stability indicator
- * @param {number} _regquality regulatory quality indicator
- * @param {number} _rulelaw rule of law indicator
- * @param {number} _voice voice indicator
+ * @param {number} _governmentEffectiveness government effectiveness indicator
+ * @param {number} _politicalStability political stability indicator
+ * @param {number} _regulatoryQuality regulatory quality indicator
+ * @param {number} _ruleOfLaw rule of law indicator
+ * @param {number} _voiceAndAccountability voiceAndAccountability indicator
  * @return {object} Governance object
  */
 export function governanceObject(
   _corruption,
-  _goveffect,
-  _polstab,
-  _regquality,
-  _rulelaw,
-  _voice,
+  _governmentEffectiveness,
+  _politicalStability,
+  _regulatoryQuality,
+  _ruleOfLaw,
+  _voiceAndAccountability,
 ) {
   return {
     corruption: _corruption,
-    goveffect: _goveffect,
-    polstab: _polstab,
-    regquality: _regquality,
-    rulelaw: _rulelaw,
-    voice: _voice,
+    governmentEffectiveness: _governmentEffectiveness,
+    politicalStability: _politicalStability,
+    regulatoryQuality: _regulatoryQuality,
+    ruleOfLaw: _ruleOfLaw,
+    voiceAndAccountability: _voiceAndAccountability,
   };
 }
