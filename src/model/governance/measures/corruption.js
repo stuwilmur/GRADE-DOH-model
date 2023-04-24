@@ -1,3 +1,5 @@
+import {corruption as coefficients} from './constants';
+
 /**
  * Forecast corruption from the model equations
  * Forecast relies on the previous forecast value: if this
@@ -16,8 +18,8 @@ export function estimate(x, x1, x2, grpc, grpc1) {
   }
   const result =
     x1 -
-    0.262062915863 -
-    0.268386527335 * x1 +
-    0.0388009869267 * Math.log(grpc1);
+    coefficients.C1 -
+    coefficients.C2 * x1 +
+    coefficients.C3 * Math.log(grpc1);
   return result;
 }

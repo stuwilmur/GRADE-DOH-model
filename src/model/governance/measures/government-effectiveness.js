@@ -1,3 +1,5 @@
+import {governmentEffectiveness as coefficients} from './constants';
+
 /**
  * Forecast government effectiveness from the model equations
  * Forecast relies on the previous forecast value: if this
@@ -16,8 +18,8 @@ export function estimate(x, x1, x2, grpc, grpc1) {
   }
   const result =
     x1 -
-    0.297756094448 -
-    0.289017172809 * x1 +
-    0.0445136292801 * Math.log(grpc1);
+    coefficients.C1 -
+    coefficients.C2 * x1 +
+    coefficients.C3 * Math.log(grpc1);
   return result;
 }

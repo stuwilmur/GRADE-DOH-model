@@ -1,2 +1,2 @@
-export * from './estimate-coverage';
-export * from './target-coverage';
+export * from './estimate';
+export * from './target';

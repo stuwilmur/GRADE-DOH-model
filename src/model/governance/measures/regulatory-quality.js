@@ -1,3 +1,5 @@
+import {regulatoryQuality as coefficients} from './constants';
+
 /**
  * Forecast regulatory quality from the model equations
  * Forecast relies on two previous forecast values: if either
@@ -16,10 +18,10 @@ export function estimate(x, x1, x2, grpc, grpc1) {
   } else {
     const result =
       x1 -
-      0.261581113717 -
-      0.0620541606802 * (x1 - x2) -
-      0.237039319473 * x1 +
-      0.0395925282597 * Math.log(grpc1);
+      coefficients.C1 -
+      coefficients.C2 * (x1 - x2) -
+      coefficients.C3 * x1 +
+      coefficients.C4 * Math.log(grpc1);
     return result;
   }
 }

@@ -1,3 +1,5 @@
+import {ruleOfLaw as coefficients} from './constants';
+
 /**
  * Forecast rule of law from the model equations
  * Forecast relies on two previous forecast values: if either
@@ -16,11 +18,11 @@ export function estimate(x, x1, x2, grpc, grpc1, residual) {
   } else {
     const result =
       x1 -
-      0.189816187425 +
-      0.0362663179499 * (Math.log(grpc) - Math.log(grpc1)) -
-      0.246288840943 * x1 -
-      0.040001478273 * (x1 - x2) +
-      0.0287195914492 * Math.log(grpc1);
+      coefficients.C1 +
+      coefficients.C2 * (Math.log(grpc) - Math.log(grpc1)) -
+      coefficients.C3 * x1 -
+      coefficients.C4 * (x1 - x2) +
+      coefficients.C5 * Math.log(grpc1);
     return result;
   }
 }

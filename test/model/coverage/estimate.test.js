@@ -1,5 +1,5 @@
 import * as coverage from '../../../src/model/coverage';
-import {governance} from '../../../src/model/governance/governance';
+import {governanceObject} from '../../../src/model/governance';
 import {testData} from './data';
 
 const digitsTolerance = 6;
@@ -15,7 +15,7 @@ const measuresToTest = new Map([
   ['underFiveSurvival', coverage.estimateUnderFiveSurvival],
 ]);
 
-const governanceObserved = governance(
+const governanceObserved = governanceObject(
   testData.observed.CORRUPTION,
   testData.observed.GOVEFFECT,
   testData.observed.POLSTAB,
@@ -24,7 +24,7 @@ const governanceObserved = governance(
   testData.observed.VOICE,
 );
 
-const governanceAdjusted = governance(
+const governanceAdjusted = governanceObject(
   testData.governanceAdjusted.CORRUPTION,
   testData.governanceAdjusted.GOVEFFECT,
   testData.governanceAdjusted.POLSTAB,

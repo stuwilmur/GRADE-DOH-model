@@ -8,7 +8,7 @@
  * @param {number} _voice voice indicator
  * @return {object} Governance object
  */
-export function governance(
+export function governanceObject(
   _corruption,
   _goveffect,
   _polstab,

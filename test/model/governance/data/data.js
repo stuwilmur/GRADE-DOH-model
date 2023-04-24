@@ -1,4 +1,4 @@
-const testData = [
+export const testData = [
   {
     grpcObserved: 61.07472147,
     grpcImproved: 67.68323,
