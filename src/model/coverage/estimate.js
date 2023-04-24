@@ -8,8 +8,7 @@ import {
   schoolAttendance,
   underFiveSurvival,
 } from './measures';
-import {curry} from '../utils';
-import {applyResidual} from '../utils';
+import {curry, applyResidual} from '../../utils';
 
 /**
  * Estimate coverage from the model equations:

@@ -8,8 +8,7 @@ import {
   schoolAttendance,
   underFiveSurvival,
 } from './measures';
-import {curry2} from '../utils';
-import {calculateResidual} from '../utils';
+import {curry2, calculateResidual} from '../../utils';
 
 /**
  * Estimate required grpc to achieve a target coverage from the model equations:
