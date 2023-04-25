@@ -26,7 +26,7 @@ import {curry, applyResidual} from '../../utils';
  * @param {object} governancedAdjusted Adjusted governance (governance object)
  * @return {number} Coverage percentage
  */
-export function estimate(
+function estimate(
   coverageCalculator,
   coverageObserved,
   grpcObserved,

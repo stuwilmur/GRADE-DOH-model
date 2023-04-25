@@ -33,7 +33,7 @@ import {curry2, calculateResidual} from '../../utils';
  * @param {object} governanceObserved Observed governance (governance object)
  * @return {number} Absolute monetary value of grpc required to achieve target
  */
-export function targetCoverage(
+function targetCoverage(
   coverageCalculator,
   coverageInverter,
   coverageObserved,
