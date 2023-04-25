@@ -4,18 +4,17 @@ import {regulatoryQuality as coefficients} from './constants';
  * Forecast regulatory quality from the model equations
  * Forecast relies on two previous forecast values: if either
  * is unavailable, the current observed value is returned
- * @param {number} regulatoryQuality Observed regulatory quality
+ * @param {number} regulatoryQuality Regulatory quality
  * at current timestep
- * @param {number} regulatoryQuality1 Forecast regulatory quality
+ * @param {number} regulatoryQuality1 Regulatory quality
  * at previous timestep
- * @param {number} regulatoryQuality2 Forecast regulatory quality
+ * @param {number} regulatoryQuality2 Regulatory quality
  * at timestep before last
  * @param {number} grpc Governement revenue per capita at current timestep
  * @param {number} grpc1 Government revenue per capita at previous timestep
- * @param {number} residual Current residual value
  * @return {number} regulatory quality value
  */
-export function estimate(
+export function calculate(
   regulatoryQuality,
   regulatoryQuality1,
   regulatoryQuality2,

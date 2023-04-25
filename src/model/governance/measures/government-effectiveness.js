@@ -4,18 +4,17 @@ import {governmentEffectiveness as coefficients} from './constants';
  * Forecast government effectiveness from the model equations
  * Forecast relies on the previous forecast value: if this
  * is unavailable, the current observed value is returned
- * @param {number} governmentEffectiveness Observed government
+ * @param {number} governmentEffectiveness Government
  * effectiveness at current timestep
- * @param {number} governmentEffectiveness1 Forecast government
+ * @param {number} governmentEffectiveness1 Government
  * effectiveness at previous timestep
- * @param {number} governmentEffectiveness2 Forecast government
+ * @param {number} governmentEffectiveness2 Government
  * effectiveness at timestep before last
  * @param {number} grpc Governement revenue per capita at current timestep
  * @param {number} grpc1 Government revenue per capita at previous timestep
- * @param {number} residual Current residual value
  * @return {number} Government effectiveness value
  */
-export function estimate(
+export function calculate(
   governmentEffectiveness,
   governmentEffectiveness1,
   governmentEffectiveness2,

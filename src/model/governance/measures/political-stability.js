@@ -4,18 +4,17 @@ import {politicalStability as coefficients} from './constants';
  * Forecast political stability from the model equations
  * Forecast relies on the previous forecast value: if this
  * is unavailable, the current observed value is returned
- * @param {number} politicalStability Observed political
+ * @param {number} politicalStability Political
  * stability at current timestep
- * @param {number} politicalStability1 Forecast political
+ * @param {number} politicalStability1 Political
  * stability at previous timestep
- * @param {number} politicalStability2 Forecast political
+ * @param {number} politicalStability2 Political
  * stability at timestep before last
  * @param {number} grpc Governement revenue per capita at current timestep
  * @param {number} grpc1 Government revenue per capita at previous timestep
- * @param {number} residual Current residual value
  * @return {number} Political stability value
  */
-export function estimate(
+export function calculate(
   politicalStability,
   politicalStability1,
   politicalStability2,
