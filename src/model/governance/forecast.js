@@ -46,8 +46,8 @@ function forecast(
   );
 
   const governanceForecast = applyResidual(
-    governanceEstimated,
     governanceObserved,
+    governanceEstimated,
     governanceForecastRaw,
   );
 

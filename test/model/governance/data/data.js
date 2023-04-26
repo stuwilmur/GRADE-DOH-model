@@ -1,7 +1,7 @@
 export const testData = [
   {
     grpcObserved: 61.07472147,
-    grpcImproved: 67.68323,
+    grpcImproved: 67.18219362,
     coruptionObserved: -1.635723,
     governmentEffectivenessObserved: -1.454683,
     politicalStabilityObserved: -2.579152,
@@ -15,7 +15,7 @@ export const testData = [
   },
   {
     grpcObserved: 61.50609347,
-    grpcImproved: 61.50609347,
+    grpcImproved: 67.65670281,
     coruptionObserved: -1.579179,
     governmentEffectivenessObserved: -1.448488,
     politicalStabilityObserved: -2.50206,
@@ -29,7 +29,7 @@ export const testData = [
   },
   {
     grpcObserved: 58.18490526,
-    grpcImproved: 58.18490526,
+    grpcImproved: 64.00339578,
     coruptionObserved: -1.419888,
     governmentEffectivenessObserved: -1.36014,
     politicalStabilityObserved: -2.418561,
@@ -43,7 +43,7 @@ export const testData = [
   },
   {
     grpcObserved: 55.98936093,
-    grpcImproved: 55.98936093,
+    grpcImproved: 61.58829702,
     coruptionObserved: -1.436761,
     governmentEffectivenessObserved: -1.38493,
     politicalStabilityObserved: -2.519349,
@@ -57,7 +57,7 @@ export const testData = [
   },
   {
     grpcObserved: 48.69397415,
-    grpcImproved: 48.69397415,
+    grpcImproved: 53.56337157,
     coruptionObserved: -1.354784,
     governmentEffectivenessObserved: -1.331396,
     politicalStabilityObserved: -2.411068,
@@ -71,7 +71,7 @@ export const testData = [
   },
   {
     grpcObserved: 56.80678727,
-    grpcImproved: 56.80678727,
+    grpcImproved: 62.487466,
     coruptionObserved: -1.341994,
     governmentEffectivenessObserved: -1.322968,
     politicalStabilityObserved: -2.571222,
@@ -85,7 +85,7 @@ export const testData = [
   },
   {
     grpcObserved: 66.27832657,
-    grpcImproved: 66.27832657,
+    grpcImproved: 72.90615923,
     coruptionObserved: -1.526352,
     governmentEffectivenessObserved: -1.226363,
     politicalStabilityObserved: -2.671054,
@@ -99,7 +99,7 @@ export const testData = [
   },
   {
     grpcObserved: 68.58180678,
-    grpcImproved: 68.58180678,
+    grpcImproved: 75.43998745,
     coruptionObserved: -1.517361,
     governmentEffectivenessObserved: -1.33461,
     politicalStabilityObserved: -2.800609,
@@ -123,6 +123,6 @@ export const testData = [
     governmentEffectivenessForecast: -1.443564065,
     politicalStabilityForecast: -2.743160066,
     regulatoryQualityForecast: -1.117021343,
-    ruleOfLawForecast: null,
+    ruleOfLawForecast: NaN,
   },
 ];
