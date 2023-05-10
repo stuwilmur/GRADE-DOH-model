@@ -25,3 +25,20 @@ export function governanceObject(
     voiceAndAccountability: _voiceAndAccountability,
   };
 }
+
+/**
+ * Create a governance object for the observed governance,
+ * given a row of the base data
+ * @param {object} dataRow data row object from the base data
+ * @return {object} Governance object
+ */
+export function governanceObjectFromBaseObservedGovernance(dataRow) {
+  return governanceObject(
+    dataRow['Control of Corruption: Estimate'],
+    dataRow['Government Effectiveness: Estimate'],
+    dataRow['Political Stability and Absence of Violence/Terrorism: Estimate'],
+    dataRow['Regulatory Quality: Estimate'],
+    dataRow['Rule of Law: Estimate'],
+    dataRow['Voice and Accountability: Estimate'],
+  );
+}

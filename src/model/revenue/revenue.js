@@ -33,8 +33,46 @@ function grpcFromPercentageIncrease(grpc, percentage) {
   return (grpc * (100 + percentage)) / 100;
 }
 
+/**
+ * Calculate percentage increase in GRPC given observed/new GRPC
+ * @param {number} grpcObserved Base GRPC
+ * @param {number} grpcNew Improved GRPC
+ * @return {number} Percentage increase in GRPC
+ */
+function percentageIncreaseFromNewGrpc(grpcObserved, grpcNew) {
+  return (grpcNew / grpcObserved - 1) * 100.0;
+}
+
+/**
+ * Calculate additional revenue per capita given observed/new GRPC
+ * @param {number} grpcObserved Base GRPC
+ * @param {number} grpcNew Improved GRPC
+ * @return {number} Additional revenue per capita
+ */
+function additionalRevenuePerCapitaFromNewGrpc(grpcObserved, grpcNew) {
+  return grpcNew - grpcObserved;
+}
+
+/**
+ * Calculate total additional revenue given observed/new GRPC and population
+ * @param {number} grpcObserved Base GRPC
+ * @param {number} grpcNew Improved GRPC
+ * @param {number} totalPopulation Total population
+ * @return {number} Absolute additional revenue
+ */
+function absoluteAdditionalRevenueFromNewGrpc(
+  grpcObserved,
+  grpcNew,
+  totalPopulation,
+) {
+  return (grpcNew - grpcObserved) * totalPopulation;
+}
+
 export {
   grpcFromAbsoluteIncrease,
   grpcFromPerCapitaIncrease,
   grpcFromPercentageIncrease,
+  additionalRevenuePerCapitaFromNewGrpc,
+  percentageIncreaseFromNewGrpc,
+  absoluteAdditionalRevenueFromNewGrpc,
 };
