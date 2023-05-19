@@ -1,8 +1,5 @@
-import * as coverage from '../model/coverage';
-import * as revenue from '../model/revenue';
+import * as model from '../model';
 import {curry2} from '../utils';
-import {governanceObjectFromBaseObservedGovernance} from '../model/governance';
-import * as constants from '../model/constants';
 
 /**
  * Calculate GRPC necessary to achieve target coverage
@@ -13,7 +10,7 @@ import * as constants from '../model/constants';
  * @param {year} year Year
  * @param {array} data Base data array
  * @return {number} calculated GRPC necessary to achieve target
- * coverage.
+ * model.coverage.
  * The following conditions must be satisfied, or the function returns NaN:
  * 0 < observed coverage <= target coverage <= 100
  */
@@ -32,27 +29,33 @@ function calcGrpcForTargetCoverage(
   if (countryYearRow == undefined) {
     return NaN;
   } else {
-    const observedGrpc = countryYearRow[constants.columnNames.GRPC_UNUWIDER];
+    const observedGrpc =
+      countryYearRow[model.constants.columnNames.GRPC_UNUWIDER];
     const newGrpc = targetCoverageFunction(
       countryYearRow[coverageColumnName],
       observedGrpc,
       targetCoverage,
-      governanceObjectFromBaseObservedGovernance(countryYearRow),
+      model.governance.governanceObjectFromBaseObservedGovernance(
+        countryYearRow,
+      ),
     );
     return {
       'observed grpc': observedGrpc,
       'new grpc': newGrpc,
-      'percentage increase': revenue.percentageIncreaseFromNewGrpc(
+      'percentage increase': model.revenue.percentageIncreaseFromNewGrpc(
         observedGrpc,
         newGrpc,
       ),
       'additional revenue per capita':
-        revenue.additionalRevenuePerCapitaFromNewGrpc(observedGrpc, newGrpc),
-      'absolute additional revenue':
-        revenue.absoluteAdditionalRevenueFromNewGrpc(
+        model.revenue.additionalRevenuePerCapitaFromNewGrpc(
           observedGrpc,
           newGrpc,
-          countryYearRow[constants.columnNames.POPTOTAL],
+        ),
+      'absolute additional revenue':
+        model.revenue.absoluteAdditionalRevenueFromNewGrpc(
+          observedGrpc,
+          newGrpc,
+          countryYearRow[model.constants.columnNames.POPTOTAL],
         ),
     };
   }
@@ -60,48 +63,48 @@ function calcGrpcForTargetCoverage(
 
 export const calcGrpcForBasicSanitation = curry2(
   calcGrpcForTargetCoverage,
-  coverage.targetBasicSanitation,
-  constants.columnNames.BASIC_SANITATION_COVERAGE,
+  model.coverage.targetBasicSanitation,
+  model.constants.columnNames.BASIC_SANITATION_COVERAGE,
 );
 
 export const calcGrpcForBasicWater = curry2(
   calcGrpcForTargetCoverage,
-  coverage.targetBasicWater,
-  constants.columnNames.BASIC_WATER_COVERAGE,
+  model.coverage.targetBasicWater,
+  model.constants.columnNames.BASIC_WATER_COVERAGE,
 );
 
 export const calcGrpcForImmunisation = curry2(
   calcGrpcForTargetCoverage,
-  coverage.targetImmunisation,
-  constants.columnNames.IMMUNISATION_COVERAGE,
+  model.coverage.targetImmunisation,
+  model.constants.columnNames.IMMUNISATION_COVERAGE,
 );
 
 export const calcGrpcForMaternalSurvival = curry2(
   calcGrpcForTargetCoverage,
-  coverage.targetMaternalSurvival,
-  constants.columnNames.MATERNAL_SURVIVAL_COVERAGE,
+  model.coverage.targetMaternalSurvival,
+  model.constants.columnNames.MATERNAL_SURVIVAL_COVERAGE,
 );
 
 export const calcGrpcForSafeSanitation = curry2(
   calcGrpcForTargetCoverage,
-  coverage.targetSafeSanitation,
-  constants.columnNames.SAFE_SANITATION_COVERAGE,
+  model.coverage.targetSafeSanitation,
+  model.constants.columnNames.SAFE_SANITATION_COVERAGE,
 );
 
 export const calcGrpcForSafeWater = curry2(
   calcGrpcForTargetCoverage,
-  coverage.targetSafeWater,
-  constants.columnNames.SAFE_WATER_COVERAGE,
+  model.coverage.targetSafeWater,
+  model.constants.columnNames.SAFE_WATER_COVERAGE,
 );
 
 export const calcGrpcForSchoolAttendance = curry2(
   calcGrpcForTargetCoverage,
-  coverage.targetSchoolAttendance,
-  constants.columnNames.SCHOOL_ATTENDANCE_COVERAGE,
+  model.coverage.targetSchoolAttendance,
+  model.constants.columnNames.SCHOOL_ATTENDANCE_COVERAGE,
 );
 
 export const calcGrpcForUnderFiveSurvival = curry2(
   calcGrpcForTargetCoverage,
-  coverage.targetUnderFiveSurvival,
-  constants.columnNames.U5_SURVIVAL_COVERAGE,
+  model.coverage.targetUnderFiveSurvival,
+  model.constants.columnNames.U5_SURVIVAL_COVERAGE,
 );
