@@ -61,49 +61,49 @@ function calcGrpcForTargetCoverage(
   }
 }
 
-export const calcGrpcForBasicSanitation = curry2(
+export const basicSanitation = curry2(
   calcGrpcForTargetCoverage,
   model.coverage.target.basicSanitation,
   model.constants.columnNames.BASIC_SANITATION_COVERAGE,
 );
 
-export const calcGrpcForBasicWater = curry2(
+export const basicWater = curry2(
   calcGrpcForTargetCoverage,
   model.coverage.target.basicWater,
   model.constants.columnNames.BASIC_WATER_COVERAGE,
 );
 
-export const calcGrpcForImmunisation = curry2(
+export const immunisation = curry2(
   calcGrpcForTargetCoverage,
   model.coverage.target.immunisation,
   model.constants.columnNames.IMMUNISATION_COVERAGE,
 );
 
-export const calcGrpcForMaternalSurvival = curry2(
+export const maternalSurvival = curry2(
   calcGrpcForTargetCoverage,
   model.coverage.target.maternalSurvival,
   model.constants.columnNames.MATERNAL_SURVIVAL_COVERAGE,
 );
 
-export const calcGrpcForSafeSanitation = curry2(
+export const safeSanitation = curry2(
   calcGrpcForTargetCoverage,
   model.coverage.target.safeSanitation,
   model.constants.columnNames.SAFE_SANITATION_COVERAGE,
 );
 
-export const calcGrpcForSafeWater = curry2(
+export const safeWater = curry2(
   calcGrpcForTargetCoverage,
   model.coverage.target.safeWater,
   model.constants.columnNames.SAFE_WATER_COVERAGE,
 );
 
-export const calcGrpcForSchoolAttendance = curry2(
+export const schoolAttendance = curry2(
   calcGrpcForTargetCoverage,
   model.coverage.target.schoolAttendance,
   model.constants.columnNames.SCHOOL_ATTENDANCE_COVERAGE,
 );
 
-export const calcGrpcForUnderFiveSurvival = curry2(
+export const underFiveSurvival = curry2(
   calcGrpcForTargetCoverage,
   model.coverage.target.underFiveSurvival,
   model.constants.columnNames.U5_SURVIVAL_COVERAGE,

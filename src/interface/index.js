@@ -1,1 +1,2 @@
-export * from './target';
+import * as target from './target';
+export {target};
