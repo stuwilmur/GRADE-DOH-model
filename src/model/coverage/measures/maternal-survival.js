@@ -1,5 +1,7 @@
 import {maternalSurvival as coefficients} from './constants';
 
+export const name = 'Maternal survival';
+
 /**
  * Calculate maternal survival coverage from the model equations
  * @param {number} grpc Government revenue per capita in USD

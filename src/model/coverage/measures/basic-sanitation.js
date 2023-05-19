@@ -1,5 +1,7 @@
 import {basicSanitation as coefficients} from './constants';
 
+export const name = 'Basic sanitation';
+
 /**
  * Calculate basic sanitation coverage from the model equations
  * @param {number} grpc Government revenue per capita in USD

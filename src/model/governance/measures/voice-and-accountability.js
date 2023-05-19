@@ -1,3 +1,5 @@
+export const name = 'Voice and accountability';
+
 /**
  * Forecast voiceAndAccountability and accountability from the model equations
  * @param {number} voiceAndAccountability Voice and

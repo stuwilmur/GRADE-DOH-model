@@ -1,5 +1,7 @@
 import {basicWater as coefficients} from './constants';
 
+export const name = 'Basic water';
+
 /**
  * Calculate basic water coverage from the model equations
  * @param {number} grpc Government revenue per capita in USD

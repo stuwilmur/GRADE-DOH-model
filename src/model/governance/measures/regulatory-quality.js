@@ -1,5 +1,7 @@
 import {regulatoryQuality as coefficients} from './constants';
 
+export const name = 'Regulatory quality';
+
 /**
  * Forecast regulatory quality from the model equations
  * Forecast relies on two previous forecast values: if either

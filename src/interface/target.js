@@ -2,6 +2,7 @@ import * as coverage from '../model/coverage';
 import * as revenue from '../model/revenue';
 import {curry2} from '../utils';
 import {governanceObjectFromBaseObservedGovernance} from '../model/governance';
+import * as constants from '../model/constants';
 
 /**
  * Calculate GRPC necessary to achieve target coverage
@@ -31,7 +32,7 @@ function calcGrpcForTargetCoverage(
   if (countryYearRow == undefined) {
     return NaN;
   } else {
-    const observedGrpc = countryYearRow['GRpcUNUWIDER 2022'];
+    const observedGrpc = countryYearRow[constants.columnNames.GRPC_UNUWIDER];
     const newGrpc = targetCoverageFunction(
       countryYearRow[coverageColumnName],
       observedGrpc,
@@ -51,7 +52,7 @@ function calcGrpcForTargetCoverage(
         revenue.absoluteAdditionalRevenueFromNewGrpc(
           observedGrpc,
           newGrpc,
-          countryYearRow['Pop total'],
+          countryYearRow[constants.columnNames.POPTOTAL],
         ),
     };
   }
@@ -60,47 +61,47 @@ function calcGrpcForTargetCoverage(
 export const calcGrpcForBasicSanitation = curry2(
   calcGrpcForTargetCoverage,
   coverage.targetBasicSanitation,
-  'People using at least basic sanitation services (% of population)',
+  constants.columnNames.BASIC_SANITATION_COVERAGE,
 );
 
 export const calcGrpcForBasicWater = curry2(
   calcGrpcForTargetCoverage,
   coverage.targetBasicWater,
-  'People using at least basic drinking water services (% of population)',
+  constants.columnNames.BASIC_WATER_COVERAGE,
 );
 
 export const calcGrpcForImmunisation = curry2(
   calcGrpcForTargetCoverage,
   coverage.targetImmunisation,
-  'Immunization, DPT (% of children ages 12-23 months)',
+  constants.columnNames.IMMUNISATION_COVERAGE,
 );
 
 export const calcGrpcForMaternalSurvival = curry2(
   calcGrpcForTargetCoverage,
   coverage.targetMaternalSurvival,
-  'Maternal survival rate %',
+  constants.columnNames.MATERNAL_SURVIVAL_COVERAGE,
 );
 
 export const calcGrpcForSafeSanitation = curry2(
   calcGrpcForTargetCoverage,
   coverage.targetSafeSanitation,
-  'People using safely managed sanitation services (% of population)',
+  constants.columnNames.SAFE_SANITATION_COVERAGE,
 );
 
 export const calcGrpcForSafeWater = curry2(
   calcGrpcForTargetCoverage,
   coverage.targetSafeWater,
-  'People using at least basic drinking water services (% of population)',
+  constants.columnNames.SAFE_WATER_COVERAGE,
 );
 
 export const calcGrpcForSchoolAttendance = curry2(
   calcGrpcForTargetCoverage,
   coverage.targetSchoolAttendance,
-  'School percent',
+  constants.columnNames.SCHOOL_ATTENDANCE_COVERAGE,
 );
 
 export const calcGrpcForUnderFiveSurvival = curry2(
   calcGrpcForTargetCoverage,
   coverage.targetUnderFiveSurvival,
-  'U5 survival %',
+  constants.columnNames.U5_SURVIVAL_COVERAGE,
 );

@@ -1,5 +1,7 @@
 import {corruption as coefficients} from './constants';
 
+export const name = 'Control of corruption';
+
 /**
  * Forecast corruption from the model equations
  * Forecast relies on the previous forecast value: if this

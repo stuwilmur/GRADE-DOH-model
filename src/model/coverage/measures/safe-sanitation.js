@@ -1,5 +1,7 @@
 import {safeSanitation as coefficients} from './constants';
 
+export const name = 'Safe sanitation';
+
 /**
  * Calculate safe sanitation coverage from the model equations
  * @param {number} grpc Government revenue per capita in USD

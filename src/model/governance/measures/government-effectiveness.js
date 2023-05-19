@@ -1,5 +1,7 @@
 import {governmentEffectiveness as coefficients} from './constants';
 
+export const name = 'Government effectiveness';
+
 /**
  * Forecast government effectiveness from the model equations
  * Forecast relies on the previous forecast value: if this

@@ -1,5 +1,7 @@
 import {ruleOfLaw as coefficients} from './constants';
 
+export const name = 'Rule of law';
+
 /**
  * Forecast rule of law from the model equations
  * Forecast relies on two previous forecast values: if either

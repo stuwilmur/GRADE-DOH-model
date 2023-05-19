@@ -1,5 +1,7 @@
 import {politicalStability as coefficients} from './constants';
 
+export const name = 'Political stability';
+
 /**
  * Forecast political stability from the model equations
  * Forecast relies on the previous forecast value: if this

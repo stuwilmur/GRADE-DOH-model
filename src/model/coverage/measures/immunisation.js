@@ -1,5 +1,7 @@
 import {immunisation as coefficients} from './constants';
 
+export const name = 'Immunisation';
+
 /**
  * Calculate immunisation coverage from the model equations
  * @param {number} grpc Government revenue per capita in USD

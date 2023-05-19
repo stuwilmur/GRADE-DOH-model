@@ -1,5 +1,7 @@
 import {schoolAttendance as coefficients} from './constants';
 
+export const name = 'School attendance';
+
 /**
  * Calculate school attendance coverage from the model equations
  * @param {number} grpc Government revenue per capita in USD

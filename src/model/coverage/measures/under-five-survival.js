@@ -1,5 +1,7 @@
 import {underFiveSurvival as coefficients} from './constants';
 
+export const name = 'Under-five survival';
+
 /**
  * Calculate under-5 survival coverage from the model equations
  * @param {number} grpc Government revenue per capita in USD
