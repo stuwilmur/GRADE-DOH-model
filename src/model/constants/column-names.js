@@ -16,7 +16,7 @@ export const SAFE_WATER_COVERAGE =
   'People using safely managed drinking water services (% of population)';
 export const SCHOOL_ATTENDANCE_COVERAGE = 'School percent';
 export const U5_SURVIVAL_COVERAGE = 'U5 survival %';
-export const CORRUPTION = 'Control of Corruption: Estimate';
+export const CONTROL_OF_CORRUPTION = 'Control of Corruption: Estimate';
 export const GOVERNMENT_EFFECTIVENESS = 'Government Effectiveness: Estimate';
 export const POLITICAL_STABILITY =
   'Political Stability and Absence of Violence/Terrorism: Estimate';

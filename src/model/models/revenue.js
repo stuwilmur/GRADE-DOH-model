@@ -1,8 +1,9 @@
 import * as revenue from '../revenue';
 import * as constants from '../constants';
-import {model} from 'micro-table';
+import {model} from 'micro-table/dist/module';
 
 export const modelGrpcFromAbsoluteIncrease = model()
+  .calc()
   .called('grpc')
   .does((r) =>
     revenue.grpcFromAbsoluteIncrease(
@@ -14,6 +15,7 @@ export const modelGrpcFromAbsoluteIncrease = model()
   .end();
 
 export const modelGrpcFromPerCapitaIncrease = model()
+  .calc()
   .called('grpc')
   .does((r) =>
     revenue.grpcFromPerCapitaIncrease(
@@ -23,6 +25,7 @@ export const modelGrpcFromPerCapitaIncrease = model()
   );
 
 export const modelGrpcFromPercentageIncrease = model()
+  .calc()
   .called('grpc')
   .does((r) =>
     revenue.grpcFromPercentageIncrease(

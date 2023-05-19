@@ -36,7 +36,7 @@ export function governanceObject(
  */
 export function governanceObjectFromBaseObservedGovernance(dataRow) {
   return governanceObject(
-    dataRow[constants.columnNames.controlOfCorruption],
+    dataRow[constants.columnNames.CONTROL_OF_CORRUPTION],
     dataRow[constants.columnNames.GOVERNMENT_EFFECTIVENESS],
     dataRow[constants.columnNames.POLITICAL_STABILITY],
     dataRow[constants.columnNames.REGULATORY_QUALITY],
