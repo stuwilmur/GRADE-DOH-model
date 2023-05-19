@@ -5,14 +5,14 @@ import {testData} from './data';
 const digitsTolerance = 6;
 
 const measuresToTest = new Map([
-  ['basicSanitation', coverage.estimateBasicSanitation],
-  ['basicWater', coverage.estimateBasicWater],
-  ['immunisation', coverage.estimateImmunisation],
-  ['maternalSurvival', coverage.estimateMaternalSurvival],
-  ['safeSanitation', coverage.estimateSafeSanitation],
-  ['safeWater', coverage.estimateSafeWater],
-  ['schoolAttendance', coverage.estimateSchoolAttendance],
-  ['underFiveSurvival', coverage.estimateUnderFiveSurvival],
+  ['basicSanitation', coverage.estimate.basicSanitation],
+  ['basicWater', coverage.estimate.basicWater],
+  ['immunisation', coverage.estimate.immunisation],
+  ['maternalSurvival', coverage.estimate.maternalSurvival],
+  ['safeSanitation', coverage.estimate.safeSanitation],
+  ['safeWater', coverage.estimate.safeWater],
+  ['schoolAttendance', coverage.estimate.schoolAttendance],
+  ['underFiveSurvival', coverage.estimate.underFiveSurvival],
 ]);
 
 const governanceObserved = governanceObject(

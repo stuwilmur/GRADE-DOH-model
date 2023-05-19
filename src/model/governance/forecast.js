@@ -54,24 +54,24 @@ function forecast(
   return governanceForecast;
 }
 
-export const forecastControlOfCorruption = curry(
+export const controlOfCorruption = curry(
   forecast,
   measures.controlOfCorruption.calculate,
 );
-export const forecastGovernmentEffectiveness = curry(
+export const governmentEffectiveness = curry(
   forecast,
   measures.governmentEffectiveness.calculate,
 );
-export const forecastPoliticalStability = curry(
+export const politicalStability = curry(
   forecast,
   measures.politicalStability.calculate,
 );
-export const forecastRegulatoryQuality = curry(
+export const regulatoryQuality = curry(
   forecast,
   measures.regulatoryQuality.calculate,
 );
-export const forecastRuleOfLaw = curry(forecast, measures.ruleOfLaw.calculate);
-export const forecastVoiceAndAccountability = curry(
+export const ruleOfLaw = curry(forecast, measures.ruleOfLaw.calculate);
+export const voiceAndAccountability = curry(
   forecast,
   measures.voiceAndAccountability.calculate,
 );

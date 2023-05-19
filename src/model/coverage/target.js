@@ -1,13 +1,4 @@
-import {
-  basicSanitation,
-  basicWater,
-  immunisation,
-  maternalSurvival,
-  safeSanitation,
-  safeWater,
-  schoolAttendance,
-  underFiveSurvival,
-} from './measures';
+import * as measures from './measures';
 import {curry2, calculateResidual} from '../../utils';
 
 /**
@@ -64,43 +55,43 @@ function targetCoverage(
   }
 }
 
-export const targetBasicSanitation = curry2(
+export const basicSanitation = curry2(
   targetCoverage,
-  basicSanitation.calculate,
-  basicSanitation.invert,
+  measures.basicSanitation.calculate,
+  measures.basicSanitation.invert,
 );
-export const targetBasicWater = curry2(
+export const basicWater = curry2(
   targetCoverage,
-  basicWater.calculate,
-  basicWater.invert,
+  measures.basicWater.calculate,
+  measures.basicWater.invert,
 );
-export const targetImmunisation = curry2(
+export const immunisation = curry2(
   targetCoverage,
-  immunisation.calculate,
-  immunisation.invert,
+  measures.immunisation.calculate,
+  measures.immunisation.invert,
 );
-export const targetMaternalSurvival = curry2(
+export const maternalSurvival = curry2(
   targetCoverage,
-  maternalSurvival.calculate,
-  maternalSurvival.invert,
+  measures.maternalSurvival.calculate,
+  measures.maternalSurvival.invert,
 );
-export const targetSafeSanitation = curry2(
+export const safeSanitation = curry2(
   targetCoverage,
-  safeSanitation.calculate,
-  safeSanitation.invert,
+  measures.safeSanitation.calculate,
+  measures.safeSanitation.invert,
 );
-export const targetSafeWater = curry2(
+export const safeWater = curry2(
   targetCoverage,
-  safeWater.calculate,
-  safeWater.invert,
+  measures.safeWater.calculate,
+  measures.safeWater.invert,
 );
-export const targetSchoolAttendance = curry2(
+export const schoolAttendance = curry2(
   targetCoverage,
-  schoolAttendance.calculate,
-  schoolAttendance.invert,
+  measures.schoolAttendance.calculate,
+  measures.schoolAttendance.invert,
 );
-export const targetUnderFiveSurvival = curry2(
+export const underFiveSurvival = curry2(
   targetCoverage,
-  underFiveSurvival.calculate,
-  underFiveSurvival.invert,
+  measures.underFiveSurvival.calculate,
+  measures.underFiveSurvival.invert,
 );

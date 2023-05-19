@@ -25,29 +25,29 @@ const testData2 = testData.map((x) => {
 
 const measuresAndFunctions = [
   {
-    name: 'controlOfCorruption',
+    name: 'Control of Corruption',
     measure: 'controlOfCorruption',
-    func: governance.forecastControlOfCorruption,
+    func: governance.forecast.controlOfCorruption,
   },
   {
     name: 'Government Effectiveness',
     measure: 'governmentEffectiveness',
-    func: governance.forecastGovernmentEffectiveness,
+    func: governance.forecast.governmentEffectiveness,
   },
   {
     name: 'Political Stability',
     measure: 'politicalStability',
-    func: governance.forecastPoliticalStability,
+    func: governance.forecast.politicalStability,
   },
   {
     name: 'Regulatory Quality',
     measure: 'regulatoryQuality',
-    func: governance.forecastRegulatoryQuality,
+    func: governance.forecast.regulatoryQuality,
   },
   {
     name: 'Rule of Law',
     measure: 'ruleOfLaw',
-    func: governance.forecastRuleOfLaw,
+    func: governance.forecast.ruleOfLaw,
   },
 ];
 

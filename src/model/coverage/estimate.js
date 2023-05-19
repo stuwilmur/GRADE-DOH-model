@@ -1,13 +1,4 @@
-import {
-  basicSanitation,
-  basicWater,
-  immunisation,
-  maternalSurvival,
-  safeSanitation,
-  safeWater,
-  schoolAttendance,
-  underFiveSurvival,
-} from './measures';
+import * as measures from './measures';
 import {curry, applyResidual} from '../../utils';
 
 /**
@@ -50,23 +41,26 @@ function estimate(
   return coverageAdjustedEstimated;
 }
 
-export const estimateBasicSanitation = curry(
+export const basicSanitation = curry(
   estimate,
-  basicSanitation.calculate,
+  measures.basicSanitation.calculate,
 );
-export const estimateBasicWater = curry(estimate, basicWater.calculate);
-export const estimateImmunisation = curry(estimate, immunisation.calculate);
-export const estimateMaternalSurvival = curry(
+export const basicWater = curry(estimate, measures.basicWater.calculate);
+export const immunisation = curry(estimate, measures.immunisation.calculate);
+export const maternalSurvival = curry(
   estimate,
-  maternalSurvival.calculate,
+  measures.maternalSurvival.calculate,
 );
-export const estimateSafeSanitation = curry(estimate, safeSanitation.calculate);
-export const estimateSafeWater = curry(estimate, safeWater.calculate);
-export const estimateSchoolAttendance = curry(
+export const safeSanitation = curry(
   estimate,
-  schoolAttendance.calculate,
+  measures.safeSanitation.calculate,
 );
-export const estimateUnderFiveSurvival = curry(
+export const safeWater = curry(estimate, measures.safeWater.calculate);
+export const schoolAttendance = curry(
   estimate,
-  underFiveSurvival.calculate,
+  measures.schoolAttendance.calculate,
+);
+export const underFiveSurvival = curry(
+  estimate,
+  measures.underFiveSurvival.calculate,
 );
