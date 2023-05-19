@@ -2,7 +2,7 @@ import * as constants from '../constants';
 
 /**
  * Create a governance object given values for governance indicators
- * @param {number} _corruption corruption indicator
+ * @param {number} _controlOfCorruption controlOfCorruption indicator
  * @param {number} _governmentEffectiveness government effectiveness indicator
  * @param {number} _politicalStability political stability indicator
  * @param {number} _regulatoryQuality regulatory quality indicator
@@ -11,7 +11,7 @@ import * as constants from '../constants';
  * @return {object} Governance object
  */
 export function governanceObject(
-  _corruption,
+  _controlOfCorruption,
   _governmentEffectiveness,
   _politicalStability,
   _regulatoryQuality,
@@ -19,7 +19,7 @@ export function governanceObject(
   _voiceAndAccountability,
 ) {
   return {
-    corruption: _corruption,
+    controlOfCorruption: _controlOfCorruption,
     governmentEffectiveness: _governmentEffectiveness,
     politicalStability: _politicalStability,
     regulatoryQuality: _regulatoryQuality,
@@ -36,7 +36,7 @@ export function governanceObject(
  */
 export function governanceObjectFromBaseObservedGovernance(dataRow) {
   return governanceObject(
-    dataRow[constants.columnNames.CORRUPTION],
+    dataRow[constants.columnNames.controlOfCorruption],
     dataRow[constants.columnNames.GOVERNMENT_EFFECTIVENESS],
     dataRow[constants.columnNames.POLITICAL_STABILITY],
     dataRow[constants.columnNames.REGULATORY_QUALITY],

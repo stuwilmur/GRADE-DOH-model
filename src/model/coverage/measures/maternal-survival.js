@@ -16,7 +16,7 @@ export function calculate(grpc, governance) {
         Math.exp(
           -(
             coefficients.C1 +
-            coefficients.C11 * governance.corruption +
+            coefficients.C11 * governance.controlOfCorruption +
             coefficients.C12 * governance.politicalStability +
             coefficients.C14 * governance.ruleOfLaw +
             coefficients.C15 * governance.governmentEffectiveness +
@@ -24,7 +24,7 @@ export function calculate(grpc, governance) {
           ) *
             (grpc -
               (coefficients.C2 +
-                coefficients.C21 * governance.corruption +
+                coefficients.C21 * governance.controlOfCorruption +
                 coefficients.C22 * governance.politicalStability +
                 coefficients.C23 * governance.regulatoryQuality +
                 coefficients.C24 * governance.ruleOfLaw +
@@ -46,7 +46,7 @@ export function calculate(grpc, governance) {
 export function invert(target, governance) {
   const A = -(
     coefficients.C1 +
-    coefficients.C11 * governance.corruption +
+    coefficients.C11 * governance.controlOfCorruption +
     coefficients.C12 * governance.politicalStability +
     coefficients.C14 * governance.ruleOfLaw +
     coefficients.C15 * governance.governmentEffectiveness +
@@ -54,7 +54,7 @@ export function invert(target, governance) {
   );
   const B =
     coefficients.C2 +
-    coefficients.C21 * governance.corruption +
+    coefficients.C21 * governance.controlOfCorruption +
     coefficients.C22 * governance.politicalStability +
     coefficients.C23 * governance.regulatoryQuality +
     coefficients.C24 * governance.ruleOfLaw +

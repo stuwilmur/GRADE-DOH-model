@@ -21,7 +21,7 @@ export function calculate(grpc, governance) {
         ) *
           (grpc -
             (-coefficients.C2 +
-              coefficients.C21 * governance.corruption +
+              coefficients.C21 * governance.controlOfCorruption +
               coefficients.C22 * governance.politicalStability +
               coefficients.C23 * governance.regulatoryQuality +
               coefficients.C25 * governance.governmentEffectiveness +
@@ -48,7 +48,7 @@ export function invert(target, governance) {
   );
   const B =
     -coefficients.C2 +
-    coefficients.C21 * governance.corruption +
+    coefficients.C21 * governance.controlOfCorruption +
     coefficients.C22 * governance.politicalStability +
     coefficients.C23 * governance.regulatoryQuality +
     coefficients.C25 * governance.governmentEffectiveness +

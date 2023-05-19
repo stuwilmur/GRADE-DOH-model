@@ -13,7 +13,7 @@ const testData2 = testData.map((x) => {
     NaN,
   );
   x.forecast = governance.governanceObject(
-    x.corruptionForecast,
+    x.controlOfCorruptionForecast,
     x.governmentEffectivenessForecast,
     x.politicalStabilityForecast,
     x.regulatoryQualityForecast,
@@ -25,9 +25,9 @@ const testData2 = testData.map((x) => {
 
 const measuresAndFunctions = [
   {
-    name: 'corruption',
-    measure: 'corruption',
-    func: governance.forecastCorruption,
+    name: 'controlOfCorruption',
+    measure: 'controlOfCorruption',
+    func: governance.forecastControlOfCorruption,
   },
   {
     name: 'Government Effectiveness',

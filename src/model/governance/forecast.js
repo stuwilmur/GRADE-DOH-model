@@ -54,9 +54,9 @@ function forecast(
   return governanceForecast;
 }
 
-export const forecastCorruption = curry(
+export const forecastControlOfCorruption = curry(
   forecast,
-  measures.corruption.calculate,
+  measures.controlOfCorruption.calculate,
 );
 export const forecastGovernmentEffectiveness = curry(
   forecast,
