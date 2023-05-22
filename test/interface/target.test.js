@@ -1,31 +1,60 @@
 import * as target from '../../src/interface/target';
-import {data} from 'grade-doh-data';
-import {columnNames} from '../../src/model/constants';
+import {data} from './data';
+import * as model from '../../src/model';
 
 const digitsTolerance = 6;
 
 const iso = 'BGD';
 const year = 2002;
-const BGD2002 = data.filter((x) => x.countrycode == iso && x.year == year);
-const expectedGrpc = BGD2002[columnNames.GRPC_UNUWIDER];
-const targetFunctionsAndValues = [
-  {f: target.basicSanitation, value: columnNames.BASIC_SANITATION_COVERAGE},
-  {f: target.basicWater, value: columnNames.BASIC_WATER_COVERAGE},
-  {f: target.immunisation, value: columnNames.IMMUNISATION_COVERAGE},
-  {f: target.maternalSurvival, value: columnNames.MATERNAL_SURVIVAL_COVERAGE},
-  {f: target.safeSanitation, value: columnNames.SAFE_SANITATION_COVERAGE},
-  {f: target.safeWater, value: columnNames.SAFE_WATER_COVERAGE},
-  {f: target.schoolAttendance, value: columnNames.SCHOOL_ATTENDANCE_COVERAGE},
-  {f: target.underFiveSurvival, value: columnNames.U5_SURVIVAL_COVERAGE},
+const expectedGrpc = data[model.constants.columnNames.GRPC_UNUWIDER];
+const tests = [
+  {
+    name: model.coverage.measuresNames.basicSanitation,
+    f: target.basicSanitation,
+    value: data[model.constants.columnNames.BASIC_SANITATION_COVERAGE],
+  },
+  {
+    name: model.coverage.measuresNames.basicWater,
+    f: target.basicWater,
+    value: data[model.constants.columnNames.BASIC_WATER_COVERAGE],
+  },
+  {
+    name: model.coverage.measuresNames.immunisation,
+    f: target.immunisation,
+    value: data[model.constants.columnNames.IMMUNISATION_COVERAGE],
+  },
+  {
+    name: model.coverage.measuresNames.maternalSurvival,
+    f: target.maternalSurvival,
+    value: data[model.constants.columnNames.MATERNAL_SURVIVAL_COVERAGE],
+  },
+  {
+    name: model.coverage.measuresNames.safeSanitation,
+    f: target.safeSanitation,
+    value: data[model.constants.columnNames.SAFE_SANITATION_COVERAGE],
+  },
+  {
+    name: model.coverage.measuresNames.safeSanitation,
+    f: target.safeWater,
+    value: data[model.constants.columnNames.SAFE_WATER_COVERAGE],
+  },
+  {
+    name: model.coverage.measuresNames.schoolAttendance,
+    f: target.schoolAttendance,
+    value: data[model.constants.columnNames.SCHOOL_ATTENDANCE_COVERAGE],
+  },
+  {
+    name: model.coverage.measuresNames.underFiveSurvival,
+    f: target.underFiveSurvival,
+    value: data[model.constants.columnNames.U5_SURVIVAL_COVERAGE],
+  },
 ];
 
-test(`tests ${measure} targeting`, () => {
-  expect(
-    targetFunctionsAndValues[0].f(
-      targetFunctionsAndValues[0].value,
-      iso,
-      year,
-      data,
-    ),
-  ).toBeCloseTo(expectedGrpc, digitsTolerance);
+tests.forEach((aTest) => {
+  test(`tests targeting ${aTest.name}`, () => {
+    expect(aTest.f(aTest.value, iso, year, [data])['new grpc']).toBeCloseTo(
+      expectedGrpc,
+      digitsTolerance,
+    );
+  });
 });
