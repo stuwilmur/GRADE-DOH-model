@@ -6,7 +6,12 @@ import * as model from '../../model';
  * @param {function} targetCoverageFunction Target coverage function
  * @param {string} coverageColumnName Name of the column of the coverage measure
  * @param {number} targetCoverage Target coverage percentage
- * @return {object} Target coverage model
+ * @return {object} Target coverage model, with computed columns for:
+ * target coverage
+ * grpc necessary to achieve target
+ * grpc percentage increase necessary to achieve target
+ * additional revenue per capita necessary to achieve target
+ * absolute additional revenue necessary to achieve target
  */
 export function createTargetGrpcModel(
   targetCoverageFunction,

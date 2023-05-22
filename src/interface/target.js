@@ -7,7 +7,7 @@ import {curry2} from '../utils';
  * @param {string} coverageColumnName Name of the column of the coverage measure
  * @param {number} targetCoverage Target coverage percentage
  * @param {array} data Base data array
- * @return {number} calculated GRPC necessary to achieve target
+ * @return {array} Base data with additional computed columns
  * model.coverage.
  * The following conditions must be satisfied, or the function returns NaN:
  * 0 < observed coverage <= target coverage <= 100
