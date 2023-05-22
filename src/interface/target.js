@@ -1,4 +1,5 @@
 import * as model from '../model';
+import * as mt from 'micro-table/dist/module';
 import {curry2} from '../utils';
 
 /**
@@ -6,8 +7,6 @@ import {curry2} from '../utils';
  * @param {function} targetCoverageFunction Target coverage function
  * @param {string} coverageColumnName Name of the column of the coverage measure
  * @param {number} targetCoverage Target coverage percentage
- * @param {string} countryCode Three-letter ISO country code
- * @param {year} year Year
  * @param {array} data Base data array
  * @return {number} calculated GRPC necessary to achieve target
  * model.coverage.
@@ -18,47 +17,75 @@ function calcGrpcForTargetCoverage(
   targetCoverageFunction,
   coverageColumnName,
   targetCoverage,
-  countryCode,
-  year,
   data,
 ) {
-  const countryYearRow = data.find(
-    (row) => row.countrycode == countryCode && row.year == year,
-  );
-
-  if (countryYearRow == undefined) {
-    return NaN;
-  } else {
-    const observedGrpc =
-      countryYearRow[model.constants.columnNames.GRPC_UNUWIDER];
-    const newGrpc = targetCoverageFunction(
-      countryYearRow[coverageColumnName],
-      observedGrpc,
-      targetCoverage,
-      model.governance.governanceObjectFromBaseObservedGovernance(
-        countryYearRow,
+  return mt
+    .model()
+    .const()
+    .called('target coverage')
+    .value(targetCoverage)
+    .end()
+    .calc()
+    .called('target grpc')
+    .does((r) =>
+      targetCoverageFunction(
+        r[coverageColumnName],
+        r[model.constants.columnNames.GRPC_UNUWIDER],
+        targetCoverage,
+        model.governance.governanceObjectFromBaseObservedGovernance(r),
       ),
-    );
-    return {
-      'observed grpc': observedGrpc,
-      'new grpc': newGrpc,
-      'percentage increase': model.revenue.percentageIncreaseFromNewGrpc(
+    )
+    .end()
+    .calc()
+    .called('target grpc percentage increase')
+    .does((r) =>
+      model.revenue.percentageIncreaseFromNewGrpc(
+        r[model.constants.columnNames.GRPC_UNUWIDER],
+        r['target grpc'],
+      ),
+    )
+    .end()
+    .calc()
+    .called('target additional revenue per capita')
+    .does((r) =>
+      model.revenue.additionalRevenuePerCapitaFromNewGrpc(
+        r[model.constants.columnNames.GRPC_UNUWIDER],
+        r['target grpc'],
+      ),
+    )
+    .end()
+    .calc()
+    .called('target absolute additional revenue')
+    .does((r) =>
+      model.revenue.absoluteAdditionalRevenueFromNewGrpc(
+        r[model.constants.columnNames.GRPC_UNUWIDER],
+        r['target grpc'],
+        r[model.constants.columnNames.POPTOTAL],
+      ),
+    )
+    .end()
+    .data(data);
+
+  /*
+  return {
+    'observed grpc': observedGrpc,
+    'new grpc': newGrpc,
+    'percentage increase': model.revenue.percentageIncreaseFromNewGrpc(
+      observedGrpc,
+      newGrpc,
+    ),
+    'additional revenue per capita':
+      model.revenue.additionalRevenuePerCapitaFromNewGrpc(
         observedGrpc,
         newGrpc,
       ),
-      'additional revenue per capita':
-        model.revenue.additionalRevenuePerCapitaFromNewGrpc(
-          observedGrpc,
-          newGrpc,
-        ),
-      'absolute additional revenue':
-        model.revenue.absoluteAdditionalRevenueFromNewGrpc(
-          observedGrpc,
-          newGrpc,
-          countryYearRow[model.constants.columnNames.POPTOTAL],
-        ),
-    };
-  }
+    'absolute additional revenue':
+      model.revenue.absoluteAdditionalRevenueFromNewGrpc(
+        observedGrpc,
+        newGrpc,
+        countryYearRow[model.constants.columnNames.POPTOTAL],
+      ),
+  }; */
 }
 
 export const basicSanitation = curry2(
