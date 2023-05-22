@@ -3,9 +3,6 @@ import {data} from './data';
 import * as model from '../../src/model';
 
 const digitsTolerance = 6;
-
-const iso = 'BGD';
-const year = 2002;
 const expectedGrpc = data[model.constants.columnNames.GRPC_UNUWIDER];
 const tests = [
   {
@@ -52,9 +49,10 @@ const tests = [
 
 tests.forEach((aTest) => {
   test(`tests targeting ${aTest.name}`, () => {
-    expect(aTest.f(aTest.value, iso, year, [data])['new grpc']).toBeCloseTo(
-      expectedGrpc,
-      digitsTolerance,
-    );
+    expect(
+      aTest.f(aTest.value, [data])[0][
+        model.constants.computedColumnNames.TARGET_GRPC
+      ],
+    ).toBeCloseTo(expectedGrpc, digitsTolerance);
   });
 });

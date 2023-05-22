@@ -1,2 +1,3 @@
 import * as columnNames from './column-names';
-export {columnNames};
+import * as computedColumnNames from './computed-column-names';
+export {columnNames, computedColumnNames};

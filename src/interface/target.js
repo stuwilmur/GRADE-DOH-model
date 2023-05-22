@@ -22,11 +22,11 @@ function calcGrpcForTargetCoverage(
   return mt
     .model()
     .const()
-    .called('target coverage')
+    .called(model.constants.computedColumnNames.TARGET_COVERAGE)
     .value(targetCoverage)
     .end()
     .calc()
-    .called('target grpc')
+    .called(model.constants.computedColumnNames.TARGET_GRPC)
     .does((r) =>
       targetCoverageFunction(
         r[coverageColumnName],
@@ -37,55 +37,38 @@ function calcGrpcForTargetCoverage(
     )
     .end()
     .calc()
-    .called('target grpc percentage increase')
+    .called(model.constants.computedColumnNames.TARGET_GRPC_PERCENTAGE_INCREASE)
     .does((r) =>
       model.revenue.percentageIncreaseFromNewGrpc(
         r[model.constants.columnNames.GRPC_UNUWIDER],
-        r['target grpc'],
+        r[model.constants.computedColumnNames.TARGET_GRPC],
       ),
     )
     .end()
     .calc()
-    .called('target additional revenue per capita')
+    .called(
+      model.constants.computedColumnNames.TARGET_ADDITIONAL_REVENUE_PER_CAPITA,
+    )
     .does((r) =>
       model.revenue.additionalRevenuePerCapitaFromNewGrpc(
         r[model.constants.columnNames.GRPC_UNUWIDER],
-        r['target grpc'],
+        r[model.constants.computedColumnNames.TARGET_GRPC],
       ),
     )
     .end()
     .calc()
-    .called('target absolute additional revenue')
+    .called(
+      model.constants.computedColumnNames.TARGET_ABSOLUTE_ADDITIONAL_REVENUE,
+    )
     .does((r) =>
       model.revenue.absoluteAdditionalRevenueFromNewGrpc(
         r[model.constants.columnNames.GRPC_UNUWIDER],
-        r['target grpc'],
+        r[model.constants.computedColumnNames.TARGET_GRPC],
         r[model.constants.columnNames.POPTOTAL],
       ),
     )
     .end()
     .data(data);
-
-  /*
-  return {
-    'observed grpc': observedGrpc,
-    'new grpc': newGrpc,
-    'percentage increase': model.revenue.percentageIncreaseFromNewGrpc(
-      observedGrpc,
-      newGrpc,
-    ),
-    'additional revenue per capita':
-      model.revenue.additionalRevenuePerCapitaFromNewGrpc(
-        observedGrpc,
-        newGrpc,
-      ),
-    'absolute additional revenue':
-      model.revenue.absoluteAdditionalRevenueFromNewGrpc(
-        observedGrpc,
-        newGrpc,
-        countryYearRow[model.constants.columnNames.POPTOTAL],
-      ),
-  }; */
 }
 
 export const basicSanitation = curry2(
