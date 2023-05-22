@@ -1,2 +1,3 @@
 import * as revenue from './revenue';
-export {revenue};
+import {createTargetGrpcModel} from './target-grpc';
+export {revenue, createTargetGrpcModel};
