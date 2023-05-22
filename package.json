@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "start": "node ./src/index.js",
-    "test": "node --experimental-vm-modules node_modules/.bin/jest",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest --coverage",
     "clear_jest": "jest --clearCache",
     "make-badges": "istanbul-badges-readme",
     "build": "parcel build",
