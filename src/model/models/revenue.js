@@ -4,11 +4,11 @@ import {model} from 'micro-table/dist/module';
 
 export const modelGrpcFromAbsoluteIncrease = model()
   .calc()
-  .called('grpc')
+  .called(constants.computedColumnNames.IMPROVED_GRPC)
   .does((r) =>
     revenue.grpcFromAbsoluteIncrease(
       r[constants.columnNames.GRPC_UNUWIDER],
-      r['absolute additional revenue'],
+      r[constants.computedColumnNames.ABSOLUTE_ADDITIONAL_REVENUE],
       r[constants.columnNames.POPTOTAL],
     ),
   )
@@ -16,21 +16,21 @@ export const modelGrpcFromAbsoluteIncrease = model()
 
 export const modelGrpcFromPerCapitaIncrease = model()
   .calc()
-  .called('grpc')
+  .called(constants.computedColumnNames.IMPROVED_GRPC)
   .does((r) =>
     revenue.grpcFromPerCapitaIncrease(
       r[constants.columnNames.GRPC_UNUWIDER],
-      r['per capita increase in grpc'],
+      r[constants.computedColumnNames.PER_CAPITA_INCREASE_IN_GRPC],
     ),
   );
 
 export const modelGrpcFromPercentageIncrease = model()
   .calc()
-  .called('grpc')
+  .called(constants.computedColumnNames.IMPROVED_GRPC)
   .does((r) =>
     revenue.grpcFromPercentageIncrease(
       r[constants.columnNames.GRPC_UNUWIDER],
-      r['percentage increase in grpc'],
+      r[constants.computedColumnNames.PERCENTAGE_INCREASE_IN_GRPC],
     ),
   )
   .end();
