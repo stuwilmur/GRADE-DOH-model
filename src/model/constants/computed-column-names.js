@@ -1,3 +1,6 @@
+/*
+Strings for the computed column names
+*/
 export const TARGET_COVERAGE = 'target coverage';
 export const TARGET_GRPC = 'target grpc';
 export const TARGET_GRPC_PERCENTAGE_INCREASE =
@@ -8,5 +11,5 @@ export const TARGET_ABSOLUTE_ADDITIONAL_REVENUE =
   'target absolute additional revenue';
 export const IMPROVED_GRPC = 'improved grpc';
 export const ABSOLUTE_ADDITIONAL_REVENUE = 'absolute additional revenue';
-export const PER_CAPITA_INCREASE_IN_GRPC = 'per capita increase in grpc';
-export const PERCENTAGE_INCREASE_IN_GRPC = 'percentage increase in grpc';
+export const PER_CAPITA_INCREASE_IN_GRPC = 'additional revenue per capita';
+export const PERCENTAGE_INCREASE_IN_GRPC = 'grpc percentage increase';
