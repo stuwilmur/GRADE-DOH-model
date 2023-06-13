@@ -1,6 +1,6 @@
 import * as revenue from '../revenue';
 import * as constants from '../constants';
-import {model} from 'micro-table/dist/module';
+import * as mt from 'micro-table/dist/module';
 
 /**
  * Calculate improved GRPC, change in GRPC and percentage change in GRPC from
@@ -11,7 +11,8 @@ import {model} from 'micro-table/dist/module';
  * Percentage change in GRPC
  */
 export function createGrpcFromAbsoluteIncreaseModel() {
-  return model()
+  return mt
+    .model()
     .calc()
     .called(constants.computedColumnNames.IMPROVED_GRPC)
     .does((r) =>
@@ -51,7 +52,8 @@ export function createGrpcFromAbsoluteIncreaseModel() {
  * Absolute additional revenue
  */
 export function createGrpcFromPerCapitaIncreaseModel() {
-  return model()
+  return mt
+    .model()
     .calc()
     .called(constants.computedColumnNames.IMPROVED_GRPC)
     .does((r) =>
@@ -91,7 +93,8 @@ export function createGrpcFromPerCapitaIncreaseModel() {
  * Absolute addtional revenue
  */
 export function createGrpcFromPercentageIncreaseModel() {
-  return model()
+  return mt
+    .model()
     .calc()
     .called(constants.computedColumnNames.IMPROVED_GRPC)
     .does((r) =>
@@ -131,7 +134,8 @@ export function createGrpcFromPercentageIncreaseModel() {
  * Absolute addtional revenue
  */
 export function createGrpcFromImprovedGrpc() {
-  return model()
+  return mt
+    .model()
     .calc()
     .called(constants.computedColumnNames.PER_CAPITA_INCREASE_IN_GRPC)
     .does((r) =>
