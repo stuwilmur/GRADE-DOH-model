@@ -4,7 +4,8 @@ Strings for the computed column names
 */
 
 // Utility strings
-const improved = ': improved';
+const estimate = ': Estimate';
+const improved = ': Improved';
 
 // Target model
 export const TARGET_COVERAGE = 'target coverage';
@@ -24,16 +25,19 @@ export const PERCENTAGE_INCREASE_IN_GRPC = 'grpc percentage increase';
 
 // Governance model
 export const IMPROVED_CONTROL_OF_CORRUPTION =
-  columnNames.CONTROL_OF_CORRUPTION + improved;
+  columnNames.CONTROL_OF_CORRUPTION.replace(estimate, improved);
 export const IMPROVED_GOVERNMENT_EFFECTIVENESS =
-  columnNames.GOVERNMENT_EFFECTIVENESS + improved;
+  columnNames.GOVERNMENT_EFFECTIVENESS.replace(estimate, improved);
 export const IMPROVED_POLITICAL_STABILITY =
-  columnNames.POLITICAL_STABILITY + improved;
+  columnNames.POLITICAL_STABILITY.replace(estimate, improved);
 export const IMPROVED_REGULATORY_QUALITY =
-  columnNames.REGULATORY_QUALITY + improved;
-export const IMPROVED_RULE_OF_LAW = columnNames.RULE_OF_LAW + improved;
+  columnNames.REGULATORY_QUALITY.replace(estimate, improved);
+export const IMPROVED_RULE_OF_LAW = columnNames.RULE_OF_LAW.replace(
+  estimate,
+  improved,
+);
 export const IMPROVED_VOICE_AND_ACCOUNTABILITY =
-  columnNames.VOICE_AND_ACCOUNTABILITY + improved;
+  columnNames.VOICE_AND_ACCOUNTABILITY.replace(estimate, improved);
 
 // Coverage model
 export const IMPROVED_BASIC_SANITATION_COVERAGE =

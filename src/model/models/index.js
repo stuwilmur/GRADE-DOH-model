@@ -1,3 +1,5 @@
 import * as revenue from './revenue';
-import {createTargetGrpcModel} from './target-grpc';
-export {revenue, createTargetGrpcModel};
+import * as coverage from './coverage';
+import * as governance from './governance';
+import {createTargetGrpcModel} from './target-grpc'; // TODO: consistent import
+export {revenue, coverage, governance, createTargetGrpcModel};

@@ -44,3 +44,20 @@ export function governanceObjectFromBaseObservedGovernance(dataRow) {
     dataRow[constants.columnNames.VOICE_AND_ACCOUNTABILITY],
   );
 }
+
+/**
+ * Create a governance object for the improved governance,
+ * given a row of the computed data
+ * @param {object} dataRow data row object from the base data
+ * @return {object} Governance object
+ */
+export function governanceObjectFromImprovedGovernance(dataRow) {
+  return governanceObject(
+    dataRow[constants.computedColumnNames.IMPROVED_CONTROL_OF_CORRUPTION],
+    dataRow[constants.computedColumnNames.IMPROVED_GOVERNMENT_EFFECTIVENESS],
+    dataRow[constants.computedColumnNames.IMPROVED_POLITICAL_STABILITY],
+    dataRow[constants.computedColumnNames.IMPROVED_REGULATORY_QUALITY],
+    dataRow[constants.computedColumnNames.IMPROVED_RULE_OF_LAW],
+    dataRow[constants.computedColumnNames.IMPROVED_VOICE_AND_ACCOUNTABILITY],
+  );
+}
