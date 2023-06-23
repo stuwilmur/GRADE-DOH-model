@@ -43,7 +43,7 @@ const tests = [
   {
     name: model.coverage.measuresNames.underFiveSurvival,
     f: target.underFiveSurvival,
-    value: data[model.constants.columnNames.U5_SURVIVAL_COVERAGE],
+    value: data[model.constants.columnNames.UNDER_5_SURVIVAL_COVERAGE],
   },
 ];
 

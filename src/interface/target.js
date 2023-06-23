@@ -71,5 +71,5 @@ export const schoolAttendance = curry2(
 export const underFiveSurvival = curry2(
   calcGrpcForTargetCoverage,
   model.coverage.target.underFiveSurvival,
-  model.constants.columnNames.U5_SURVIVAL_COVERAGE,
+  model.constants.columnNames.UNDER_5_SURVIVAL_COVERAGE,
 );

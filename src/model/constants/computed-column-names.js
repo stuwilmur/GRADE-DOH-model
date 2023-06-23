@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import * as columnNames from './column-names';
 /*
 Strings for the computed column names
@@ -6,6 +7,18 @@ Strings for the computed column names
 // Utility strings
 const estimate = ': Estimate';
 const improved = ': Improved';
+const BASIC_WATER_NAME = 'Basic water (SDG 6)';
+const SAFE_WATER_NAME = 'Safe water (SDG 6)';
+const BASIC_SANITATION_NAME = 'Basic sanitation (SDG 6)';
+const SAFE_SANITATION_NAME = 'Safe sanitation (SDG 6)';
+const PEOPLE = 'People';
+const CHILDREN_UNDER_5 = 'Children < 5';
+const FEMALES_15_49 = 'Females 15-49';
+const WITH_INCREASED_ACCESS_TO = 'with increased access to';
+const UNDER_5 = 'Under-5';
+const MATERNAL = 'Maternal';
+const DEATHS_AVERTED = 'deaths averted';
+const DEATHS_WITH_ADDITIONAL_REVENUE = 'deaths with additional revenue';
 
 // Target model
 export const TARGET_COVERAGE = 'target coverage';
@@ -42,17 +55,37 @@ export const IMPROVED_VOICE_AND_ACCOUNTABILITY =
 // Coverage model
 export const IMPROVED_BASIC_SANITATION_COVERAGE =
   columnNames.BASIC_SANITATION_COVERAGE + improved;
+export const IMPROVED_BASIC_SANITATION_PEOPLE = `${PEOPLE} ${WITH_INCREASED_ACCESS_TO} ${BASIC_SANITATION_NAME}`;
+export const IMPROVED_BASIC_SANITATION_CHILDREN_UNDER_5 = `${CHILDREN_UNDER_5} ${WITH_INCREASED_ACCESS_TO} ${BASIC_SANITATION_NAME}`;
+export const IMPROVED_BASIC_SANITATION_FEMALES_15_49 = `${FEMALES_15_49} ${WITH_INCREASED_ACCESS_TO} ${BASIC_SANITATION_NAME}`;
 export const IMPROVED_IMMUNISATION_COVERAGE =
   columnNames.IMMUNISATION_COVERAGE + improved;
+export const INFANTS_IMMUNISED = 'Number of infants immunised';
 export const IMPROVED_MATERNAL_SURVIVAL_COVERAGE =
   columnNames.MATERNAL_SURVIVAL_COVERAGE + improved;
+export const MATERNAL_DEATHS_AVERTED = `${MATERNAL} ${DEATHS_AVERTED}`;
+export const MATERNAL_DEATHS_WITH_ADDITIONAL_REVENUE = `${MATERNAL} ${DEATHS_WITH_ADDITIONAL_REVENUE}`;
+export const COST_PER_MATERNAL_LIFE_SAVED = 'Cost per maternal life saved';
 export const IMPROVED_SAFE_SANITATION_COVERAGE =
   columnNames.SAFE_SANITATION_COVERAGE + improved;
+export const IMPROVED_SAFE_SANITATION_PEOPLE = `${PEOPLE} ${WITH_INCREASED_ACCESS_TO} ${SAFE_SANITATION_NAME}`;
+export const IMPROVED_SAFE_SANITATION_CHILDREN_UNDER_5 = `${CHILDREN_UNDER_5} ${WITH_INCREASED_ACCESS_TO} ${SAFE_SANITATION_NAME}`;
+export const IMPROVED_SAFE_SANITATION_FEMALES_15_49 = `${FEMALES_15_49} ${WITH_INCREASED_ACCESS_TO} ${SAFE_SANITATION_NAME}`;
 export const IMPROVED_BASIC_WATER_COVERAGE =
   columnNames.BASIC_WATER_COVERAGE + improved;
+export const IMPROVED_BASIC_WATER_PEOPLE = `${PEOPLE} ${WITH_INCREASED_ACCESS_TO} ${BASIC_WATER_NAME}`;
+export const IMPROVED_BASIC_WATER_CHILDREN_UNDER_5 = `${CHILDREN_UNDER_5} ${WITH_INCREASED_ACCESS_TO} ${BASIC_WATER_NAME}`;
+export const IMPROVED_BASIC_WATER_FEMALES_15_49 = `${FEMALES_15_49} ${WITH_INCREASED_ACCESS_TO} ${BASIC_WATER_NAME}`;
 export const IMPROVED_SAFE_WATER_COVERAGE =
   columnNames.SAFE_WATER_COVERAGE + improved;
+export const IMPROVED_SAFE_WATER_PEOPLE = `${PEOPLE} ${WITH_INCREASED_ACCESS_TO} ${SAFE_WATER_NAME}`;
+export const IMPROVED_SAFE_WATER_CHILDREN_UNDER_5 = `${CHILDREN_UNDER_5} ${WITH_INCREASED_ACCESS_TO} ${SAFE_WATER_NAME}`;
+export const IMPROVED_SAFE_WATER_FEMALES_15_49 = `${FEMALES_15_49} ${WITH_INCREASED_ACCESS_TO} ${SAFE_WATER_NAME}`;
 export const IMPROVED_SCHOOL_ATTENDANCE_COVERAGE =
   columnNames.SCHOOL_ATTENDANCE_COVERAGE + improved;
-export const IMPROVED_U5_SURVIVAL_COVERAGE =
-  columnNames.U5_SURVIVAL_COVERAGE + improved;
+export const ADDITIONAL_CHILD_SCHOOL_YEARS = 'Additional child school years';
+export const IMPROVED_UNDER_5_SURVIVAL_COVERAGE =
+  columnNames.UNDER_5_SURVIVAL_COVERAGE + improved;
+export const UNDER_5_DEATHS_AVERTED = `${UNDER_5} ${DEATHS_AVERTED}`;
+export const UNDER_5_DEATHS_WITH_ADDITIONAL_REVENUE = `${UNDER_5} ${DEATHS_WITH_ADDITIONAL_REVENUE}`;
+export const COST_PER_UNDER_5_LIFE_SAVED = 'Cost per under-5 life saved';
