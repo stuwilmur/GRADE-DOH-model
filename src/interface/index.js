@@ -1,2 +1,3 @@
 import * as target from './target';
-export {target};
+import * as coverage from './coverage';
+export {target, coverage};
