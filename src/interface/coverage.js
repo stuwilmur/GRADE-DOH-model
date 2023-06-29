@@ -33,44 +33,49 @@ export function instantaneous(
   },
   data,
 ) {
-  let grpcModel;
-  if (grpcMethod == GrpcMethod.IMPROVED_GRPC) {
-    grpcModel = mt
-      .model()
-      .const()
-      .called(model.constants.computedColumnNames.IMPROVED_GRPC)
-      .value(grpcValue)
-      .end()
-      .add(model.models.revenue.createGrpcFromImprovedGrpc());
-  } else if (grpcMethod == GrpcMethod.ABSOLUTE_ADDITIONAL_REVENUE) {
-    grpcModel = mt
-      .model()
-      .const()
-      .called(model.constants.computedColumnNames.ABSOLUTE_ADDITIONAL_REVENUE)
-      .value(grpcValue)
-      .end()
-      .add(model.models.revenue.createGrpcFromAbsoluteIncreaseModel());
-  } else if (grpcMethod == GrpcMethod.PER_CAPITA_INCREASE) {
-    grpcModel = mt
-      .model()
-      .const()
-      .called(model.constants.computedColumnNames.PER_CAPITA_INCREASE_IN_GRPC)
-      .value(grpcValue)
-      .end()
-      .add(model.models.revenue.createGrpcFromPerCapitaIncreaseModel());
-  } else if (grpcMethod == GrpcMethod.PERCENTAGE_INCREASE) {
-    grpcModel = mt
-      .model()
-      .const()
-      .called(model.constants.computedColumnNames.PERCENTAGE_INCREASE_IN_GRPC)
-      .value(grpcValue)
-      .end()
-      .add(model.models.revenue.createGrpcFromPercentageIncreaseModel());
+  let grpcComputedColumnName;
+  let grpcComputedColumnModel;
+
+  switch (grpcMethod) {
+    case GrpcMethod.ABSOLUTE_ADDITIONAL_REVENUE:
+      grpcComputedColumnName =
+        model.constants.computedColumnNames.ABSOLUTE_ADDITIONAL_REVENUE;
+      grpcComputedColumnModel =
+        model.models.revenue.createGrpcFromAbsoluteIncreaseModel();
+      break;
+    case GrpcMethod.PER_CAPITA_INCREASE:
+      grpcComputedColumnName =
+        model.constants.computedColumnNames.PER_CAPITA_INCREASE_IN_GRPC;
+      grpcComputedColumnModel =
+        model.models.revenue.createGrpcFromPerCapitaIncreaseModel();
+      break;
+    case GrpcMethod.PERCENTAGE_INCREASE:
+      grpcComputedColumnName =
+        model.constants.computedColumnNames.PERCENTAGE_INCREASE_IN_GRPC;
+      grpcComputedColumnModel =
+        model.models.revenue.createGrpcFromPercentageIncreaseModel();
+      break;
+    case GrpcMethod.IMPROVED_GRPC:
+    default:
+      grpcComputedColumnName =
+        model.constants.computedColumnNames.IMPROVED_GRPC;
+      grpcComputedColumnModel =
+        model.models.revenue.createGrpcFromImprovedGrpc();
+      break;
   }
-  const theModel = grpcModel.add(
-    model.models.governance
-      .createGovernanceConstantAdjustmentModel(governanceDelta)
-      .add(model.models.coverage.createCoverageModel()),
-  );
-  return theModel.data(data);
+
+  const totalModel = mt
+    .model()
+    .const()
+    .called(grpcComputedColumnName)
+    .value(grpcValue)
+    .end()
+    .add(grpcComputedColumnModel)
+    .add(
+      model.models.governance
+        .createGovernanceConstantAdjustmentModel(governanceDelta)
+        .add(model.models.coverage.createCoverageModel()),
+    );
+
+  return totalModel.data(data);
 }
