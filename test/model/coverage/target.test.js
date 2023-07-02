@@ -16,7 +16,7 @@ const measuresToTest = new Map([
 ]);
 
 const governanceObserved = governanceObject(
-  testData.observed.controlOfCorruption,
+  testData.observed.CORRUPTION,
   testData.observed.GOVEFFECT,
   testData.observed.POLSTAB,
   testData.observed.REGQUALITY,
