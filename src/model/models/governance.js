@@ -71,14 +71,26 @@ export function createGovernanceConstantAdjustmentModel(
     )
     .end();
 }
+
+/**
+ * Helper function to return a property from an object which may be
+ * undefined; if the object is undefined, returns null
+ * @param {object} object Object which may be undefined
+ * @param {string} property Property to get
+ * @return {any} The property, or null if the object is undefined
+ */
+function getFromPossibleUndefinedObject(object, property) {
+  return object == undefined ? null : object[property];
+}
+
 /**
  * Helper function to forecast governance
  * @param {function} forecaster Forecasting function
  * @param {string} columnName Observed column name for governance measure
  * @param {string} computedColumnName Computed column name for governance
  * @param {object} r current data row
- * @param {object} r1 previous data row
- * @param {object} r2 second-lagged data row
+ * @param {object} prev previous data row
+ * @param {object} prev2 second-lagged data row
  * @return {number} forecast value
  */
 function forecastGovernance(
@@ -86,22 +98,26 @@ function forecastGovernance(
   columnName,
   computedColumnName,
   r,
-  r1,
-  r2,
+  prev,
+  prev2,
 ) {
   return forecaster(
     r[columnName],
-    prev == undefined ? null : prev[columnName],
-    prev2 == undefined ? null : prev2[columnName],
+    getFromPossibleUndefinedObject(prev, columnName),
+    getFromPossibleUndefinedObject(prev2, columnName),
     r[model.constants.columnNames.GRPC_UNUWIDER],
-    prev == undefined ? null : prev[model.constants.columnNames.GRPC_UNUWIDER],
-    prev == undefined ? null : prev[computedColumnName],
-    prev2 == undefined ? null : prev2[computedColumnName],
+    getFromPossibleUndefinedObject(
+      prev,
+      model.constants.columnNames.GRPC_UNUWIDER,
+    ),
+    getFromPossibleUndefinedObject(prev, computedColumnName),
+    getFromPossibleUndefinedObject(prev2, computedColumnName),
     r[model.constants.computedColumnNames.IMPROVED_GRPC],
     // eslint-disable-next-line max-len
-    prev == undefined
-      ? null
-      : prev[model.constants.computedColumnNames.IMPROVED_GRPC],
+    getFromPossibleUndefinedObject(
+      prev,
+      model.constants.computedColumnNames.IMPROVED_GRPC,
+    ),
   );
 }
 
@@ -137,7 +153,7 @@ export function createGovernanceForecastModel() {
     )
     .does((r, getPrev) =>
       forecastGovernance(
-        model.governance.forecast.controlOfCorruption,
+        model.governance.forecast.governmentEffectiveness,
         model.constants.columnNames.GOVERNMENT_EFFECTIVENESS,
         model.constants.computedColumnNames.IMPROVED_GOVERNMENT_EFFECTIVENESS,
         r,
@@ -150,7 +166,7 @@ export function createGovernanceForecastModel() {
     .called(model.constants.computedColumnNames.IMPROVED_POLITICAL_STABILITY)
     .does((r, getPrev) =>
       forecastGovernance(
-        model.governance.forecast.controlOfCorruption,
+        model.governance.forecast.politicalStability,
         model.constants.columnNames.POLITICAL_STABILITY,
         model.constants.computedColumnNames.IMPROVED_POLITICAL_STABILITY,
         r,
@@ -163,7 +179,7 @@ export function createGovernanceForecastModel() {
     .called(model.constants.computedColumnNames.IMPROVED_REGULATORY_QUALITY)
     .does((r, getPrev) =>
       forecastGovernance(
-        model.governance.forecast.controlOfCorruption,
+        model.governance.forecast.regulatoryQuality,
         model.constants.columnNames.REGULATORY_QUALITY,
         model.constants.computedColumnNames.IMPROVED_REGULATORY_QUALITY,
         r,
@@ -176,7 +192,7 @@ export function createGovernanceForecastModel() {
     .called(model.constants.computedColumnNames.IMPROVED_RULE_OF_LAW)
     .does((r, getPrev) =>
       forecastGovernance(
-        model.governance.forecast.controlOfCorruption,
+        model.governance.forecast.ruleOfLaw,
         model.constants.columnNames.RULE_OF_LAW,
         model.constants.computedColumnNames.IMPROVED_RULE_OF_LAW,
         r,
@@ -191,7 +207,7 @@ export function createGovernanceForecastModel() {
     )
     .does((r, getPrev) =>
       forecastGovernance(
-        model.governance.forecast.controlOfCorruption,
+        model.governance.forecast.voiceAndAccountability,
         model.constants.columnNames.VOICE_AND_ACCOUNTABILITY,
         model.constants.computedColumnNames.IMPROVED_VOICE_AND_ACCOUNTABILITY,
         r,
