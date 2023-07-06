@@ -10,6 +10,13 @@ export const GrpcMethod = {
 
 Object.freeze(GrpcMethod);
 
+export const GovernanceMethod = {
+  ENDOGENOUS: 0,
+  EXOGENOUS: 1,
+};
+
+Object.freeze(GovernanceMethod);
+
 /**
  * Calculate instantanoeous coverage and associated improvements. This model
  * takes an improvement in GRPC, which may be specified in multiple ways, and
@@ -18,10 +25,10 @@ Object.freeze(GrpcMethod);
  * applying the GRPC and governance values is calculated for all rows in the
  * data supplied, where each row corresponds to a single country and year.
  * @param {object} paramsObject Parameters object. Attributes are:
- * grpcValue: the value which, together with a method, is used to define
- * the change in GRPC
- * grpcMethod: the method used to define the change in GRPC
- * governanceDelta: the constant change in governance
+ * - grpcValue: the value which, together with a method, is used to define
+ *   the change in GRPC
+ * - grpcMethod: the method used to define the change in GRPC
+ * - governanceDelta: the constant change in governance
  * @param {array} data Base data array
  * @return {array} Base data with additional computed columns
  */
@@ -78,4 +85,67 @@ export function instantaneous(
     );
 
   return totalModel.data(data);
+}
+
+/**
+ * Forecast coverage, given a percentage improvement in GRPC.
+ * Governance may be modelled either endogenously or exogenously:
+ * - for the ENDOGENOUS case, the governance is forecast using the
+ *   model equations and observed data.
+ * - for the EXOGENOUS case, governance is calculated using the
+ *   observed governance plus a fixed delta applied equally across
+ *   all measures; in addition, in this model ONLY, an optional number
+ *   of steps to wait before applying the uplift in GRPC may be applied,
+ *   which simulates a delay in the effect of interventions to increase
+ *   GRPC.
+ * @param {object}} paramsObject Parameters object. Attributes are:
+ * - grpcPercentageImprovement: Percentage improvement in GRPC
+ * - governanceMethod: the method used to calculate governance
+ * - grpcDelay: the delay (in timesteps) to apply the improvement in
+ *   GRPC: a delay of zero will apply the uplift from the first timestep,
+ *   a delay of one will apply the uplift from the second timestep, and
+ *   so on: only applied in the exogenous governance model.
+ * - governanceDelta: the constant delta to be applied across all
+ *   governance measures, only in the exogenous governance model.
+ * @param {array} data Base data array
+ * @return {array}  Base data with additional computed columns
+ */
+export function forecast(
+  {
+    grpcPercentageImprovement = 0,
+    governanceMethod = GovernanceMethod.ENDOGENOUS,
+    grpcDelay = 5,
+    governanceDelta = 0,
+  },
+  data,
+) {
+  if (governanceMethod == GovernanceMethod.ENDOGENOUS) {
+    return mt
+      .model()
+      .const()
+      .called(model.constants.computedColumnNames.IMPROVED_GRPC)
+      .value(grpcPercentageImprovement)
+      .end()
+      .add(model.models.governance.createGovernanceForecastModel())
+      .add(model.models.coverage.createCoverageModel())
+      .data(data);
+  } else if (governanceMethod == GovernanceMethod.EXOGENOUS) {
+    return mt
+      .model()
+      .calc()
+      .called(model.constants.computedColumnNames.IMPROVED_GRPC)
+      .does((r, getPrev) =>
+        getPrev(grpcDelay) == undefined ? 100 : grpcPercentageImprovement,
+      )
+      .end()
+      .add(
+        model.models.governance.createGovernanceConstantAdjustmentModel(
+          governanceDelta,
+        ),
+      )
+      .add(model.models.coverage.createCoverageModel())
+      .data(data);
+  } else return undefined;
+
+  return data;
 }
