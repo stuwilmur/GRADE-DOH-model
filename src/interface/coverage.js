@@ -123,9 +123,10 @@ export function forecast(
     return mt
       .model()
       .const()
-      .called(model.constants.computedColumnNames.IMPROVED_GRPC)
+      .called(model.constants.computedColumnNames.PERCENTAGE_INCREASE_IN_GRPC)
       .value(grpcPercentageImprovement)
       .end()
+      .add(model.models.revenue.createGrpcFromPercentageIncreaseModel())
       .add(model.models.governance.createGovernanceForecastModel())
       .add(model.models.coverage.createCoverageModel())
       .data(data);
@@ -133,11 +134,12 @@ export function forecast(
     return mt
       .model()
       .calc()
-      .called(model.constants.computedColumnNames.IMPROVED_GRPC)
+      .called(model.constants.computedColumnNames.PERCENTAGE_INCREASE_IN_GRPC)
       .does((r, getPrev) =>
-        getPrev(grpcDelay) == undefined ? 100 : grpcPercentageImprovement,
+        getPrev(grpcDelay) == undefined ? 0 : grpcPercentageImprovement,
       )
       .end()
+      .add(model.models.revenue.createGrpcFromPercentageIncreaseModel())
       .add(
         model.models.governance.createGovernanceConstantAdjustmentModel(
           governanceDelta,
@@ -145,7 +147,7 @@ export function forecast(
       )
       .add(model.models.coverage.createCoverageModel())
       .data(data);
-  } else return undefined;
-
-  return data;
+  } else {
+    return undefined;
+  }
 }
