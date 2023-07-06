@@ -18,7 +18,7 @@ function calcGrpcForTargetCoverage(
   targetCoverage,
   data,
 ) {
-  const targetGrpcModel = model.models.createTargetGrpcModel(
+  const targetGrpcModel = model.models.target.createTargetGrpcModel(
     targetCoverageFunction,
     coverageColumnName,
     targetCoverage,

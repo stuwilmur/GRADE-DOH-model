@@ -1,5 +1,5 @@
 import * as mt from 'micro-table/dist/module';
-import * as model from '../../model';
+import * as model from '..';
 
 /**
  * Calculate GRPC necessary to achieve target coverage
