@@ -48,7 +48,7 @@ const tests = [
 ];
 
 tests.forEach((aTest) => {
-  test(`tests targeting ${aTest.name}`, () => {
+  test(`Tests calculated target GRPC for ${aTest.name} is as expected`, () => {
     expect(
       aTest.f(aTest.value, [data])[0][
         model.constants.computedColumnNames.TARGET_GRPC

@@ -1,3 +1,5 @@
+// Data for Bangladesh 2002, from GRADE-DOH-DATA
+
 export const data = {
   'countryyearcode': 'BGD2002',
   'SLE': 0,

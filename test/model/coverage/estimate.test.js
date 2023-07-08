@@ -34,7 +34,7 @@ const governanceAdjusted = governanceObject(
 );
 
 measuresToTest.forEach((estimator, measure) => {
-  test(`tests ${measure} estimator with observed grpc and governance`, () => {
+  test(`Tests ${measure} estimator with observed grpc and governance`, () => {
     expect(
       estimator(
         testData.observed[measure],
@@ -46,7 +46,7 @@ measuresToTest.forEach((estimator, measure) => {
     ).toBe(testData.observed[measure]);
   });
 
-  test(`tests ${measure} estimator: adjusted grpc, observed governance`, () => {
+  test(`Tests ${measure} estimator: adjusted grpc, observed governance`, () => {
     expect(
       estimator(
         testData.observed[measure],
@@ -58,7 +58,7 @@ measuresToTest.forEach((estimator, measure) => {
     ).toBeCloseTo(testData.grpcAdjusted[measure], digitsTolerance);
   });
 
-  test(`tests ${measure} estimator: reduced grpc, observed governance`, () => {
+  test(`Tests ${measure} estimator: reduced grpc, observed governance`, () => {
     expect(
       estimator(
         testData.observed[measure],
@@ -70,7 +70,7 @@ measuresToTest.forEach((estimator, measure) => {
     ).toBeCloseTo(testData.grpcReduced[measure], digitsTolerance);
   });
 
-  test(`tests ${measure} estimator: observed grpc, adjusted governance`, () => {
+  test(`Tests ${measure} estimator: observed grpc, adjusted governance`, () => {
     expect(
       estimator(
         testData.observed[measure],

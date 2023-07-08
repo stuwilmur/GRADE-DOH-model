@@ -1,3 +1,5 @@
+// Data for Afghanistan 2010, from governance_check_spreadsheet.xlsx
+
 import {
   columnNames,
   computedColumnNames,

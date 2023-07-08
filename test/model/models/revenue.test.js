@@ -19,7 +19,7 @@ test(`test GrpcFromAbsoluteIncreaseModel model `, () => {
   expect(result).toStrictEqual(data);
 });
 
-test(`test GrpcFromPerCapitaIncreaseModel model `, () => {
+test(`Tests GrpcFromPerCapitaIncreaseModel model `, () => {
   const result = model.models.revenue
     .createGrpcFromPerCapitaIncreaseModel()
     .data([data])[0];
@@ -30,7 +30,7 @@ test(`test GrpcFromPerCapitaIncreaseModel model `, () => {
   expect(result).toStrictEqual(data);
 });
 
-test(`test GrpcFromPercentageIncreaseModel model `, () => {
+test(`Tests GrpcFromPercentageIncreaseModel model `, () => {
   const result = model.models.revenue
     .createGrpcFromPercentageIncreaseModel()
     .data([data])[0];
@@ -41,7 +41,7 @@ test(`test GrpcFromPercentageIncreaseModel model `, () => {
   expect(result).toStrictEqual(data);
 });
 
-test(`test GrpcFromImprovedGrpc model `, () => {
+test(`Tests GrpcFromImprovedGrpc model`, () => {
   const result = model.models.revenue
     .createGrpcFromImprovedGrpc()
     .data([data])[0];

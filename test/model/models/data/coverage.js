@@ -1,3 +1,5 @@
+// Base data for Bangladesh 2002, from GRADE-DOH-DATA
+
 /* eslint-disable max-len */
 export const input = [
   {

@@ -1,7 +1,7 @@
 import * as model from '../../../src/model';
 import * as data from './data/coverage';
 
-test(`test coverage for 10% increase in GRPC, no governance adjustment,
+test(`Tests coverage for 10% increase in GRPC, no governance adjustment,
  for a single country and year`, () => {
   const result = model.models.governance
     .createGovernanceConstantAdjustmentModel(0)

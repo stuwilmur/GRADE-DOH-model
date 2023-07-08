@@ -25,7 +25,7 @@ const governanceObserved = governanceObject(
 );
 
 measuresToTest.forEach((targeter, measure) => {
-  test(`tests ${measure} targeting: observed grpc, observed governance`, () => {
+  test(`Tests ${measure} targeting: observed grpc, observed governance`, () => {
     expect(
       targeter(
         testData.observed[measure],
@@ -46,7 +46,7 @@ measuresToTest.forEach((targeter, measure) => {
   const grpcAdjusted =
     measure == 'safeWater' ? testData.grpcReduced : testData.grpcAdjusted;
 
-  test(`tests ${measure} targeting: adjusted grpc, observed governance`, () => {
+  test(`Tests ${measure} targeting: adjusted grpc, observed governance`, () => {
     expect(
       targeter(
         testData.observed[measure],

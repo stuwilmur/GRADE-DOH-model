@@ -79,7 +79,7 @@ measuresAndFunctions.forEach((m) => {
       improvedGrpc1,
     );
     if (!isNaN(forecastMeasure)) {
-      test(`tests ${name} forecast at timestep ${i}`, () => {
+      test(`Tests ${name} forecast at timestep ${i}`, () => {
         expect(forecastValue).toBeCloseTo(forecastMeasure, digitsTolerance);
       });
     }
