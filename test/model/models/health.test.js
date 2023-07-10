@@ -1,5 +1,5 @@
 import * as model from '../../../src/model';
-import * as data from './data/coverage';
+import * as data from './data/health';
 
 test(`Tests coverage for 10% increase in GRPC, no governance adjustment,
  for a single country and year`, () => {

@@ -1,3 +1,3 @@
 import * as target from './target';
-import * as coverage from './coverage';
-export {target, coverage};
+import * as health from './health';
+export {target, health};

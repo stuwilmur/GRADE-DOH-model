@@ -1,4 +1,4 @@
-import * as coverage from '../coverage';
+import * as coverage from '../health';
 import * as constants from '../constants';
 import * as mt from 'micro-table/dist/module';
 import * as governance from '../governance';

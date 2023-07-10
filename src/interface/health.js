@@ -87,6 +87,8 @@ export function instantaneous(
   return totalModel.data(data);
 }
 
+// TODO: allow user to specify method for grpc change
+
 /**
  * Forecast coverage, given a percentage improvement in GRPC.
  * Governance may be modelled either endogenously or exogenously:

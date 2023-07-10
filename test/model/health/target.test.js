@@ -1,4 +1,4 @@
-import * as coverage from '../../../src/model/coverage';
+import * as coverage from '../../../src/model/health';
 import {governanceObject} from '../../../src/model/governance';
 import {testData} from './data';
 
