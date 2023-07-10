@@ -1,4 +1,4 @@
-// Data for Afghanistan 2010, from coverage_check_spreadsheet.xlsx
+// Data for Afghanistan 2010, from health_check_spreadsheet.xlsx
 
 export const testData = {
   observed: {
