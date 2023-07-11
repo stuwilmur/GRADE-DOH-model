@@ -1,4 +1,4 @@
-import * as constants from '../constants';
+import * as constants from '../../constants';
 
 /**
  * Create a governance object given values for governance indicators

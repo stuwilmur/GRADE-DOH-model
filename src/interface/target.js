@@ -8,7 +8,7 @@ import {curry2} from '../utils';
  * @param {number} targetCoverage Target coverage percentage
  * @param {array} data Base data array
  * @return {array} Base data with additional computed columns
- * model.health.
+ * model.functions.health.
  * The following conditions must be satisfied, or the function returns NaN:
  * 0 < observed coverage <= target coverage <= 100
  */
@@ -29,48 +29,48 @@ function calcGrpcForTargetCoverage(
 // TODO: add JSDOC comments for all
 export const basicSanitation = curry2(
   calcGrpcForTargetCoverage,
-  model.health.target.basicSanitation,
+  model.functions.health.target.basicSanitation,
   model.constants.columnNames.BASIC_SANITATION_COVERAGE,
 );
 
 export const basicWater = curry2(
   calcGrpcForTargetCoverage,
-  model.health.target.basicWater,
+  model.functions.health.target.basicWater,
   model.constants.columnNames.BASIC_WATER_COVERAGE,
 );
 
 export const immunisation = curry2(
   calcGrpcForTargetCoverage,
-  model.health.target.immunisation,
+  model.functions.health.target.immunisation,
   model.constants.columnNames.IMMUNISATION_COVERAGE,
 );
 
 export const maternalSurvival = curry2(
   calcGrpcForTargetCoverage,
-  model.health.target.maternalSurvival,
+  model.functions.health.target.maternalSurvival,
   model.constants.columnNames.MATERNAL_SURVIVAL_COVERAGE,
 );
 
 export const safeSanitation = curry2(
   calcGrpcForTargetCoverage,
-  model.health.target.safeSanitation,
+  model.functions.health.target.safeSanitation,
   model.constants.columnNames.SAFE_SANITATION_COVERAGE,
 );
 
 export const safeWater = curry2(
   calcGrpcForTargetCoverage,
-  model.health.target.safeWater,
+  model.functions.health.target.safeWater,
   model.constants.columnNames.SAFE_WATER_COVERAGE,
 );
 
 export const schoolAttendance = curry2(
   calcGrpcForTargetCoverage,
-  model.health.target.schoolAttendance,
+  model.functions.health.target.schoolAttendance,
   model.constants.columnNames.SCHOOL_ATTENDANCE_COVERAGE,
 );
 
 export const underFiveSurvival = curry2(
   calcGrpcForTargetCoverage,
-  model.health.target.underFiveSurvival,
+  model.functions.health.target.underFiveSurvival,
   model.constants.columnNames.UNDER_5_SURVIVAL_COVERAGE,
 );

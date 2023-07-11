@@ -2,7 +2,7 @@ import {
   grpcFromAbsoluteIncrease,
   grpcFromPercentageIncrease,
   grpcFromPerCapitaIncrease,
-} from '../../../src/model/revenue';
+} from '../../../../src/model/functions/revenue';
 
 test('Tests computing $100 increase in GRPC', () => {
   expect(grpcFromAbsoluteIncrease(100, 100, 100)).toStrictEqual(101);

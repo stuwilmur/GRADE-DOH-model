@@ -1,7 +1,7 @@
-import * as coverage from '../health';
+import * as coverage from '../functions/health';
 import * as constants from '../constants';
 import * as mt from 'micro-table/dist/module';
-import * as governance from '../governance';
+import * as governance from '../functions/governance';
 
 /**
  * Helper function to calculate the number of people in a population affected

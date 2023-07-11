@@ -138,7 +138,7 @@ export function createGovernanceForecastModel() {
     .called(model.constants.computedColumnNames.IMPROVED_CONTROL_OF_CORRUPTION)
     .does((r, getPrev) =>
       forecastGovernance(
-        model.governance.forecast.controlOfCorruption,
+        model.functions.governance.forecast.controlOfCorruption,
         model.constants.columnNames.CONTROL_OF_CORRUPTION,
         model.constants.computedColumnNames.IMPROVED_CONTROL_OF_CORRUPTION,
         r,
@@ -153,7 +153,7 @@ export function createGovernanceForecastModel() {
     )
     .does((r, getPrev) =>
       forecastGovernance(
-        model.governance.forecast.governmentEffectiveness,
+        model.functions.governance.forecast.governmentEffectiveness,
         model.constants.columnNames.GOVERNMENT_EFFECTIVENESS,
         model.constants.computedColumnNames.IMPROVED_GOVERNMENT_EFFECTIVENESS,
         r,
@@ -166,7 +166,7 @@ export function createGovernanceForecastModel() {
     .called(model.constants.computedColumnNames.IMPROVED_POLITICAL_STABILITY)
     .does((r, getPrev) =>
       forecastGovernance(
-        model.governance.forecast.politicalStability,
+        model.functions.governance.forecast.politicalStability,
         model.constants.columnNames.POLITICAL_STABILITY,
         model.constants.computedColumnNames.IMPROVED_POLITICAL_STABILITY,
         r,
@@ -179,7 +179,7 @@ export function createGovernanceForecastModel() {
     .called(model.constants.computedColumnNames.IMPROVED_REGULATORY_QUALITY)
     .does((r, getPrev) =>
       forecastGovernance(
-        model.governance.forecast.regulatoryQuality,
+        model.functions.governance.forecast.regulatoryQuality,
         model.constants.columnNames.REGULATORY_QUALITY,
         model.constants.computedColumnNames.IMPROVED_REGULATORY_QUALITY,
         r,
@@ -192,7 +192,7 @@ export function createGovernanceForecastModel() {
     .called(model.constants.computedColumnNames.IMPROVED_RULE_OF_LAW)
     .does((r, getPrev) =>
       forecastGovernance(
-        model.governance.forecast.ruleOfLaw,
+        model.functions.governance.forecast.ruleOfLaw,
         model.constants.columnNames.RULE_OF_LAW,
         model.constants.computedColumnNames.IMPROVED_RULE_OF_LAW,
         r,
@@ -207,7 +207,7 @@ export function createGovernanceForecastModel() {
     )
     .does((r, getPrev) =>
       forecastGovernance(
-        model.governance.forecast.voiceAndAccountability,
+        model.functions.governance.forecast.voiceAndAccountability,
         model.constants.columnNames.VOICE_AND_ACCOUNTABILITY,
         model.constants.computedColumnNames.IMPROVED_VOICE_AND_ACCOUNTABILITY,
         r,

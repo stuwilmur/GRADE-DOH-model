@@ -1,5 +1,5 @@
-import * as coverage from '../../../src/model/health';
-import {governanceObject} from '../../../src/model/governance';
+import * as coverage from '../../../../src/model/functions/health';
+import {governanceObject} from '../../../../src/model/functions/governance';
 import {testData} from './data';
 
 const digitsTolerance = 5;

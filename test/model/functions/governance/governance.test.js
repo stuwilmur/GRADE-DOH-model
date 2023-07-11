@@ -1,5 +1,5 @@
 import {testData} from './data';
-import * as governance from '../../../src/model/governance';
+import * as governance from '../../../../src/model/functions/governance';
 
 const digitsTolerance = 6;
 

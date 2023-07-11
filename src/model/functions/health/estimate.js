@@ -1,5 +1,5 @@
 import * as measures from './measures';
-import {curry, applyResidual} from '../../utils';
+import {curry, applyResidual} from '../../../utils';
 
 /**
  * Estimate coverage from the model equations:

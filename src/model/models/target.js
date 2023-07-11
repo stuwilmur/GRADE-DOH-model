@@ -31,14 +31,16 @@ export function createTargetGrpcModel(
         r[coverageColumnName],
         r[model.constants.columnNames.GRPC_UNUWIDER],
         targetCoverage,
-        model.governance.governanceObjectFromBaseObservedGovernance(r),
+        model.functions.governance.governanceObjectFromBaseObservedGovernance(
+          r,
+        ),
       ),
     )
     .end()
     .calc()
     .called(model.constants.computedColumnNames.TARGET_GRPC_PERCENTAGE_INCREASE)
     .does((r) =>
-      model.revenue.percentageIncreaseFromNewGrpc(
+      model.functions.revenue.percentageIncreaseFromNewGrpc(
         r[model.constants.columnNames.GRPC_UNUWIDER],
         r[model.constants.computedColumnNames.TARGET_GRPC],
       ),
@@ -49,7 +51,7 @@ export function createTargetGrpcModel(
       model.constants.computedColumnNames.TARGET_ADDITIONAL_REVENUE_PER_CAPITA,
     )
     .does((r) =>
-      model.revenue.additionalRevenuePerCapitaFromNewGrpc(
+      model.functions.revenue.additionalRevenuePerCapitaFromNewGrpc(
         r[model.constants.columnNames.GRPC_UNUWIDER],
         r[model.constants.computedColumnNames.TARGET_GRPC],
       ),
@@ -60,7 +62,7 @@ export function createTargetGrpcModel(
       model.constants.computedColumnNames.TARGET_ABSOLUTE_ADDITIONAL_REVENUE,
     )
     .does((r) =>
-      model.revenue.absoluteAdditionalRevenueFromNewGrpc(
+      model.functions.revenue.absoluteAdditionalRevenueFromNewGrpc(
         r[model.constants.columnNames.GRPC_UNUWIDER],
         r[model.constants.computedColumnNames.TARGET_GRPC],
         r[model.constants.columnNames.POPTOTAL],

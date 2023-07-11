@@ -1,4 +1,4 @@
-import * as revenue from '../revenue';
+import * as revenue from '../functions/revenue';
 import * as constants from '../constants';
 import * as mt from 'micro-table/dist/module';
 

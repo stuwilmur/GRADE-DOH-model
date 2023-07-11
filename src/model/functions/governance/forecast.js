@@ -1,5 +1,5 @@
 import * as measures from './measures';
-import {applyResidual, curry} from '../../utils';
+import {applyResidual, curry} from '../../../utils';
 
 /**
  * Forecast governance measure from the model equations
