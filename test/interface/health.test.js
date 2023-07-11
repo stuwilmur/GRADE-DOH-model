@@ -1,4 +1,4 @@
-import * as target from '../../src/interface/target';
+import * as health from '../../src/interface/health';
 import {data} from './data';
 import * as model from '../../src/model';
 
@@ -7,42 +7,42 @@ const expectedGrpc = data[model.constants.columnNames.GRPC_UNUWIDER];
 const tests = [
   {
     name: model.functions.health.measuresNames.basicSanitation,
-    f: target.basicSanitation,
+    f: health.target.basicSanitation,
     value: data[model.constants.columnNames.BASIC_SANITATION_COVERAGE],
   },
   {
     name: model.functions.health.measuresNames.basicWater,
-    f: target.basicWater,
+    f: health.target.basicWater,
     value: data[model.constants.columnNames.BASIC_WATER_COVERAGE],
   },
   {
     name: model.functions.health.measuresNames.immunisation,
-    f: target.immunisation,
+    f: health.target.immunisation,
     value: data[model.constants.columnNames.IMMUNISATION_COVERAGE],
   },
   {
     name: model.functions.health.measuresNames.maternalSurvival,
-    f: target.maternalSurvival,
+    f: health.target.maternalSurvival,
     value: data[model.constants.columnNames.MATERNAL_SURVIVAL_COVERAGE],
   },
   {
     name: model.functions.health.measuresNames.safeSanitation,
-    f: target.safeSanitation,
+    f: health.target.safeSanitation,
     value: data[model.constants.columnNames.SAFE_SANITATION_COVERAGE],
   },
   {
     name: model.functions.health.measuresNames.safeSanitation,
-    f: target.safeWater,
+    f: health.target.safeWater,
     value: data[model.constants.columnNames.SAFE_WATER_COVERAGE],
   },
   {
     name: model.functions.health.measuresNames.schoolAttendance,
-    f: target.schoolAttendance,
+    f: health.target.schoolAttendance,
     value: data[model.constants.columnNames.SCHOOL_ATTENDANCE_COVERAGE],
   },
   {
     name: model.functions.health.measuresNames.underFiveSurvival,
-    f: target.underFiveSurvival,
+    f: health.target.underFiveSurvival,
     value: data[model.constants.columnNames.UNDER_5_SURVIVAL_COVERAGE],
   },
 ];
