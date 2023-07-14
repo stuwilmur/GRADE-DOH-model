@@ -18,9 +18,9 @@ import {curry2, calculateResidual} from '../../../utils';
  * @param {function} coverageInverter Function which inverts the coverage model
  * equation, to return a value of grpc. Of the form:
  *      grpc = f(targetCoverage, governance)
- * @param {number} coverageObserved Observed value of coverage (percentage)
+ * @param {number} coverageObserved Observed value of coverage
  * @param {number} grpcObserved Observed absolute monetary value of GRPC
- * @param {number} coverageTarget Target value of coverage (percentage)
+ * @param {number} coverageTarget Target value of coverage
  * @param {object} governanceObserved Observed governance (governance object)
  * @return {number} Absolute monetary value of grpc required to achieve target
  */
@@ -94,4 +94,19 @@ export const underFiveSurvival = curry2(
   targetCoverage,
   measures.underFiveSurvival.calculate,
   measures.underFiveSurvival.invert,
+);
+export const primarySchoolAttendance = curry2(
+  targetCoverage,
+  measures.primarySchoolAttendance.calculate,
+  measures.primarySchoolAttendance.invert,
+);
+export const lowerSchoolAttendance = curry2(
+  targetCoverage,
+  measures.lowerSchoolAttendance.calculate,
+  measures.lowerSchoolAttendance.invert,
+);
+export const upperSchoolAttendance = curry2(
+  targetCoverage,
+  measures.upperSchoolAttendance.calculate,
+  measures.upperSchoolAttendance.invert,
 );

@@ -10,12 +10,12 @@ import {curry, applyResidual} from '../../../utils';
  * @param {function} coverageCalculator Function which calculates coverage,
  * of the form:
  *    coverage = f(grpc, governance)
- * @param {number} coverageObserved Obvserved value of coverage (percentage)
+ * @param {number} coverageObserved Obvserved value of coverage
  * @param {number} grpcObserved Observed absolute monetary value of GRPC
  * @param {number} grpcAdjusted Adjusted absolute monetary  of GRPC
  * @param {object} governanceObserved Observed governance (governance object)
  * @param {object} governancedAdjusted Adjusted governance (governance object)
- * @return {number} Coverage percentage
+ * @return {number} Estimated coverage value
  */
 function estimate(
   coverageCalculator,
@@ -63,4 +63,16 @@ export const schoolAttendance = curry(
 export const underFiveSurvival = curry(
   estimate,
   measures.underFiveSurvival.calculate,
+);
+export const primarySchoolAttendance = curry(
+  estimate,
+  measures.primarySchoolAttendance.calculate,
+);
+export const lowerSchoolAttendance = curry(
+  estimate,
+  measures.lowerSchoolAttendance.calculate,
+);
+export const upperSchoolAttendance = curry(
+  estimate,
+  measures.upperSchoolAttendance.calculate,
 );
