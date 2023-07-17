@@ -1,4 +1,4 @@
-// Data for Afghanistan 2010, from school_attendance_check_spreadsheet.xlsx
+// Data for Afghanistan 2010, from education_check_spreadsheet.xlsx
 
 export const schoolAttendanceTestData = {
   observed: {
