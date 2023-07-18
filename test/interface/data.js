@@ -57,4 +57,10 @@ export const data = {
   'Regulatory Quality: Estimate': -0.9786172,
   'Rule of Law: Estimate': -0.9030272,
   'Voice and Accountability: Estimate': -0.4322205,
+  'Out of school: Lower school': 0.28,
+  'Out of school: Primary school': 0.1,
+  'Out of school: Upper school': 0.65,
+  'In school: Lower school': 0.72,
+  'In school: Primary school': 0.9,
+  'In school: Upper school': 0.35,
 };

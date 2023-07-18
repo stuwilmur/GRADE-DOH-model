@@ -74,3 +74,21 @@ export const underFiveSurvival = curry2(
   model.functions.health.target.underFiveSurvival,
   model.constants.columnNames.UNDER_5_SURVIVAL_COVERAGE,
 );
+
+export const primarySchoolAttendance = curry2(
+  calcGrpcForTargetCoverage,
+  model.functions.health.target.primarySchoolAttendance,
+  model.constants.columnNames.IN_SCHOOL_PRIMARY_SCHOOL,
+);
+
+export const lowerSchoolAttendance = curry2(
+  calcGrpcForTargetCoverage,
+  model.functions.health.target.lowerSchoolAttendance,
+  model.constants.columnNames.IN_SCHOOL_LOWER_SCHOOL,
+);
+
+export const upperSchoolAttendance = curry2(
+  calcGrpcForTargetCoverage,
+  model.functions.health.target.upperSchoolAttendance,
+  model.constants.columnNames.IN_SCHOOL_UPPER_SCHOOL,
+);

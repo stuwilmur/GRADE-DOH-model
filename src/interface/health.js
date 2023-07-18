@@ -21,11 +21,13 @@ export const GovernanceMethod = {
 Object.freeze(GovernanceMethod);
 
 /**
- * Calculate instantanoeous coverage and associated improvements. This model
- * takes an improvement in GRPC, which may be specified in multiple ways, and
+ * Calculate long-run effect on coverage and associated improvements: the result
+ * is immediate, i.e. there is no dynamic adjustment to the long-run result; it
+ * is achieved instantaneously.
+ * Takes an improvement in GRPC, which may be specified in multiple ways, and
  * optionally, a change in governance. The latter is applied as a constant value
- * which is added to all governance measures. The instantaneous effect of
- * applying the GRPC and governance values is calculated for all rows in the
+ * which is added to all governance measures. The instantaneous long-run effect
+ * of applying the GRPC and governance values is calculated for all rows in the
  * data supplied, where each row corresponds to a single country and year.
  * @param {object} paramsObject Parameters object. Attributes are:
  * - grpcValue: the value which, together with a method, is used to define

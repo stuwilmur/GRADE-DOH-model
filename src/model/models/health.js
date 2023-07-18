@@ -340,5 +340,35 @@ export function createCoverageModel() {
         );
       } else return null;
     })
+    .end()
+    .calc()
+    .called(constants.computedColumnNames.IMPROVED_IN_SCHOOL_PRIMARY_SCHOOL)
+    .does((r) =>
+      estimate(
+        coverage.estimate.primarySchoolAttendance,
+        constants.columnNames.IN_SCHOOL_PRIMARY_SCHOOL,
+        r,
+      ),
+    )
+    .end()
+    .calc()
+    .called(constants.computedColumnNames.IMPROVED_IN_SCHOOL_LOWER_SCHOOL)
+    .does((r) =>
+      estimate(
+        coverage.estimate.lowerSchoolAttendance,
+        constants.columnNames.IN_SCHOOL_LOWER_SCHOOL,
+        r,
+      ),
+    )
+    .end()
+    .calc()
+    .called(constants.computedColumnNames.IMPROVED_IN_SCHOOL_UPPER_SCHOOL)
+    .does((r) =>
+      estimate(
+        coverage.estimate.upperSchoolAttendance,
+        constants.columnNames.IN_SCHOOL_UPPER_SCHOOL,
+        r,
+      ),
+    )
     .end();
 }

@@ -45,6 +45,21 @@ const tests = [
     f: health.target.underFiveSurvival,
     value: data[model.constants.columnNames.UNDER_5_SURVIVAL_COVERAGE],
   },
+  {
+    name: model.functions.health.measuresNames.primarySchoolAttendance,
+    f: health.target.primarySchoolAttendance,
+    value: data[model.constants.columnNames.IN_SCHOOL_PRIMARY_SCHOOL],
+  },
+  {
+    name: model.functions.health.measuresNames.lowerSchoolAttendance,
+    f: health.target.lowerSchoolAttendance,
+    value: data[model.constants.columnNames.IN_SCHOOL_LOWER_SCHOOL],
+  },
+  {
+    name: model.functions.health.measuresNames.upperSchoolAttendance,
+    f: health.target.upperSchoolAttendance,
+    value: data[model.constants.columnNames.IN_SCHOOL_UPPER_SCHOOL],
+  },
 ];
 
 tests.forEach((aTest) => {

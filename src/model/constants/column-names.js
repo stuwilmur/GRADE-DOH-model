@@ -30,3 +30,6 @@ export const CHILDREN_SURVIVE_TO_1 = 'Number of infants surviving to 1yr';
 export const CHILDREN_SURVIVE_TO_5 = 'Number of children surviving to five ';
 export const UNDER_5_DEATHS = 'Number of under-five deaths';
 export const MATERNAL_DEATHS = 'Number of maternal deaths';
+export const IN_SCHOOL_PRIMARY_SCHOOL = 'In school: Primary school';
+export const IN_SCHOOL_LOWER_SCHOOL = 'In school: Lower school';
+export const IN_SCHOOL_UPPER_SCHOOL = 'In school: Upper school';
