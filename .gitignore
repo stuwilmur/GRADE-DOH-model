@@ -3,3 +3,12 @@ node_modules/*
 .DS_Store
 src/scratch.js
 coverage/*
+dist/module.js
+dist/module.js.map
+.parcel-cache/0e613961dce44a82
+.parcel-cache/3b15f003e4aada7f
+.parcel-cache/35c20fb91e350b46
+.parcel-cache/13776de4870b0ae4.txt
+.parcel-cache/d43c1a783b32ded4
+.parcel-cache/data.mdb
+.parcel-cache/lock.mdb
