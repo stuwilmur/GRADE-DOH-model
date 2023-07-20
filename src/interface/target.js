@@ -26,67 +26,135 @@ function calcGrpcForTargetCoverage(
   return targetGrpcModel.data(data);
 }
 
-// TODO: add JSDOC comments for all
+/**
+ * Calculate revenue necessary to achieve target value of basic sanitation
+ * @param {number} target target value of basic sanitation
+ * @param {array} data the base data rows for which to calculate
+ * @return {array} result data, including values for target revenue
+ */
 export const basicSanitation = curry2(
   calcGrpcForTargetCoverage,
   model.functions.health.target.basicSanitation,
   model.constants.columnNames.BASIC_SANITATION_COVERAGE,
 );
 
+/**
+ * Calculate revenue necessary to achieve target value of basic water
+ * @param {number} target target value of basic water
+ * @param {array} data the base data rows for which to calculate
+ * @return {array} result data, including values for target revenue
+ */
 export const basicWater = curry2(
   calcGrpcForTargetCoverage,
   model.functions.health.target.basicWater,
   model.constants.columnNames.BASIC_WATER_COVERAGE,
 );
 
+/**
+ * Calculate revenue necessary to achieve target value of immunisation
+ * @param {number} target target value of immunisation
+ * @param {array} data the base data rows for which to calculate
+ * @return {array} result data, including values for target revenue
+ */
 export const immunisation = curry2(
   calcGrpcForTargetCoverage,
   model.functions.health.target.immunisation,
   model.constants.columnNames.IMMUNISATION_COVERAGE,
 );
 
+/**
+ * Calculate revenue necessary to achieve target value of maternal survival
+ * @param {number} target target value of maternal survival
+ * @param {array} data the base data rows for which to calculate
+ * @return {array} result data, including values for target revenue
+ */
 export const maternalSurvival = curry2(
   calcGrpcForTargetCoverage,
   model.functions.health.target.maternalSurvival,
   model.constants.columnNames.MATERNAL_SURVIVAL_COVERAGE,
 );
 
+/**
+ * Calculate revenue necessary to achieve target value of safe sanitation
+ * @param {number} target target value of safe sanitation
+ * @param {array} data the base data rows for which to calculate
+ * @return {array} result data, including values for target revenue
+ */
 export const safeSanitation = curry2(
   calcGrpcForTargetCoverage,
   model.functions.health.target.safeSanitation,
   model.constants.columnNames.SAFE_SANITATION_COVERAGE,
 );
 
+/**
+ * Calculate revenue necessary to achieve target value of safe water
+ * @param {number} target target value of safe water
+ * @param {array} data the base data rows for which to calculate
+ * @return {array} result data, including values for target revenue
+ */
 export const safeWater = curry2(
   calcGrpcForTargetCoverage,
   model.functions.health.target.safeWater,
   model.constants.columnNames.SAFE_WATER_COVERAGE,
 );
 
+/**
+ * Calculate revenue necessary to achieve target value of school attendance
+ * @param {number} target target value of school attendance
+ * @param {array} data the base data rows for which to calculate
+ * @return {array} result data, including values for target revenue
+ */
 export const schoolAttendance = curry2(
   calcGrpcForTargetCoverage,
   model.functions.health.target.schoolAttendance,
   model.constants.columnNames.SCHOOL_ATTENDANCE_COVERAGE,
 );
 
+/**
+ * Calculate revenue necessary to achieve target value of under-five survival
+ * @param {number} target target value of under-five survival
+ * @param {array} data the base data rows for which to calculate
+ * @return {array} result data, including values for target revenue
+ */
 export const underFiveSurvival = curry2(
   calcGrpcForTargetCoverage,
   model.functions.health.target.underFiveSurvival,
   model.constants.columnNames.UNDER_5_SURVIVAL_COVERAGE,
 );
 
+/**
+ * Calculate revenue necessary to achieve target value of primary
+ * school attendance
+ * @param {number} target target value of primary school attendance
+ * @param {array} data the base data rows for which to calculate
+ * @return {array} result data, including values for target revenue
+ */
 export const primarySchoolAttendance = curry2(
   calcGrpcForTargetCoverage,
   model.functions.health.target.primarySchoolAttendance,
   model.constants.columnNames.IN_SCHOOL_PRIMARY_SCHOOL,
 );
 
+/**
+ * Calculate revenue necessary to achieve target value of lower
+ * school attendance
+ * @param {number} target target value of lower school attendance
+ * @param {array} data the base data rows for which to calculate
+ * @return {array} result data, including values for target revenue
+ */
 export const lowerSchoolAttendance = curry2(
   calcGrpcForTargetCoverage,
   model.functions.health.target.lowerSchoolAttendance,
   model.constants.columnNames.IN_SCHOOL_LOWER_SCHOOL,
 );
 
+/**
+ * Calculate revenue necessary to achieve target value of upper
+ * school attendance
+ * @param {number} target target value of upper school attendance
+ * @param {array} data the base data rows for which to calculate
+ * @return {array} result data, including values for target revenue
+ */
 export const upperSchoolAttendance = curry2(
   calcGrpcForTargetCoverage,
   model.functions.health.target.upperSchoolAttendance,
