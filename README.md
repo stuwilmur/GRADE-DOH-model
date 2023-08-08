@@ -4,7 +4,7 @@
 
 | Statements                  | Branches                | Functions                 | Lines             |
 | --------------------------- | ----------------------- | ------------------------- | ----------------- |
-| ![Statements](https://img.shields.io/badge/statements-94.7%25-brightgreen.svg?style=flat) | ![Branches](https://img.shields.io/badge/branches-51.16%25-red.svg?style=flat) | ![Functions](https://img.shields.io/badge/functions-96.72%25-brightgreen.svg?style=flat) | ![Lines](https://img.shields.io/badge/lines-94.9%25-brightgreen.svg?style=flat) |
+| ![Statements](https://img.shields.io/badge/statements-95%25-brightgreen.svg?style=flat) | ![Branches](https://img.shields.io/badge/branches-51.16%25-red.svg?style=flat) | ![Functions](https://img.shields.io/badge/functions-96.96%25-brightgreen.svg?style=flat) | ![Lines](https://img.shields.io/badge/lines-95.19%25-brightgreen.svg?style=flat) |
 
 ## What is this?
 
@@ -16,6 +16,16 @@ The underlying research is documented in the following publications:
 - O'Hare BA-M, Hall S. The Impact of Government Revenue on the Achievement of the Sustainable Development Goals and the Amplification Potential of Good Governance. Cent Eur J Econ Model Econom 2022;14:109–29. [DOI: 10.24425/cejeme.2022.142627](https://doi.org/10.24425/cejeme.2022.142627)
 
 This package implements the core economic model only; it must be provided with input data.
+
+## Model
+
+
+
+## Testing
+
+This repository includes a suite of unit tests created using Jest;  run the tests using `npm test`. Coverage results are reported above.
+
+Several tests refer to various validation spreadsheets, which are to be found in [test/assets](./test/assets).
 
 ## Data
 

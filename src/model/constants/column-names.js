@@ -33,3 +33,21 @@ export const MATERNAL_DEATHS = 'Number of maternal deaths';
 export const IN_SCHOOL_PRIMARY_SCHOOL = 'In school: Primary school';
 export const IN_SCHOOL_LOWER_SCHOOL = 'In school: Lower school';
 export const IN_SCHOOL_UPPER_SCHOOL = 'In school: Upper school';
+export const SCHOOL_POPULATION_PRIMARY_BOTH =
+  'School age population, primary education, both sexes (number)';
+export const SCHOOL_POPULATION_PRIMARY_FEMALE =
+  'School age population, primary education, female (number)';
+export const SCHOOL_POPULATION_PRIMARY_MALE =
+  'School age population, primary education, male (number)';
+export const SCHOOL_POPULATION_LOWER_BOTH =
+  'School age population, lower secondary education, both sexes (number)';
+export const SCHOOL_POPULATION_LOWER_FEMALE =
+  'School age population, lower secondary education, female (number)';
+export const SCHOOL_POPULATION_LOWER_MALE =
+  'School age population, lower secondary education, male (number)';
+export const SCHOOL_POPULATION_UPPER_BOTH =
+  'School age population, upper secondary education, both sexes (number)';
+export const SCHOOL_POPULATION_UPPER_FEMALE =
+  'School age population, upper secondary education, female (number)';
+export const SCHOOL_POPULATION_UPPER_MALE =
+  'School age population, upper secondary education, male (number)';

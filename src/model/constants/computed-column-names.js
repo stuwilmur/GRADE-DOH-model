@@ -95,3 +95,21 @@ export const IMPROVED_IN_SCHOOL_LOWER_SCHOOL =
   columnNames.IN_SCHOOL_LOWER_SCHOOL + improved;
 export const IMPROVED_IN_SCHOOL_UPPER_SCHOOL =
   columnNames.IN_SCHOOL_UPPER_SCHOOL + improved;
+export const ADDITIONAL_SCHOOL_POPULATION_PRIMARY_BOTH =
+  'Additional children in primary education, both sexes';
+export const ADDITIONAL_SCHOOL_POPULATION_PRIMARY_FEMALE =
+  'Additional children in primary education, female';
+export const ADDITIONAL_SCHOOL_POPULATION_PRIMARY_MALE =
+  'Additional children in primary education, male';
+export const ADDITIONAL_SCHOOL_POPULATION_LOWER_BOTH =
+  'Additional children in lower secondary education, both sexes';
+export const ADDITIONAL_SCHOOL_POPULATION_LOWER_FEMALE =
+  'Additional children in lower secondary education, female';
+export const ADDITIONAL_SCHOOL_POPULATION_LOWER_MALE =
+  'Additional children in lower secondary education, male';
+export const ADDITIONAL_SCHOOL_POPULATION_UPPER_BOTH =
+  'Additional children in upper secondary education, both sexes';
+export const ADDITIONAL_SCHOOL_POPULATION_UPPER_FEMALE =
+  'Additional children in upper secondary education, female';
+export const ADDITIONAL_SCHOOL_POPULATION_UPPER_MALE =
+  'Additional children in upper secondary education, male';

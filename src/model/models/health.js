@@ -41,6 +41,15 @@ function estimate(measureEstimator, measureObservedColumnName, row) {
 }
 
 /**
+ * Helper function to covert ratio to a percentage
+ * @param {number} ratio The ratio
+ * @return {number} Percentage
+ */
+function ratioToPercentage(ratio) {
+  return ratio * 100;
+}
+
+/**
  * Calculate improved coverage for all measures, from base data which has had
  * revenue and governance models applied to it.
  * @return {object} Coverage model
@@ -352,6 +361,48 @@ export function createCoverageModel() {
     )
     .end()
     .calc()
+    .called(
+      constants.computedColumnNames.ADDITIONAL_SCHOOL_POPULATION_PRIMARY_BOTH,
+    )
+    .does((r) =>
+      calculateAffectedPopulation(
+        ratioToPercentage(r[constants.columnNames.IN_SCHOOL_PRIMARY_SCHOOL]),
+        ratioToPercentage(
+          r[constants.computedColumnNames.IMPROVED_IN_SCHOOL_PRIMARY_SCHOOL],
+        ),
+        r[constants.columnNames.SCHOOL_POPULATION_PRIMARY_BOTH],
+      ),
+    )
+    .end()
+    .calc()
+    .called(
+      constants.computedColumnNames.ADDITIONAL_SCHOOL_POPULATION_PRIMARY_FEMALE,
+    )
+    .does((r) =>
+      calculateAffectedPopulation(
+        ratioToPercentage(r[constants.columnNames.IN_SCHOOL_PRIMARY_SCHOOL]),
+        ratioToPercentage(
+          r[constants.computedColumnNames.IMPROVED_IN_SCHOOL_PRIMARY_SCHOOL],
+        ),
+        r[constants.columnNames.SCHOOL_POPULATION_PRIMARY_FEMALE],
+      ),
+    )
+    .end()
+    .calc()
+    .called(
+      constants.computedColumnNames.ADDITIONAL_SCHOOL_POPULATION_PRIMARY_MALE,
+    )
+    .does((r) =>
+      calculateAffectedPopulation(
+        ratioToPercentage(r[constants.columnNames.IN_SCHOOL_PRIMARY_SCHOOL]),
+        ratioToPercentage(
+          r[constants.computedColumnNames.IMPROVED_IN_SCHOOL_PRIMARY_SCHOOL],
+        ),
+        r[constants.columnNames.SCHOOL_POPULATION_PRIMARY_MALE],
+      ),
+    )
+    .end()
+    .calc()
     .called(constants.computedColumnNames.IMPROVED_IN_SCHOOL_LOWER_SCHOOL)
     .does((r) =>
       estimate(
@@ -362,12 +413,96 @@ export function createCoverageModel() {
     )
     .end()
     .calc()
+    .called(
+      constants.computedColumnNames.ADDITIONAL_SCHOOL_POPULATION_LOWER_BOTH,
+    )
+    .does((r) =>
+      calculateAffectedPopulation(
+        ratioToPercentage(r[constants.columnNames.IN_SCHOOL_LOWER_SCHOOL]),
+        ratioToPercentage(
+          r[constants.computedColumnNames.IMPROVED_IN_SCHOOL_LOWER_SCHOOL],
+        ),
+        r[constants.columnNames.SCHOOL_POPULATION_LOWER_BOTH],
+      ),
+    )
+    .end()
+    .calc()
+    .called(
+      constants.computedColumnNames.ADDITIONAL_SCHOOL_POPULATION_LOWER_FEMALE,
+    )
+    .does((r) =>
+      calculateAffectedPopulation(
+        ratioToPercentage(r[constants.columnNames.IN_SCHOOL_LOWER_SCHOOL]),
+        ratioToPercentage(
+          r[constants.computedColumnNames.IMPROVED_IN_SCHOOL_LOWER_SCHOOL],
+        ),
+        r[constants.columnNames.SCHOOL_POPULATION_LOWER_FEMALE],
+      ),
+    )
+    .end()
+    .calc()
+    .called(
+      constants.computedColumnNames.ADDITIONAL_SCHOOL_POPULATION_LOWER_MALE,
+    )
+    .does((r) =>
+      calculateAffectedPopulation(
+        ratioToPercentage(r[constants.columnNames.IN_SCHOOL_LOWER_SCHOOL]),
+        ratioToPercentage(
+          r[constants.computedColumnNames.IMPROVED_IN_SCHOOL_LOWER_SCHOOL],
+        ),
+        r[constants.columnNames.SCHOOL_POPULATION_LOWER_MALE],
+      ),
+    )
+    .end()
+    .calc()
     .called(constants.computedColumnNames.IMPROVED_IN_SCHOOL_UPPER_SCHOOL)
     .does((r) =>
       estimate(
         coverage.estimate.upperSchoolAttendance,
         constants.columnNames.IN_SCHOOL_UPPER_SCHOOL,
         r,
+      ),
+    )
+    .end()
+    .calc()
+    .called(
+      constants.computedColumnNames.ADDITIONAL_SCHOOL_POPULATION_UPPER_BOTH,
+    )
+    .does((r) =>
+      calculateAffectedPopulation(
+        ratioToPercentage(r[constants.columnNames.IN_SCHOOL_UPPER_SCHOOL]),
+        ratioToPercentage(
+          r[constants.computedColumnNames.IMPROVED_IN_SCHOOL_UPPER_SCHOOL],
+        ),
+        r[constants.columnNames.SCHOOL_POPULATION_UPPER_BOTH],
+      ),
+    )
+    .end()
+    .calc()
+    .called(
+      constants.computedColumnNames.ADDITIONAL_SCHOOL_POPULATION_UPPER_FEMALE,
+    )
+    .does((r) =>
+      calculateAffectedPopulation(
+        ratioToPercentage(r[constants.columnNames.IN_SCHOOL_UPPER_SCHOOL]),
+        ratioToPercentage(
+          r[constants.computedColumnNames.IMPROVED_IN_SCHOOL_UPPER_SCHOOL],
+        ),
+        r[constants.columnNames.SCHOOL_POPULATION_UPPER_FEMALE],
+      ),
+    )
+    .end()
+    .calc()
+    .called(
+      constants.computedColumnNames.ADDITIONAL_SCHOOL_POPULATION_UPPER_MALE,
+    )
+    .does((r) =>
+      calculateAffectedPopulation(
+        ratioToPercentage(r[constants.columnNames.IN_SCHOOL_UPPER_SCHOOL]),
+        ratioToPercentage(
+          r[constants.computedColumnNames.IMPROVED_IN_SCHOOL_UPPER_SCHOOL],
+        ),
+        r[constants.columnNames.SCHOOL_POPULATION_UPPER_MALE],
       ),
     )
     .end();
