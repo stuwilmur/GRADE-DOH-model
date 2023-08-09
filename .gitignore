@@ -3,6 +3,5 @@ node_modules/*
 .DS_Store
 src/scratch.js
 coverage/*
-dist/module.js
-dist/module.js.map
+dist/*
 .parcel-cache/*
