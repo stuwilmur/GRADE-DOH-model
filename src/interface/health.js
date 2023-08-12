@@ -92,7 +92,39 @@ export function instantaneous(
   return totalModel.data(data);
 }
 
-// TODO: allow user to specify method for grpc change
+/**
+ * Helper function to calculate the percentage improvement of GRPC,
+ * allowing use of a variety of methods to specify the change.
+ * @param {number} grpcValue GRPC generic value, used to specify change
+ * @param {enum} grpcMethod method of calculation
+ * @param {number} originalGrpc original GRPC
+ * @param {number} totalPopulation total population
+ * @return {number} percentage increase in GRPC
+ */
+function calculatePercentageImprovement(
+  grpcValue,
+  grpcMethod,
+  originalGrpc,
+  totalPopulation,
+) {
+  switch (grpcMethod) {
+    case GrpcMethod.ABSOLUTE_ADDITIONAL_REVENUE:
+      return (grpcValue / totalPopulation / originalGrpc) * 100.0;
+      break;
+    case GrpcMethod.IMPROVED_GRPC:
+      // Do not allow GRPC to decrease below original value
+      return Math.max(originalGrpc, grpcValue);
+      break;
+    case GrpcMethod.PERCENTAGE_INCREASE:
+      return grpcValue;
+      break;
+    case GrpcMethod.PER_CAPITA_INCREASE:
+      return (grpcValue / originalGrpc) * 100.0;
+      break;
+    default:
+      return NaN;
+  }
+}
 
 /**
  * Forecast coverage, given a percentage improvement in GRPC.
@@ -106,7 +138,10 @@ export function instantaneous(
  *   which simulates a delay in the effect of interventions to increase
  *   GRPC.
  * @param {object}} paramsObject Parameters object. Attributes are:
- * - grpcPercentageImprovement: Percentage improvement in GRPC
+ * - grpcValue: GRPC improvement value; in conjunction with grpcMethod,
+ *   used to determine the percentage improvement in GRPC
+ * - grpcMethod: GRPC improvement calculation method; in conjunction with
+ *   grpcValue, used to determine the percentage improvement in GRPC
  * - governanceMethod: the method used to calculate governance
  * - grpcDelay: the delay (in timesteps) to apply the improvement in
  *   GRPC: a delay of zero will apply the uplift from the first timestep,
@@ -119,13 +154,21 @@ export function instantaneous(
  */
 export function forecast(
   {
-    grpcPercentageImprovement = 0,
+    grpcValue = 0,
+    grpcMethod = GrpcMethod.PERCENTAGE_INCREASE,
     governanceMethod = GovernanceMethod.ENDOGENOUS,
     grpcDelay = 5,
     governanceDelta = 0,
   },
   data,
 ) {
+  const grpcPercentageImprovement = calculatePercentageImprovement(
+    grpcValue,
+    grpcMethod,
+    data[0][model.constants.columnNames.GRPC_UNUWIDER],
+    data[0][model.constants.columnNames.POPTOTAL],
+  );
+
   if (governanceMethod == GovernanceMethod.ENDOGENOUS) {
     return mt
       .model()
@@ -142,8 +185,8 @@ export function forecast(
       .model()
       .calc()
       .called(model.constants.computedColumnNames.PERCENTAGE_INCREASE_IN_GRPC)
-      .does((r, getPrev) =>
-        getPrev(grpcDelay) == undefined ? 0 : grpcPercentageImprovement,
+      .does((r, getPrev, step) =>
+        step >= grpcDelay ? grpcPercentageImprovement : 0,
       )
       .end()
       .add(model.models.revenue.createGrpcFromPercentageIncreaseModel())

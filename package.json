@@ -77,6 +77,6 @@
     "parcel": "^2.8.0"
   },
   "dependencies": {
-    "micro-table": "^0.7.1"
+    "micro-table": "^0.8.1"
   }
 }
