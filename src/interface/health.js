@@ -3,6 +3,16 @@ import * as mt from 'micro-table/dist/module';
 import * as t from './target';
 export const target = {
   basicSanitation: t.basicSanitation,
+  basicWater: t.basicWater,
+  immunisation: t.immunisation,
+  maternalSurvival: t.maternalSurvival,
+  safeSanitation: t.safeSanitation,
+  safeWater: t.safeWater,
+  schoolAttendance: t.schoolAttendance,
+  underFiveSurvival: t.underFiveSurvival,
+  primarySchoolAttendance: t.primarySchoolAttendance,
+  lowerSchoolAttendance: t.lowerSchoolAttendance,
+  upperSchoolAttendance: t.upperSchoolAttendance,
 };
 
 export const GrpcMethod = {
