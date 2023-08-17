@@ -3,6 +3,8 @@ import * as mt from 'micro-table/dist/module';
 import * as target from './target';
 export {target};
 
+JSON.stringify(target);
+
 export const GrpcMethod = {
   IMPROVED_GRPC: 0,
   ABSOLUTE_ADDITIONAL_REVENUE: 1,
