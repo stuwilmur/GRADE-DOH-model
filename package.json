@@ -14,7 +14,7 @@
     "test": "node --experimental-vm-modules node_modules/.bin/jest --coverage",
     "clear_jest": "jest --clearCache",
     "make-badges": "istanbul-badges-readme",
-    "build": "parcel build --no-optimize",
+    "build": "parcel build",
     "lint": "eslint src/*.js",
     "clean": "rm -rf dist/*",
     "prepublish": "npm run build",

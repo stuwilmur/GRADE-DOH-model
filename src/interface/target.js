@@ -160,3 +160,5 @@ export const upperSchoolAttendance = curry2(
   model.functions.health.target.upperSchoolAttendance,
   model.constants.columnNames.IN_SCHOOL_UPPER_SCHOOL,
 );
+
+JSON.stringify(basicSanitation);

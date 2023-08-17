@@ -1,7 +1,7 @@
 import * as model from '../model';
 import * as mt from 'micro-table/dist/module';
-
-export * as target from './target';
+import * as target from './target';
+export {target};
 
 export const GrpcMethod = {
   IMPROVED_GRPC: 0,
