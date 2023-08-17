@@ -1,9 +1,9 @@
 import * as model from '../model';
 import * as mt from 'micro-table/dist/module';
-import * as target from './target';
-export {target};
-
-JSON.stringify(target);
+import * as t from './target';
+export const target = {
+  basicSanitation: t.basicSanitation,
+};
 
 export const GrpcMethod = {
   IMPROVED_GRPC: 0,
