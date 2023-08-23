@@ -152,11 +152,11 @@ function calculatePercentageImprovement(
  *   used to determine the percentage improvement in GRPC
  * - grpcMethod: GRPC improvement calculation method; in conjunction with
  *   grpcValue, used to determine the percentage improvement in GRPC
- * - governanceMethod: the method used to calculate governance
  * - grpcDelay: the delay (in timesteps) to apply the improvement in
  *   GRPC: a delay of zero will apply the uplift from the first timestep,
  *   a delay of one will apply the uplift from the second timestep, and
  *   so on: only applied in the exogenous governance model.
+ * - governanceMethod: the method used to calculate governance
  * - governanceDelta: the constant delta to be applied across all
  *   governance measures, only in the exogenous governance model.
  * @param {array} data Base data array
@@ -166,8 +166,8 @@ export function forecast(
   {
     grpcValue = 0,
     grpcMethod = GrpcMethod.PERCENTAGE_INCREASE,
-    governanceMethod = GovernanceMethod.ENDOGENOUS,
     grpcDelay = 0,
+    governanceMethod = GovernanceMethod.ENDOGENOUS,
     governanceDelta = 0,
   },
   data,
