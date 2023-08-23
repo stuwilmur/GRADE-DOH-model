@@ -123,8 +123,7 @@ function calculatePercentageImprovement(
       return (grpcValue / totalPopulation / originalGrpc) * 100.0;
       break;
     case GrpcMethod.IMPROVED_GRPC:
-      // Do not allow GRPC to decrease below original value
-      return Math.max(originalGrpc, grpcValue);
+      return (grpcValue / originalGrpc - 1) * 100;
       break;
     case GrpcMethod.PERCENTAGE_INCREASE:
       return grpcValue;
@@ -168,7 +167,7 @@ export function forecast(
     grpcValue = 0,
     grpcMethod = GrpcMethod.PERCENTAGE_INCREASE,
     governanceMethod = GovernanceMethod.ENDOGENOUS,
-    grpcDelay = 5,
+    grpcDelay = 0,
     governanceDelta = 0,
   },
   data,
