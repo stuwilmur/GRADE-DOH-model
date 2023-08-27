@@ -30,3 +30,9 @@ Several tests refer to various validation spreadsheets, which are to be found in
 ## Data
 
 Suitable data is provided by the [GRADE-DOH-data package](https://github.com/stuwilmur/GRADE-DOH-data).
+
+## Try it
+
+[JSFiddle](https://jsfiddle.net/5732nc8y/3/)
+
+[Observable](https://observablehq.com/@grade/model-user-guide)
