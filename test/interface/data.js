@@ -14,7 +14,7 @@ export const data = {
   'GRxGincSC2022': 0.087992384,
   'GRxGincSC2021': 0.087992356,
   'GDP per capita (constant 2015 US$)': 687.3833,
-  'GRpcUNUWIDER 2022': 60.48449501,
+  'Government revenue per capita (constant 2015 USD)': 60.48449501,
   'GRpc UNU WIDER': 60.48447593,
   'Pop total': 132478077,
   'Population ages 00-04, female': 8026934,

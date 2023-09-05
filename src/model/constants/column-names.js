@@ -1,7 +1,8 @@
 /*
 Strings for the column names in the base data
 */
-export const GRPC_UNUWIDER = 'GRpcUNUWIDER 2022';
+export const GRPC_UNUWIDER =
+  'Government revenue per capita (constant 2015 USD)';
 export const POPTOTAL = 'Pop total';
 export const BASIC_SANITATION_COVERAGE =
   'People using at least basic sanitation services (% of population)';
