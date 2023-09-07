@@ -19,7 +19,11 @@ This package implements the core economic model only; it must be provided with i
 
 ## Model
 
+The Government Revenue and Determinants of Health model (GRADE) provides a precise and realistic model of the relationship between government revenue and Sustainable Development Goals (SDGs).
 
+The GRADE Model translates the impact of additional revenue into potential SDG progress – for example, to quantify the POSITIVE impact of a large taxpayer or the NEGATIVE impact of tax abuse.
+
+See the [API documentation](./API.md).
 
 ## Testing
 
