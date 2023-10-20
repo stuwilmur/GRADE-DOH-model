@@ -65,7 +65,7 @@
   },
   "homepage": "https://github.com/stuwilmur/GRADE-DOH-model#readme",
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.21.2",
+    "@babel/plugin-transform-modules-commonjs": "^7.23.0",
     "@babel/preset-env": "^7.21.5",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^29.5.0",
