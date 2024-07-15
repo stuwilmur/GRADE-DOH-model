@@ -9,6 +9,9 @@ import {name as underFiveSurvival} from './under-five-survival';
 import {name as primarySchoolAttendance} from './primary-school-attendance';
 import {name as lowerSchoolAttendance} from './lower-school-attendance';
 import {name as upperSchoolAttendance} from './upper-school-attendance';
+import {name as primarySchoolTeacherToPupilRatio} from './primary-school-pupil-to-teacher-ratio';
+import {name as lowerSchoolTeacherToPupilRatio} from './lower-school-pupil-to-teacher-ratio';
+import {name as upperSchoolTeacherToPupilRatio} from './upper-school-pupil-to-teacher-ratio';
 
 export {
   basicSanitation,
@@ -22,4 +25,7 @@ export {
   primarySchoolAttendance,
   lowerSchoolAttendance,
   upperSchoolAttendance,
+  primarySchoolTeacherToPupilRatio,
+  lowerSchoolTeacherToPupilRatio
+  upperSchoolTeacherToPupilRatio,
 };

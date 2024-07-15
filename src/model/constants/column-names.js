@@ -52,3 +52,15 @@ export const SCHOOL_POPULATION_UPPER_FEMALE =
   'School age population, upper secondary education, female (number)';
 export const SCHOOL_POPULATION_UPPER_MALE =
   'School age population, upper secondary education, male (number)';
+export const PRIMARY_PUPILS_TO_TEACHERS = 
+    'PRIMARYTEACHERS';
+export const PRIMARY_TEACHERS_TO_PUPILS = 
+    'INVPRIMARYTEACHERS';
+export const LOWER_PUPILS_TO_TEACHERS=
+    'LOWERTEACHERS';
+export const LOWER_TEACHERS_TO_PUPILS=
+    'INVLOWERTEACHERS';
+export const UPPER_PUPILS_TO_TEACHERS=
+    'UPPERTEACHERS';
+export const UPPER_TEACHERS_TO_PUPILS=
+    'INVUPPERTEACHERS';
