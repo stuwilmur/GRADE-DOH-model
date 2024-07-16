@@ -18,7 +18,7 @@ export function calculate(grpc, governance) {
 			0.0777401202 * governance.ruleOfLaw -
 			0.0207754476388 * governance.governmentEffectiveness
 			+0.0673886052541 * governance.voiceAndAccountability) *
-			(Math.log(_grpc) - 
+			(Math.log(grpc) - 
 				(17.0358391075 - 
 				1.18785253583 * governance.controlOfCorruption +
 				1.65861596332 * governance.ruleOfLaw + 

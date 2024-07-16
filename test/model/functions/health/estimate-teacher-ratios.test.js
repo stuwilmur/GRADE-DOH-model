@@ -5,9 +5,9 @@ import {teacherRatioTestData} from './data';
 const digitsTolerance = 6;
 
 const measuresToTest = new Map([
-  ['primarySchoolTeacherToPupilRatio', coverage.estimate.primarySchoolTeacherToPupilRatio],
-  ['lowerSchoolTeacherToPupilRatio', coverage.estimate.lowerSchoolTeacherToPupilRatio],
-  ['upperSchoolTeacherToPupilRatio', coverage.estimate.upperSchoolTeacherToPupilRatio],
+  ['INVPRIMARY', coverage.estimate.primarySchoolTeacherToPupilRatio],
+  ['INVLOWER', coverage.estimate.lowerSchoolTeacherToPupilRatio],
+  ['INVUPPER', coverage.estimate.upperSchoolTeacherToPupilRatio],
 ]);
 
 const governanceObserved = governanceObject(

@@ -78,14 +78,14 @@ export const upperSchoolAttendance = curry(
 );
 export const primarySchoolTeacherToPupilRatio = curry(
   estimate,
-  measures.primarySchoolTeacherToPupilAttendance.calculate,
+  measures.primarySchoolTeacherToPupilRatio.calculate,
 );
 export const lowerSchoolTeacherToPupilRatio = curry(
   estimate,
-  measures.lowerSchoolTeacherToPupilAttendance.calculate,
+  measures.lowerSchoolTeacherToPupilRatio.calculate,
 );
 export const upperSchoolTeacherToPupilRatio = curry(
   estimate,
-  measures.upperSchoolTeacherToPupilAttendance.calculate,
+  measures.upperSchoolTeacherToPupilRatio.calculate,
 );
 

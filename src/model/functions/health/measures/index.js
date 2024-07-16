@@ -26,6 +26,6 @@ export {
   lowerSchoolAttendance,
   upperSchoolAttendance,
   primarySchoolTeacherToPupilRatio,
-  lowerSchoolTeacherToPupilRatio
+  lowerSchoolTeacherToPupilRatio,
   upperSchoolTeacherToPupilRatio,
 };

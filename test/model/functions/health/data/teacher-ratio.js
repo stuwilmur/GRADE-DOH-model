@@ -1,7 +1,7 @@
 // Data for Afghanistan 2007, from teachers_check_spreadsheet.xlsx
 
 									
-export const schoolAttendanceTestData = {
+export const teacherRatioTestData = {
   observed: {
     INVPRIMARY: 0.02313136,
     INVLOWER: 0.012234738,

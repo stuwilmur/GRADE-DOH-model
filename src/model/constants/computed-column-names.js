@@ -114,20 +114,20 @@ export const ADDITIONAL_SCHOOL_POPULATION_UPPER_FEMALE =
 export const ADDITIONAL_SCHOOL_POPULATION_UPPER_MALE =
   'Additional children in upper secondary education, male';
 export const IMPROVED_PRIMARY_PUPILS_TO_TEACHERS = 
-    PRIMARY_PUPILS_TO_TEACHERS + improved;
+    columnNames.PRIMARY_PUPILS_TO_TEACHERS + improved;
 export const IMPROVED_PRIMARY_TEACHERS_TO_PUPILS = 
-    PRIMARY_TEACHERS_TO_PUPILS + improved;
+    columnNames.PRIMARY_TEACHERS_TO_PUPILS + improved;
 export const IMPROVED_LOWER_PUPILS_TO_TEACHERS = 
-    LOWER_PUPILS_TO_TEACHERS + improved;
+    columnNames.LOWER_PUPILS_TO_TEACHERS + improved;
 export const IMPROVED_LOWER_TEACHERS_TO_PUPILS = 
-    LOWER_TEACHERS_TO_PUPILS + improved;
+    columnNames.LOWER_TEACHERS_TO_PUPILS + improved;
 export const IMPROVED_UPPER_PUPILS_TO_TEACHERS = 
-    UPPER_PUPILS_TO_TEACHERS + improved;
+    columnNames.UPPER_PUPILS_TO_TEACHERS + improved;
 export const IMPROVED_UPPER_TEACHERS_TO_PUPILS = 
-    UPPER_TEACHERS_TO_PUPILS + improved;
-Export const ADDITIONAL_PRIMARY_SCHOOL_TEACHERS = 
+    columnNames.UPPER_TEACHERS_TO_PUPILS + improved;
+export const ADDITIONAL_PRIMARY_SCHOOL_TEACHERS = 
 'Additional teachers of primary school-age children';
-Export const ADDITIONAL_LOWER_SCHOOL_TEACHERS = 
+export const ADDITIONAL_LOWER_SCHOOL_TEACHERS = 
 'Additional teachers of lower school-age children';
-Export const ADDITIONAL_UPPER_SCHOOL_TEACHERS = 
+export const ADDITIONAL_UPPER_SCHOOL_TEACHERS = 
 'Additional teachers of upper school-age children';
