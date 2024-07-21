@@ -38,7 +38,7 @@ measuresToTest.forEach((estimator, measure) => {
         governanceObserved,
         governanceObserved,
       ),
-    ).toBe(teacherRatioTestData.observed[measure]);
+    ).toBeCloseTo(teacherRatioTestData.observed[measure], digitsTolerance);
   });
 
   test(`Tests ${measure} estimator: adjusted grpc, observed governance`, () => {

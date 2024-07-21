@@ -15,7 +15,7 @@ export const teacherRatioTestData = {
     VOICE: 0.972129,
   },
   grpcAdjusted: {
-    INVPRIMARY: 0.023979895,
+    INVPRIMARY: 0.023937393,
     INVLOWER: 0.013165453,
     INVUPPER: 0.006260475,
     grpc: 40.0,
@@ -27,10 +27,10 @@ export const teacherRatioTestData = {
     VOICE: 0.972129,
   },
   grpcReduced: {
-    INVPRIMARY: 0.020771864,
-    INVLOWER: 0.00955334,
-    INVUPPER: 0.003054011,
-    grpc: 33.859059,
+    INVPRIMARY: 0.022564461,
+    INVLOWER: 0.011584526,
+    INVUPPER: 0.004840955,
+    grpc: 30.0,
     CORRUPTION: 1.26187,
     GOVEFFECT: 1.2461,
     POLSTAB: 1.28657,
@@ -39,7 +39,7 @@ export const teacherRatioTestData = {
     VOICE: 0.972129,
   },
   governanceAdjusted: {
-    INVPRIMARY:0.013895405,
+    INVPRIMARY:0.023170376,
     INVLOWER:0.012091998,
     INVUPPER:0.005434157,
     grpc: 33.859059,

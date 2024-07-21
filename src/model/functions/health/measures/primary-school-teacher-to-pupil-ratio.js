@@ -12,22 +12,19 @@ const result =
                 1.0 /
                 (1.0 +
                 Math.exp(
-                -(
-                    0.589328646943 +
-                    0.124605780877 * governance.controlOfCorruption -
-                    0.022521406946 * governance.politicalStability -
-                    0.0395534844738 * governance.regulatoryQuality -
-                    0.0897099747213 * governance.ruleOfLaw +
-                    0.155803357829 * governance.governmentEffectiveness +
-                    0.168729825949 * governance.voiceAndAccountability
-                ) *
-                    (Math.log(grpc) -
-                    (2.19330330895 +
-                        1.5612672242 * governance.controlOfCorruption -
-                        0.763089270327 * governance.politicalStability -
-                        0.749356781002 * governance.ruleOfLaw +
-                        1.67274041346 * governance.voiceAndAccountability))
-                ));
+		   	-(
+			0.235464224795 - 
+			0.00905813072628 * governance.politicalStability + 
+			0.033709633743 * governance.ruleOfLaw -
+			0.0218140639331 * governance.voiceAndAccountability) * 
+			(Math.log(grpc) - 
+				(19.7561871646 + 
+				0.678880371607 * governance.politicalStability -
+				0.450545238623 * governance.regulatoryQuality -
+				2.02637551438 * governance.ruleOfLaw + 
+				0.41977998279 * governance.governmentEffectiveness +
+				1.13267641272 * governance.voiceAndAccountability))
+			));
                 return result;
 }
 
@@ -40,20 +37,18 @@ const result =
  */
 export function invert(target, governance) {
                 const A = -(
-                    	0.589328646943 +
-                    	0.124605780877 * governance.controlOfCorruption -
-                    	0.022521406946 * governance.politicalStability -
-                    	0.0395534844738 * governance.regulatoryQuality -
-                    	0.0897099747213 * governance.ruleOfLaw +
-                    	0.155803357829 * governance.governmentEffectiveness +
-                    	0.168729825949 * governance.voiceAndAccountability
+			0.235464224795 - 
+			0.00905813072628 * governance.politicalStability + 
+			0.033709633743 * governance.ruleOfLaw -
+			0.0218140639331 * governance.voiceAndAccountability
                   );
                 const B =
-                2.19330330895 +
-                1.5612672242 * governance.controlOfCorruption -
-                0.763089270327 * governance.politicalStability -
-                0.749356781002 * governance.ruleOfLaw +
-                1.67274041346 * governance.voiceAndAccountability;
+		19.7561871646 +
+		0.678880371607 * governance.politicalStability -
+		0.450545238623 * governance.regulatoryQuality -
+		2.02637551438 * governance.ruleOfLaw + 
+		0.41977998279 * governance.governmentEffectiveness +
+		1.13267641272 * governance.voiceAndAccountability;
                 const result = Math.exp(Math.log(1.0 / target - 1.0) / A + B);
   return result;
 }
