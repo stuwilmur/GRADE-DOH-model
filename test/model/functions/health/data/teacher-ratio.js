@@ -15,10 +15,10 @@ export const teacherRatioTestData = {
     VOICE: 0.972129,
   },
   grpcAdjusted: {
-    INVPRIMARY: 0.023937393,
+    INVPRIMARY: 0.023979895,
     INVLOWER: 0.013165453,
     INVUPPER: 0.006260475,
-    grpc: 33.859059,
+    grpc: 40.0,
     CORRUPTION: 1.26187,
     GOVEFFECT: 1.2461,
     POLSTAB: 1.28657,

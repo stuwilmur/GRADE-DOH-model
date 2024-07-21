@@ -160,3 +160,45 @@ export const upperSchoolAttendance = curry2(
   model.functions.health.target.upperSchoolAttendance,
   model.constants.columnNames.IN_SCHOOL_UPPER_SCHOOL,
 );
+
+/**
+ * Calculate revenue necessary to achieve target value of primary
+ * school teacher to pupil ratio
+ * @param {number} target target value of primary school teacher to
+ * pupil ratio
+ * @param {array} data the base data rows for which to calculate
+ * @return {array} result data, including values for target revenue
+ */
+export const primarySchoolTeacherToPupilRatio = curry2(
+  calcGrpcForTargetCoverage,
+  model.functions.health.target.primarySchoolTeacherToPupilRatio,
+  model.constants.columnNames.PRIMARY_TEACHERS_TO_PUPILS,
+);
+
+/**
+ * Calculate revenue necessary to achieve target value of lower
+ * school teacher to pupil ratio
+ * @param {number} target target value of lower school teacher to
+ * pupil ratio
+ * @param {array} data the base data rows for which to calculate
+ * @return {array} result data, including values for target revenue
+ */
+export const lowerSchoolTeacherToPupilRatio = curry2(
+  calcGrpcForTargetCoverage,
+  model.functions.health.target.lowerSchoolTeacherToPupilRatio,
+  model.constants.columnNames.LOWER_TEACHERS_TO_PUPILS,
+);
+
+/**
+ * Calculate revenue necessary to achieve target value of upper
+ * school teacher to pupil ratio
+ * @param {number} target target value of upper school teacher to
+ * pupil ratio
+ * @param {array} data the base data rows for which to calculate
+ * @return {array} result data, including values for target revenue
+ */
+export const upperSchoolTeacherToPupilRatio = curry2(
+  calcGrpcForTargetCoverage,
+  model.functions.health.target.upperSchoolTeacherToPupilRatio,
+  model.constants.columnNames.UPPER_TEACHERS_TO_PUPILS,
+);

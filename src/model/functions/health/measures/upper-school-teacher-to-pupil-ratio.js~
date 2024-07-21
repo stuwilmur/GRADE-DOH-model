@@ -49,6 +49,6 @@ export function invert(target, governance) {
 		1.65861596332 * governance.ruleOfLaw + 
 		0.85305123799*governance.governmentEffectiveness - 
 		2.0226464466 * governance.voiceAndAccountability;
-                const result = Math.exp(Math.log(1.0 / target - 1.0) / A + B);
+                const result = Math.exp(Math.log(1.0 / _target - 1.0) / A + B);
                 return result;
 }

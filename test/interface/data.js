@@ -1,4 +1,7 @@
-// Data for Bangladesh 2002, from GRADE-DOH-DATA
+// Data for Bangladesh 2002, from GRADE-DOH-DATA, with
+// the exception of primary teachers to pupils/pupils to
+// teachers, which is null in the original data, so a dummy
+// value used here
 
 export const data = {
   'countryyearcode': 'BGD2002',
@@ -63,4 +66,10 @@ export const data = {
   'In school: Lower school': 0.72,
   'In school: Primary school': 0.9,
   'In school: Upper school': 0.35,
+  'Primary school teachers to pupils': 0.05,
+  'Primary school pupils to teachers': 20,
+  'Lower school teachers to pupils': 0.017261962,
+  'Lower school pupils to teachers': 57.93084199,
+  'Upper school teachers to pupils': 0.013575601,
+  'Upper school pupils to teachers': 73.66156173
 };
