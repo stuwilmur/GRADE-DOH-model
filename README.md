@@ -1,4 +1,4 @@
-![GRADE project logo](https://github.com/[stuwilmur]/[GRADE-DOH-model]/blob/[main]/grade-logo.png?raw=true)
+![GRADE project logo](https://github.com/stuwilmur/GRADE-DOH-model/blob/main/grade-logo.png?raw=true)
 # GRADE-DOH-model
 
 [![npm](https://img.shields.io/npm/v/grade-doh-model)](https://www.npmjs.com/package/grade-doh-model) [![](https://data.jsdelivr.com/v1/package/npm/grade-doh-model/badge)](https://www.jsdelivr.com/package/npm/grade-doh-model)
