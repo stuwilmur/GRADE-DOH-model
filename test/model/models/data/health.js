@@ -171,9 +171,9 @@ export const expectedResult = [
     'Lower school teachers to pupils: Improved': 0.01786629085930287,
     'Lower school pupils to teachers: Improved': 0.01786629085930287,
     'Upper school teachers to pupils: Improved': 0.014134047701912886,
-    'Additional teachers of primary school-age children': null,
-    'Additional teachers of lower school-age children': null,
-    'Additional teachers of upper school-age children': NaN
+    'Additional teachers of primary school-age children': 8062.557109646469,
+    'Additional teachers of lower school-age children': 5581.599474387083,
+    'Additional teachers of upper school-age children': 6637.179260397189
   }
 ]
 ;
