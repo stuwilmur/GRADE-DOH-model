@@ -60,6 +60,21 @@ const tests = [
     f: health.target.upperSchoolAttendance,
     value: data[model.constants.columnNames.IN_SCHOOL_UPPER_SCHOOL],
   },
+  {
+    name: model.functions.health.measuresNames.primarySchoolTeacherToPupilRatio,
+    f: health.target.primarySchoolTeacherToPupilRatio,
+    value: data[model.constants.columnNames.PRIMARY_TEACHERS_TO_PUPILS],
+  },
+  {
+    name: model.functions.health.measuresNames.lowerSchoolTeacherToPupilRatio,
+    f: health.target.lowerSchoolTeacherToPupilRatio,
+    value: data[model.constants.columnNames.LOWER_TEACHERS_TO_PUPILS],
+  },
+  {
+    name: model.functions.health.measuresNames.upperSchoolTeacherToPupilRatio,
+    f: health.target.upperSchoolTeacherToPupilRatio,
+    value: data[model.constants.columnNames.UPPER_TEACHERS_TO_PUPILS],
+  },
 ];
 
 tests.forEach((aTest) => {

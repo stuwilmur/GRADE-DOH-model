@@ -505,5 +505,59 @@ export function createCoverageModel() {
         r[constants.columnNames.SCHOOL_POPULATION_UPPER_MALE],
       ),
     )
-    .end();
+    .end()
+    .calc()
+    .called(constants.computedColumnNames.IMPROVED_PRIMARY_TEACHERS_TO_PUPILS)
+    .does((r) =>
+      estimate(
+      coverage.estimate.primarySchoolTeacherToPupilRatio,
+      constants.columnNames.PRIMARY_TEACHERS_TO_PUPILS,
+        r,
+      ),
+    )
+    .end()
+    .calc()
+    .called(constants.computedColumnNames.IMPROVED_PRIMARY_PUPILS_TO_TEACHERS)
+    .does((r) =>r[constants.computedColumnNames.IMPROVED_PRIMARY_TEACHERS_TO_PUPILS],)
+    .end()
+    .calc()
+    .called(constants.computedColumnNames.IMPROVED_LOWER_TEACHERS_TO_PUPILS)
+    .does((r) =>
+      estimate(
+      coverage.estimate.lowerSchoolTeacherToPupilRatio,
+      constants.columnNames.LOWER_TEACHERS_TO_PUPILS,
+        r,
+      ),
+    )
+    .end()
+    .calc()
+    .called(constants.computedColumnNames.IMPROVED_LOWER_PUPILS_TO_TEACHERS)
+    .does((r) =>r[constants.computedColumnNames.IMPROVED_LOWER_TEACHERS_TO_PUPILS],)
+    .end()
+    .calc()
+    .called(constants.computedColumnNames.IMPROVED_UPPER_TEACHERS_TO_PUPILS)
+    .does((r) =>
+      estimate(
+      coverage.estimate.upperSchoolTeacherToPupilRatio,
+      constants.columnNames.UPPER_TEACHERS_TO_PUPILS,
+        r,
+      ),
+    )
+    .end()
+    .calc()
+    .called(constants.computedColumnNames.IMPROVED_LOWER_PUPILS_TO_TEACHERS)
+    .does((r) =>r[constants.computedColumnNames.IMPROVED_LOWER_TEACHERS_TO_PUPILS],)
+    .end()
+    .calc()
+    .called(constants.computedColumnNames.ADDITIONAL_PRIMARY_SCHOOL_TEACHERS)
+    .does((r)=>(r[constants.computedColumnNames.IMPROVED_PRIMARY_TEACHERS_TO_PUPILS] - r[constants.columnNames.INVERSE_PRIMARY_TEACHERS_TO_PUPILS]) * r[constants.columnNames.SCHOOL_POPULATION_PRIMARY_BOTH],)
+    .end()
+    .calc()
+    .called(constants.computedColumnNames.ADDITIONAL_LOWER_SCHOOL_TEACHERS)
+    .does((r)=>(r[constants.computedColumnNames.IMPROVED_LOWER_TEACHERS_TO_PUPILS] - r[constants.columnNames.INVERSE_LOWER_TEACHERS_TO_PUPILS]) * r[constants.columnNames.SCHOOL_POPULATION_LOWER_BOTH],)
+    .end()
+    .calc()
+    .called(constants.computedColumnNames.ADDITIONAL_UPPER_SCHOOL_TEACHERS)
+    .does((r)=>(r[constants.computedColumnNames.IMPROVED_UPPER_TEACHERS_TO_PUPILS] - r[constants.columnNames.INVERSE_UPPER_TEACHERS_TO_PUPILS]) * r[constants.columnNames.SCHOOL_POPULATION_UPPER_BOTH],)
+    .end()
 }

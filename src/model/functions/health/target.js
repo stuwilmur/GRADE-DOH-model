@@ -110,3 +110,18 @@ export const upperSchoolAttendance = curry2(
   measures.upperSchoolAttendance.calculate,
   measures.upperSchoolAttendance.invert,
 );
+export const primarySchoolTeacherToPupilRatio = curry2(
+  targetCoverage,
+  measures.primarySchoolTeacherToPupilRatio.calculate,
+  measures.primarySchoolTeacherToPupilRatio.invert,
+);
+export const lowerSchoolTeacherToPupilRatio = curry2(
+  targetCoverage,
+  measures.lowerSchoolTeacherToPupilRatio.calculate,
+  measures.lowerSchoolTeacherToPupilRatio.invert,
+);
+export const upperSchoolTeacherToPupilRatio = curry2(
+  targetCoverage,
+  measures.upperSchoolTeacherToPupilRatio.calculate,
+  measures.upperSchoolTeacherToPupilRatio.invert,
+);

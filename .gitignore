@@ -5,3 +5,4 @@ src/scratch.js
 coverage/*
 dist/*
 .parcel-cache/*
+*.js~
