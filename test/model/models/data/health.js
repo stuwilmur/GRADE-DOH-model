@@ -167,10 +167,11 @@ export const expectedResult = [
     'Additional children in upper secondary education, female': 48903.12856883287,
     'Additional children in upper secondary education, male': 51027.823468108785,
     'Primary school teachers to pupils: Improved': 0.0005111849071036331,
-    'Primary school pupils to teachers: Improved': 0.0005111849071036331,
+    'Primary school pupils to teachers: Improved': 1956.2392905259794,
     'Lower school teachers to pupils: Improved': 0.01786629085930287,
-    'Lower school pupils to teachers: Improved': 0.01786629085930287,
+    'Lower school pupils to teachers: Improved': 55.97132655429183,
     'Upper school teachers to pupils: Improved': 0.014134047701912886,
+    'Upper school pupils to teachers: Improved': 70.75114086849028,
     'Additional teachers of primary school-age children': 8062.557109646469,
     'Additional teachers of lower school-age children': 5581.599474387083,
     'Additional teachers of upper school-age children': 6637.179260397189
