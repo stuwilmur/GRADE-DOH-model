@@ -17,7 +17,6 @@ The underlying research is documented in the following publications:
 - O'Hare BA-M, Hall S. The Impact of Government Revenue on the Achievement of the Sustainable Development Goals and the Amplification Potential of Good Governance. Cent Eur J Econ Model Econom 2022;14:109–29. [DOI: 10.24425/cejeme.2022.142627](https://doi.org/10.24425/cejeme.2022.142627)
 - Hall, S., & O’Hare, B. (2023). A model to explain the impact of government revenue on the quality of governance and the SDGs. Economies, 11(4), 108.[DOI: https://doi.org/10.3390/economies11040108](https://doi.org/10.3390/economies11040108)
 - Hall, S. G., & O’Hare, B. (2024). A model of the impact of government revenue and quality of governance on schooling. International Journal of Educational Development, 108, 103055. [DOI:https://doi.org/10.1016/j.ijedudev.2024.103055](https://doi.org/10.1016/j.ijedudev.2024.103055)
-- 
 
 This package implements the core economic model only; it must be provided with input data.
 
