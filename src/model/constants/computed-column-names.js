@@ -131,3 +131,7 @@ export const ADDITIONAL_LOWER_SCHOOL_TEACHERS =
 'Additional teachers of lower school-age children';
 export const ADDITIONAL_UPPER_SCHOOL_TEACHERS = 
 'Additional teachers of upper school-age children';
+export const IMPROVED_CLEAN_FUELS_COVERAGE =
+    columnNames.CLEAN_FUELS_COVERAGE + improved;
+export const IMPROVED_CLEAN_FUELS_PEOPLE = `${PEOPLE} ${WITH_INCREASED_ACCESS_TO} ${CLEAN_FUELS_NAME}`;
+export const IMPROVED_CLEAN_FUELS_CHILDREN_UNDER_5 = `${CHILDREN_UNDER_5} ${WITH_INCREASED_ACCESS_TO} ${CLEAN_FUELS_NAME}`;

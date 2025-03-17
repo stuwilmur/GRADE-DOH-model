@@ -125,3 +125,8 @@ export const upperSchoolTeacherToPupilRatio = curry2(
   measures.upperSchoolTeacherToPupilRatio.calculate,
   measures.upperSchoolTeacherToPupilRatio.invert,
 );
+export const immunisation = curry2(
+  targetCoverage,
+  measures.cleanFuels.calculate,
+  measures.cleanFuels.invert,
+);

@@ -12,6 +12,7 @@ import {name as upperSchoolAttendance} from './upper-school-attendance';
 import {name as primarySchoolTeacherToPupilRatio} from './primary-school-teacher-to-pupil-ratio';
 import {name as lowerSchoolTeacherToPupilRatio} from './lower-school-teacher-to-pupil-ratio';
 import {name as upperSchoolTeacherToPupilRatio} from './upper-school-teacher-to-pupil-ratio';
+import {name as cleanFuels} from './clean-fuels';
 
 export {
   basicSanitation,
@@ -28,4 +29,5 @@ export {
   primarySchoolTeacherToPupilRatio,
   lowerSchoolTeacherToPupilRatio,
   upperSchoolTeacherToPupilRatio,
+  cleanFuels,
 };

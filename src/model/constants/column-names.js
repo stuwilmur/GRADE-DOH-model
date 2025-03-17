@@ -64,3 +64,5 @@ export const UPPER_PUPILS_TO_TEACHERS=
     'Upper school pupils to teachers';
 export const UPPER_TEACHERS_TO_PUPILS=
     'Upper school teachers to pupils';
+export const CLEAN_FUELS_COVERAGE =
+    'Access to clean fuels and technologies for cooking (% of population)';

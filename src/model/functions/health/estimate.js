@@ -88,4 +88,8 @@ export const upperSchoolTeacherToPupilRatio = curry(
   estimate,
   measures.upperSchoolTeacherToPupilRatio.calculate,
 );
+export const cleanFuels = curry(
+  estimate,
+  measures.cleanFuels.calculate,
+);
 

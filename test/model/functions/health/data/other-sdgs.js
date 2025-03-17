@@ -1,5 +1,7 @@
 // Data for Afghanistan 2010, from health_check_spreadsheet.xlsx
 
+//TODO: update for clean fuels
+
 export const testData = {
   observed: {
     basicSanitation: 34.177,

@@ -560,4 +560,48 @@ export function createCoverageModel() {
     .called(constants.computedColumnNames.ADDITIONAL_UPPER_SCHOOL_TEACHERS)
     .does((r)=>(r[constants.computedColumnNames.IMPROVED_UPPER_TEACHERS_TO_PUPILS] - r[constants.columnNames.UPPER_TEACHERS_TO_PUPILS]) * r[constants.columnNames.SCHOOL_POPULATION_UPPER_BOTH],)
     .end()
+    .calc()
+    .called(constants.computedColumnNames.IMPROVED_CLEAN_FUELS_COVERAGE)
+    .does((r) =>
+      estimate(
+        coverage.estimate.cleanFuels,
+        constants.columnNames.CLEAN_FUELS_COVERAGE,
+        r,
+      ),
+    )
+    .end()
+    .calc()
+    .called(constants.computedColumnNames.IMPROVED_CLEAN_FUELS_PEOPLE)
+    .does((r) =>
+      calculateAffectedPopulation(
+        r[constants.columnNames.CLEAN_FUELS_COVERAGE],
+        r[constants.computedColumnNames.IMPROVED_CLEAN_FUELS_COVERAGE],
+        r[constants.columnNames.POPTOTAL],
+      ),
+    )
+    .end()
+    .calc()
+    .called(
+      constants.computedColumnNames.IMPROVED_CLEAN_FUELS_CHILDREN_UNDER_5,
+    )
+    .does((r) =>
+      calculateAffectedPopulation(
+        r[constants.columnNames.CLEAN_FUELS_COVERAGE],
+        r[constants.computedColumnNames.IMPROVED_CLEAN_FUELS_COVERAGE],
+        r[constants.columnNames.POPULATION_CHILDREN_UNDER_5],
+      ),
+    )
+    .end()
+    .calc()
+    .called(
+      constants.computedColumnNames.IMPROVED_CLEAN_FUELS_FEMALES_15_49,
+    )
+    .does((r) =>
+      calculateAffectedPopulation(
+        r[constants.columnNames.CLEAN_FUELS_COVERAGE],
+        r[constants.computedColumnNames.IMPROVED_CLEAN_FUELS_COVERAGE],
+        r[constants.columnNames.POPULATION_FEMALES_15_49],
+      ),
+    )
+    .end()
 }
