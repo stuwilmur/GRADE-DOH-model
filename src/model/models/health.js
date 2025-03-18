@@ -604,4 +604,48 @@ export function createCoverageModel() {
       ),
     )
     .end()
+    .calc()
+    .called(constants.computedColumnNames.IMPROVED_ELECTRICITY_COVERAGE)
+    .does((r) =>
+      estimate(
+        coverage.estimate.electricity,
+        constants.columnNames.ELECTRICITY_COVERAGE,
+        r,
+      ),
+    )
+    .end()
+    .calc()
+    .called(constants.computedColumnNames.IMPROVED_ELECTRICITY_PEOPLE)
+    .does((r) =>
+      calculateAffectedPopulation(
+        r[constants.columnNames.ELECTRICITY_COVERAGE],
+        r[constants.computedColumnNames.IMPROVED_ELECTRICITY_COVERAGE],
+        r[constants.columnNames.POPTOTAL],
+      ),
+    )
+    .end()
+    .calc()
+    .called(
+      constants.computedColumnNames.IMPROVED_ELECTRICITY_CHILDREN_UNDER_5,
+    )
+    .does((r) =>
+      calculateAffectedPopulation(
+        r[constants.columnNames.ELECTRICITY_COVERAGE],
+        r[constants.computedColumnNames.IMPROVED_ELECTRICITY_COVERAGE],
+        r[constants.columnNames.POPULATION_CHILDREN_UNDER_5],
+      ),
+    )
+    .end()
+    .calc()
+    .called(
+      constants.computedColumnNames.IMPROVED_ELECTRICITY_FEMALES_15_49,
+    )
+    .does((r) =>
+      calculateAffectedPopulation(
+        r[constants.columnNames.ELECTRICITY_COVERAGE],
+        r[constants.computedColumnNames.IMPROVED_ELECTRICITY_COVERAGE],
+        r[constants.columnNames.POPULATION_FEMALES_15_49],
+      ),
+    )
+    .end()
 }

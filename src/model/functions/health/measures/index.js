@@ -13,6 +13,7 @@ import * as primarySchoolTeacherToPupilRatio from './primary-school-teacher-to-p
 import * as lowerSchoolTeacherToPupilRatio from './lower-school-teacher-to-pupil-ratio';
 import * as upperSchoolTeacherToPupilRatio from './upper-school-teacher-to-pupil-ratio';
 import * as cleanFuels from './clean-fuels';
+import * as electricity from './electricity';
 
 export {
   basicSanitation,
@@ -30,4 +31,5 @@ export {
   lowerSchoolTeacherToPupilRatio,
   upperSchoolTeacherToPupilRatio,
   cleanFuels,
+  electricity
 };

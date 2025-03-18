@@ -1,6 +1,7 @@
 // Data for Afghanistan 2010, from health_check_spreadsheet.xlsx
 
 //TODO: update for clean fuels
+//TODO: update for electricity
 
 export const testData = {
   observed: {

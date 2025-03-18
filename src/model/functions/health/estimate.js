@@ -92,4 +92,8 @@ export const cleanFuels = curry(
   estimate,
   measures.cleanFuels.calculate,
 );
+export const electricity = curry(
+  estimate,
+  measures.electricity.calculate,
+);
 

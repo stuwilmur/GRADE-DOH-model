@@ -75,6 +75,16 @@ const tests = [
     f: health.target.upperSchoolTeacherToPupilRatio,
     value: data[model.constants.columnNames.UPPER_TEACHERS_TO_PUPILS],
   },
+  {
+    name: model.functions.health.measuresNames.cleanFuels,
+    f: health.target.cleanFuels,
+    value: data[model.constants.columnNames.CLEAN_FUELS_COVERAGE],
+  },
+  {
+    name: model.functions.health.measuresNames.electricity,
+    f: health.target.electricity,
+    value: data[model.constants.columnNames.ELECTRICITY_COVERAGE],
+  },
 ];
 
 tests.forEach((aTest) => {
