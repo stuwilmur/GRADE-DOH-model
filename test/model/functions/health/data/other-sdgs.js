@@ -2,6 +2,7 @@
 
 //TODO: update for clean fuels
 //TODO: update for electricity
+//TODO: update for stunting
 
 export const testData = {
   observed: {

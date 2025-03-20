@@ -648,4 +648,26 @@ export function createCoverageModel() {
       ),
     )
     .end()
+    .calc()
+    .called(constants.computedColumnNames.IMPROVED_STUNTING_COVERAGE)
+    .does((r) =>
+      estimate(
+        coverage.estimate.stunting,
+        constants.columnNames.STUNTING_COVERAGE,
+        r,
+      ),
+    )
+    .end()
+    .calc()
+    .called(
+      constants.computedColumnNames.IMPROVED_STUNTING_CHILDREN_UNDER_5,
+    )
+    .does((r) =>
+      calculateAffectedPopulation(
+        r[constants.columnNames.STUNTING_COVERAGE],
+        r[constants.computedColumnNames.IMPROVED_STUNTING_COVERAGE],
+        r[constants.columnNames.POPULATION_CHILDREN_UNDER_5],
+      ),
+    )
+    .end()
 }

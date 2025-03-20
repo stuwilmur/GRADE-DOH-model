@@ -135,3 +135,31 @@ export const electricity = curry2(
   measures.electricity.calculate,
   measures.electricity.invert,
 );
+const stuntingInverse = curry2(
+  targetCoverage,
+  measures.stuntingInverse.calculate,
+  measures.stuntingInverse.invert,
+);
+
+/**
+ * Estimate required grpc to achieve a target prevalence of stunting 
+ * from the model equations: this is necessary as to calculate stunting,
+ * the working variable must be transformed to stunting inverse.
+ * @param {number} coverageObserved Observed value of stunting
+ * @param {number} grpcObserved Observed absolute monetary value of GRPC
+ * @param {number} coverageTarget Target value of stunting
+ * @param {object} governanceObserved Observed governance (governance object)
+ * @return {number} Absolute monetary value of grpc required to achieve target
+ */
+export function stunting(
+  coverageObserved,
+  grpcObserved,
+  coverageTarget,
+  governanceObserved)
+{  
+  const stuntingInverseObserved = measures.stuntingInverse.stuntingToStuntingInverse(coverageObserved); 
+  const stuntingInverseTarget =  measures.stuntingInverse.stuntingToStuntingInverse(coverageTarget); 
+
+  return stuntingInverse(stuntingInverseObserved, grpcObserved, stuntingInverseTarget, governanceObserved);
+}
+

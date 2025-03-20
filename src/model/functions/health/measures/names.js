@@ -14,6 +14,8 @@ import {name as lowerSchoolTeacherToPupilRatio} from './lower-school-teacher-to-
 import {name as upperSchoolTeacherToPupilRatio} from './upper-school-teacher-to-pupil-ratio';
 import {name as cleanFuels} from './clean-fuels';
 import {name as electricity} from './electricity';
+import {name as stunting} from ''./stunting';
+import {name as stuntingInverse} from ''./stuntingInverse';
 
 export {
   basicSanitation,
@@ -31,5 +33,7 @@ export {
   lowerSchoolTeacherToPupilRatio,
   upperSchoolTeacherToPupilRatio,
   cleanFuels,
-  electricity
+  electricity,
+  stunting,
+  stuntingInverse
 };

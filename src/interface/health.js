@@ -18,6 +18,7 @@ export const target = {
   upperSchoolTeacherToPupilRatio: t.upperSchoolTeacherToPupilRatio,
   cleanFuels: t.cleanFuels,
   electricity: t.electricity,
+  stunting: t.stunting,
 };
 
 export const GrpcMethod = {

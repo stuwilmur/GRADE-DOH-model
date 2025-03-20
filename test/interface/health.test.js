@@ -85,6 +85,11 @@ const tests = [
     f: health.target.electricity,
     value: data[model.constants.columnNames.ELECTRICITY_COVERAGE],
   },
+  {
+    name: model.functions.health.measuresNames.stunting,
+    f: health.target.stunting,
+    value: data[model.constants.columnNames.STUNTING_COVERAGE],
+  },
 ];
 
 tests.forEach((aTest) => {

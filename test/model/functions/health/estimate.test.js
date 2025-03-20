@@ -15,6 +15,7 @@ const measuresToTest = new Map([
   ['underFiveSurvival', coverage.estimate.underFiveSurvival],
   ['cleanFuels', coverage.estimate.cleanFuels],
   ['electricity', coverage.estimate.electricity],
+  ['stunting', coverage.estimate.stunting],
 ]);
 
 const governanceObserved = governanceObject(

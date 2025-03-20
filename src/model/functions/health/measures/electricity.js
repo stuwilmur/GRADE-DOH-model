@@ -26,9 +26,10 @@ export function calculate(grpc, governance) {
  * @param {object} governance Governance object
  * @return {number} Estimated government revenue per capita in USD
  */
-const A =  - (1.5019625456 - 0.2578443514823 * governance.controlOfCorruption
+export function invert(target, governance) {
+  const A =  - (1.5019625456 - 0.2578443514823 * governance.controlOfCorruption
 		+ 0.362341978581 * governance.regulatoryQuality + 0.465587308283 * governance.governmentEffectiveness);
- 		const B = 5.27113495126 + 0.671315739474 * governance.controlOfCorruption 
+  const B = 5.27113495126 + 0.671315739474 * governance.controlOfCorruption 
 		+ 0.171880470512 * governance.politicalStability + 0.348130495524 * governance.regulatoryQuality
 		- 0.30838918822 * governance.ruleOfLaw - 0.79095443295 * governance.governmentEffectiveness 
 		+ 0.136955671243 * governance.voiceAndAccountability;

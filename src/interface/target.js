@@ -228,3 +228,16 @@ export const electricity = curry2(
   model.functions.health.target.electricity,
   model.constants.columnNames.ELECTRICITY_COVERAGE,
 );
+
+/**                                                                                                                                                              
+ * Calculate revenue necessary to achieve target value of prevalence
+ * of stunting
+ * @param {number} target target value of prevalence of stunting
+ * @param {array} data the base data rows for which to calculate
+ * @return {array} result data, including values for target revenue
+ */ 
+export const electricity = curry2(
+  calcGrpcForTargetCoverage,
+  model.functions.health.target.stunting,
+  model.constants.columnNames.STUNTING_COVERAGE,
+);

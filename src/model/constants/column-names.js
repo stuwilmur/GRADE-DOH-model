@@ -68,3 +68,5 @@ export const CLEAN_FUELS_COVERAGE =
     'Access to clean fuels and technologies for cooking (% of population)';
 export const ELECTRICITY_COVERAGE =
     'Access to electricity (% of population)';
+Export const STUNTING_COVERAGE = 
+    'Prevalence of stunting, height for age (% of children under 5)';
