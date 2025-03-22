@@ -16,7 +16,7 @@ export function calculate(grpc, governance) {
 		- (0.615767523243 - 0.136403617704 * governance.controlOfCorruption
 		- 0.0690187386714 * governance.politicalStability + 0.362786997335 * governance.governmentEffectiveness 
 		+ 0.0626787851051 * governance.voiceAndAccountability) *
-		(Math.log(_grpc)  
+		(Math.log(grpc)  
 		- (5.14643417028 - 0.272350860329 * governance.politicalStability
 		- 0.266201741521 * governance.regulatoryQuality - 0.621311114237 * governance.ruleOfLaw
 		+ 0.852663964988 * governance.governmentEffectiveness + 0.221598174524 * governance.voiceAndAccountability ))))
@@ -51,7 +51,7 @@ export function invert(target, governance) {
  * @param {number} stunting Prevalence of stunting as a percentage
  * @return {number} Stunting inverse
  */
-function stuntingToStuntingInverse(stunting)
+export function stuntingToStuntingInverse(stunting)
 {
   return 100.0 - 100.0 / 65.0 * stunting;
 }
@@ -62,7 +62,7 @@ function stuntingToStuntingInverse(stunting)
  * @param {number} stuntingInverse Stunting inverse 
  * @return {number} Prevalence of stunting as a percentage
  */
-function stuntingInverseToStunting(stuntingInverse)
+export function stuntingInverseToStunting(stuntingInverse)
 {
-  return (100.0 - si) * 65.0 / 100.0;
+  return (100.0 - stuntingInverse) * 65.0 / 100.0;
 }

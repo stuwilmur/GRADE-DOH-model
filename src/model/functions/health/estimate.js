@@ -96,10 +96,6 @@ export const electricity = curry(
   estimate,
   measures.electricity.calculate,
 );
-const stuntingInverse = curry(
-  estimate,
-  measures.stuntingInverse.calculate,
-);
 
 /**
  * Estimate stunting prevalence from the model equations:
@@ -117,14 +113,16 @@ export function stunting(
   grpcObserved,
   grpcAdjusted,
   governanceObserved,
-  governancedAdjusted,)
+  governanceAdjusted,)
 {
-  stuntingInverseObserved = measures.stuntingInverse.stuntingToStuntingInverse(coverageObserved);
-  const estimatedStuntingInverse = estimate(coverageObserved,
+  const stuntingInverseObserved = measures.stuntingInverse.stuntingToStuntingInverse(coverageObserved);
+  const estimatedStuntingInverse = estimate(
+  measures.stuntingInverse.calculate,
+  coverageObserved,
   grpcObserved,
   grpcAdjusted,
   governanceObserved,
-  governancedAdjusted);
+  governanceAdjusted);
   return measures.stuntingInverse.stuntingInverseToStunting(estimatedStuntingInverse);
 }
 

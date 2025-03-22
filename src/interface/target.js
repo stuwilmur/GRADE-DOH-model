@@ -236,7 +236,7 @@ export const electricity = curry2(
  * @param {array} data the base data rows for which to calculate
  * @return {array} result data, including values for target revenue
  */ 
-export const electricity = curry2(
+export const stunting = curry2(
   calcGrpcForTargetCoverage,
   model.functions.health.target.stunting,
   model.constants.columnNames.STUNTING_COVERAGE,
