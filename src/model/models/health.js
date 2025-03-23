@@ -510,55 +510,82 @@ export function createCoverageModel() {
     .called(constants.computedColumnNames.IMPROVED_PRIMARY_TEACHERS_TO_PUPILS)
     .does((r) =>
       estimate(
-      coverage.estimate.primarySchoolTeacherToPupilRatio,
-      constants.columnNames.PRIMARY_TEACHERS_TO_PUPILS,
+        coverage.estimate.primarySchoolTeacherToPupilRatio,
+        constants.columnNames.PRIMARY_TEACHERS_TO_PUPILS,
         r,
       ),
     )
     .end()
     .calc()
     .called(constants.computedColumnNames.IMPROVED_PRIMARY_PUPILS_TO_TEACHERS)
-    .does((r) => 1.0 / r[constants.computedColumnNames.IMPROVED_PRIMARY_TEACHERS_TO_PUPILS],)
+    .does(
+      (r) =>
+        1.0 /
+        r[constants.computedColumnNames.IMPROVED_PRIMARY_TEACHERS_TO_PUPILS],
+    )
     .end()
     .calc()
     .called(constants.computedColumnNames.IMPROVED_LOWER_TEACHERS_TO_PUPILS)
     .does((r) =>
       estimate(
-      coverage.estimate.lowerSchoolTeacherToPupilRatio,
-      constants.columnNames.LOWER_TEACHERS_TO_PUPILS,
+        coverage.estimate.lowerSchoolTeacherToPupilRatio,
+        constants.columnNames.LOWER_TEACHERS_TO_PUPILS,
         r,
       ),
     )
     .end()
     .calc()
     .called(constants.computedColumnNames.IMPROVED_LOWER_PUPILS_TO_TEACHERS)
-    .does((r) => 1.0 / r[constants.computedColumnNames.IMPROVED_LOWER_TEACHERS_TO_PUPILS],)
+    .does(
+      (r) =>
+        1.0 /
+        r[constants.computedColumnNames.IMPROVED_LOWER_TEACHERS_TO_PUPILS],
+    )
     .end()
     .calc()
     .called(constants.computedColumnNames.IMPROVED_UPPER_TEACHERS_TO_PUPILS)
     .does((r) =>
       estimate(
-      coverage.estimate.upperSchoolTeacherToPupilRatio,
-      constants.columnNames.UPPER_TEACHERS_TO_PUPILS,
+        coverage.estimate.upperSchoolTeacherToPupilRatio,
+        constants.columnNames.UPPER_TEACHERS_TO_PUPILS,
         r,
       ),
     )
     .end()
     .calc()
     .called(constants.computedColumnNames.IMPROVED_UPPER_PUPILS_TO_TEACHERS)
-    .does((r) => 1.0 / r[constants.computedColumnNames.IMPROVED_UPPER_TEACHERS_TO_PUPILS],)
+    .does(
+      (r) =>
+        1.0 /
+        r[constants.computedColumnNames.IMPROVED_UPPER_TEACHERS_TO_PUPILS],
+    )
     .end()
     .calc()
     .called(constants.computedColumnNames.ADDITIONAL_PRIMARY_SCHOOL_TEACHERS)
-    .does((r)=>(r[constants.computedColumnNames.IMPROVED_PRIMARY_TEACHERS_TO_PUPILS] - r[constants.columnNames.PRIMARY_TEACHERS_TO_PUPILS]) * r[constants.columnNames.SCHOOL_POPULATION_PRIMARY_BOTH],)
+    .does(
+      (r) =>
+        (r[constants.computedColumnNames.IMPROVED_PRIMARY_TEACHERS_TO_PUPILS] -
+          r[constants.columnNames.PRIMARY_TEACHERS_TO_PUPILS]) *
+        r[constants.columnNames.SCHOOL_POPULATION_PRIMARY_BOTH],
+    )
     .end()
     .calc()
     .called(constants.computedColumnNames.ADDITIONAL_LOWER_SCHOOL_TEACHERS)
-    .does((r)=>(r[constants.computedColumnNames.IMPROVED_LOWER_TEACHERS_TO_PUPILS] - r[constants.columnNames.LOWER_TEACHERS_TO_PUPILS]) * r[constants.columnNames.SCHOOL_POPULATION_LOWER_BOTH],)
+    .does(
+      (r) =>
+        (r[constants.computedColumnNames.IMPROVED_LOWER_TEACHERS_TO_PUPILS] -
+          r[constants.columnNames.LOWER_TEACHERS_TO_PUPILS]) *
+        r[constants.columnNames.SCHOOL_POPULATION_LOWER_BOTH],
+    )
     .end()
     .calc()
     .called(constants.computedColumnNames.ADDITIONAL_UPPER_SCHOOL_TEACHERS)
-    .does((r)=>(r[constants.computedColumnNames.IMPROVED_UPPER_TEACHERS_TO_PUPILS] - r[constants.columnNames.UPPER_TEACHERS_TO_PUPILS]) * r[constants.columnNames.SCHOOL_POPULATION_UPPER_BOTH],)
+    .does(
+      (r) =>
+        (r[constants.computedColumnNames.IMPROVED_UPPER_TEACHERS_TO_PUPILS] -
+          r[constants.columnNames.UPPER_TEACHERS_TO_PUPILS]) *
+        r[constants.columnNames.SCHOOL_POPULATION_UPPER_BOTH],
+    )
     .end()
     .calc()
     .called(constants.computedColumnNames.IMPROVED_CLEAN_FUELS_COVERAGE)
@@ -581,9 +608,7 @@ export function createCoverageModel() {
     )
     .end()
     .calc()
-    .called(
-      constants.computedColumnNames.IMPROVED_CLEAN_FUELS_CHILDREN_UNDER_5,
-    )
+    .called(constants.computedColumnNames.IMPROVED_CLEAN_FUELS_CHILDREN_UNDER_5)
     .does((r) =>
       calculateAffectedPopulation(
         r[constants.columnNames.CLEAN_FUELS_COVERAGE],
@@ -593,9 +618,7 @@ export function createCoverageModel() {
     )
     .end()
     .calc()
-    .called(
-      constants.computedColumnNames.IMPROVED_CLEAN_FUELS_FEMALES_15_49,
-    )
+    .called(constants.computedColumnNames.IMPROVED_CLEAN_FUELS_FEMALES_15_49)
     .does((r) =>
       calculateAffectedPopulation(
         r[constants.columnNames.CLEAN_FUELS_COVERAGE],
@@ -625,9 +648,7 @@ export function createCoverageModel() {
     )
     .end()
     .calc()
-    .called(
-      constants.computedColumnNames.IMPROVED_ELECTRICITY_CHILDREN_UNDER_5,
-    )
+    .called(constants.computedColumnNames.IMPROVED_ELECTRICITY_CHILDREN_UNDER_5)
     .does((r) =>
       calculateAffectedPopulation(
         r[constants.columnNames.ELECTRICITY_COVERAGE],
@@ -637,9 +658,7 @@ export function createCoverageModel() {
     )
     .end()
     .calc()
-    .called(
-      constants.computedColumnNames.IMPROVED_ELECTRICITY_FEMALES_15_49,
-    )
+    .called(constants.computedColumnNames.IMPROVED_ELECTRICITY_FEMALES_15_49)
     .does((r) =>
       calculateAffectedPopulation(
         r[constants.columnNames.ELECTRICITY_COVERAGE],
@@ -659,9 +678,7 @@ export function createCoverageModel() {
     )
     .end()
     .calc()
-    .called(
-      constants.computedColumnNames.IMPROVED_STUNTING_CHILDREN_UNDER_5,
-    )
+    .called(constants.computedColumnNames.IMPROVED_STUNTING_CHILDREN_UNDER_5)
     .does((r) =>
       calculateAffectedPopulation(
         r[constants.columnNames.STUNTING_COVERAGE],
@@ -669,5 +686,5 @@ export function createCoverageModel() {
         r[constants.columnNames.POPULATION_CHILDREN_UNDER_5],
       ),
     )
-    .end()
+    .end();
 }

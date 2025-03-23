@@ -88,18 +88,12 @@ export const upperSchoolTeacherToPupilRatio = curry(
   estimate,
   measures.upperSchoolTeacherToPupilRatio.calculate,
 );
-export const cleanFuels = curry(
-  estimate,
-  measures.cleanFuels.calculate,
-);
-export const electricity = curry(
-  estimate,
-  measures.electricity.calculate,
-);
+export const cleanFuels = curry(estimate, measures.cleanFuels.calculate);
+export const electricity = curry(estimate, measures.electricity.calculate);
 
 /**
  * Estimate stunting prevalence from the model equations:
- * this is necessary as to calculate stunting, the working 
+ * this is necessary as to calculate stunting, the working
  * variable must be transformed to stunting inverse.
  * @param {number} coverageObserved Obvserved value of coverage
  * @param {number} grpcObserved Observed absolute monetary value of GRPC
@@ -108,21 +102,24 @@ export const electricity = curry(
  * @param {object} governancedAdjusted Adjusted governance (governance object)
  * @return {number} Estimated coverage value
  */
-export function stunting(  
+export function stunting(
   coverageObserved,
   grpcObserved,
   grpcAdjusted,
   governanceObserved,
-  governanceAdjusted,)
-{
-  const stuntingInverseObserved = measures.stuntingInverse.stuntingToStuntingInverse(coverageObserved);
+  governanceAdjusted,
+) {
+  const stuntingInverseObserved =
+    measures.stuntingInverse.stuntingToStuntingInverse(coverageObserved);
   const estimatedStuntingInverse = estimate(
-  measures.stuntingInverse.calculate,
-  coverageObserved,
-  grpcObserved,
-  grpcAdjusted,
-  governanceObserved,
-  governanceAdjusted);
-  return measures.stuntingInverse.stuntingInverseToStunting(estimatedStuntingInverse);
+    measures.stuntingInverse.calculate,
+    coverageObserved,
+    grpcObserved,
+    grpcAdjusted,
+    governanceObserved,
+    governanceAdjusted,
+  );
+  return measures.stuntingInverse.stuntingInverseToStunting(
+    estimatedStuntingInverse,
+  );
 }
-

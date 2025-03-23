@@ -142,7 +142,7 @@ const stuntingInverse = curry2(
 );
 
 /**
- * Estimate required grpc to achieve a target prevalence of stunting 
+ * Estimate required grpc to achieve a target prevalence of stunting
  * from the model equations: this is necessary as to calculate stunting,
  * the working variable must be transformed to stunting inverse.
  * @param {number} coverageObserved Observed value of stunting
@@ -155,11 +155,17 @@ export function stunting(
   coverageObserved,
   grpcObserved,
   coverageTarget,
-  governanceObserved)
-{  
-  const stuntingInverseObserved = measures.stuntingInverse.stuntingToStuntingInverse(coverageObserved); 
-  const stuntingInverseTarget =  measures.stuntingInverse.stuntingToStuntingInverse(coverageTarget); 
+  governanceObserved,
+) {
+  const stuntingInverseObserved =
+    measures.stuntingInverse.stuntingToStuntingInverse(coverageObserved);
+  const stuntingInverseTarget =
+    measures.stuntingInverse.stuntingToStuntingInverse(coverageTarget);
 
-  return stuntingInverse(stuntingInverseObserved, grpcObserved, stuntingInverseTarget, governanceObserved);
+  return stuntingInverse(
+    stuntingInverseObserved,
+    grpcObserved,
+    stuntingInverseTarget,
+    governanceObserved,
+  );
 }
-

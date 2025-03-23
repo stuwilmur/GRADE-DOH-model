@@ -35,5 +35,5 @@ export {
   cleanFuels,
   electricity,
   stunting,
-  stuntingInverse
+  stuntingInverse,
 };

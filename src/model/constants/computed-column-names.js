@@ -12,8 +12,8 @@ const SAFE_WATER_NAME = 'Safe water (SDG 6)';
 const BASIC_SANITATION_NAME = 'Basic sanitation (SDG 6)';
 const SAFE_SANITATION_NAME = 'Safe sanitation (SDG 6)';
 const CLEAN_FUELS_NAME = 'Clean fuels (SDG 7)';
-const ELECTRICITY_NAME = 'Electricity (SDG 7)'
-const STUNTING_NAME = 'Stunting'
+const ELECTRICITY_NAME = 'Electricity (SDG 7)';
+const STUNTING_NAME = 'Stunting';
 const PEOPLE = 'People';
 const CHILDREN_UNDER_5 = 'Children < 5';
 const FEMALES_15_49 = 'Females 15-49';
@@ -117,33 +117,33 @@ export const ADDITIONAL_SCHOOL_POPULATION_UPPER_FEMALE =
   'Additional children in upper secondary education, female';
 export const ADDITIONAL_SCHOOL_POPULATION_UPPER_MALE =
   'Additional children in upper secondary education, male';
-export const IMPROVED_PRIMARY_PUPILS_TO_TEACHERS = 
-    columnNames.PRIMARY_PUPILS_TO_TEACHERS + improved;
-export const IMPROVED_PRIMARY_TEACHERS_TO_PUPILS = 
-    columnNames.PRIMARY_TEACHERS_TO_PUPILS + improved;
-export const IMPROVED_LOWER_PUPILS_TO_TEACHERS = 
-    columnNames.LOWER_PUPILS_TO_TEACHERS + improved;
-export const IMPROVED_LOWER_TEACHERS_TO_PUPILS = 
-    columnNames.LOWER_TEACHERS_TO_PUPILS + improved;
-export const IMPROVED_UPPER_PUPILS_TO_TEACHERS = 
-    columnNames.UPPER_PUPILS_TO_TEACHERS + improved;
-export const IMPROVED_UPPER_TEACHERS_TO_PUPILS = 
-    columnNames.UPPER_TEACHERS_TO_PUPILS + improved;
-export const ADDITIONAL_PRIMARY_SCHOOL_TEACHERS = 
-'Additional teachers of primary school-age children';
-export const ADDITIONAL_LOWER_SCHOOL_TEACHERS = 
-'Additional teachers of lower school-age children';
-export const ADDITIONAL_UPPER_SCHOOL_TEACHERS = 
-'Additional teachers of upper school-age children';
+export const IMPROVED_PRIMARY_PUPILS_TO_TEACHERS =
+  columnNames.PRIMARY_PUPILS_TO_TEACHERS + improved;
+export const IMPROVED_PRIMARY_TEACHERS_TO_PUPILS =
+  columnNames.PRIMARY_TEACHERS_TO_PUPILS + improved;
+export const IMPROVED_LOWER_PUPILS_TO_TEACHERS =
+  columnNames.LOWER_PUPILS_TO_TEACHERS + improved;
+export const IMPROVED_LOWER_TEACHERS_TO_PUPILS =
+  columnNames.LOWER_TEACHERS_TO_PUPILS + improved;
+export const IMPROVED_UPPER_PUPILS_TO_TEACHERS =
+  columnNames.UPPER_PUPILS_TO_TEACHERS + improved;
+export const IMPROVED_UPPER_TEACHERS_TO_PUPILS =
+  columnNames.UPPER_TEACHERS_TO_PUPILS + improved;
+export const ADDITIONAL_PRIMARY_SCHOOL_TEACHERS =
+  'Additional teachers of primary school-age children';
+export const ADDITIONAL_LOWER_SCHOOL_TEACHERS =
+  'Additional teachers of lower school-age children';
+export const ADDITIONAL_UPPER_SCHOOL_TEACHERS =
+  'Additional teachers of upper school-age children';
 export const IMPROVED_CLEAN_FUELS_COVERAGE =
-    columnNames.CLEAN_FUELS_COVERAGE + improved;
+  columnNames.CLEAN_FUELS_COVERAGE + improved;
 export const IMPROVED_CLEAN_FUELS_PEOPLE = `${PEOPLE} ${WITH_INCREASED_ACCESS_TO} ${CLEAN_FUELS_NAME}`;
 export const IMPROVED_CLEAN_FUELS_CHILDREN_UNDER_5 = `${CHILDREN_UNDER_5} ${WITH_INCREASED_ACCESS_TO} ${CLEAN_FUELS_NAME}`;
 export const IMPROVED_CLEAN_FUELS_FEMALES_15_49 = `${FEMALES_15_49} ${WITH_INCREASED_ACCESS_TO} ${CLEAN_FUELS_NAME}`;
 export const IMPROVED_ELECTRICITY_COVERAGE =
-    columnNames.ELECTRICITY_COVERAGE + improved;
+  columnNames.ELECTRICITY_COVERAGE + improved;
 export const IMPROVED_ELECTRICITY_PEOPLE = `${PEOPLE} ${WITH_INCREASED_ACCESS_TO} ${ELECTRICITY_NAME}`;
 export const IMPROVED_ELECTRICITY_CHILDREN_UNDER_5 = `${CHILDREN_UNDER_5} ${WITH_INCREASED_ACCESS_TO} ${ELECTRICITY_NAME}`;
 export const IMPROVED_ELECTRICITY_FEMALES_15_49 = `${FEMALES_15_49} ${WITH_INCREASED_ACCESS_TO} ${ELECTRICITY_NAME}`;
-export const IMPROVED_STUNTING_COVERAGE =  `Prevalence of ${STUNTING_NAME} ${improved}`;
-export const IMPROVED_STUNTING_CHILDREN_UNDER_5 = `${CHILDREN_UNDER_5} ${WHO_NO_LONGER_EXPERIENCE} ${STUNTING_NAME}`
+export const IMPROVED_STUNTING_COVERAGE = `Prevalence of ${STUNTING_NAME} ${improved}`;
+export const IMPROVED_STUNTING_CHILDREN_UNDER_5 = `${CHILDREN_UNDER_5} ${WHO_NO_LONGER_EXPERIENCE} ${STUNTING_NAME}`;

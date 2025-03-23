@@ -52,21 +52,14 @@ export const SCHOOL_POPULATION_UPPER_FEMALE =
   'School age population, upper secondary education, female (number)';
 export const SCHOOL_POPULATION_UPPER_MALE =
   'School age population, upper secondary education, male (number)';
-export const PRIMARY_PUPILS_TO_TEACHERS = 
-    'Primary school pupils to teachers';
-export const PRIMARY_TEACHERS_TO_PUPILS = 
-    'Primary school teachers to pupils';
-export const LOWER_PUPILS_TO_TEACHERS=
-    'Lower school pupils to teachers';
-export const LOWER_TEACHERS_TO_PUPILS=
-    'Lower school teachers to pupils';
-export const UPPER_PUPILS_TO_TEACHERS=
-    'Upper school pupils to teachers';
-export const UPPER_TEACHERS_TO_PUPILS=
-    'Upper school teachers to pupils';
+export const PRIMARY_PUPILS_TO_TEACHERS = 'Primary school pupils to teachers';
+export const PRIMARY_TEACHERS_TO_PUPILS = 'Primary school teachers to pupils';
+export const LOWER_PUPILS_TO_TEACHERS = 'Lower school pupils to teachers';
+export const LOWER_TEACHERS_TO_PUPILS = 'Lower school teachers to pupils';
+export const UPPER_PUPILS_TO_TEACHERS = 'Upper school pupils to teachers';
+export const UPPER_TEACHERS_TO_PUPILS = 'Upper school teachers to pupils';
 export const CLEAN_FUELS_COVERAGE =
-    'Access to clean fuels and technologies for cooking (% of population)';
-export const ELECTRICITY_COVERAGE =
-    'Access to electricity (% of population)';
-export const STUNTING_COVERAGE = 
-    'Prevalence of stunting, height for age (% of children under 5)';
+  'Access to clean fuels and technologies for cooking (% of population)';
+export const ELECTRICITY_COVERAGE = 'Access to electricity (% of population)';
+export const STUNTING_COVERAGE =
+  'Prevalence of stunting, height for age (% of children under 5)';
