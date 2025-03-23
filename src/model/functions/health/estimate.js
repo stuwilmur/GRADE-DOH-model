@@ -14,7 +14,7 @@ import {curry, applyResidual} from '../../../utils';
  * @param {number} grpcObserved Observed absolute monetary value of GRPC
  * @param {number} grpcAdjusted Adjusted absolute monetary  of GRPC
  * @param {object} governanceObserved Observed governance (governance object)
- * @param {object} governancedAdjusted Adjusted governance (governance object)
+ * @param {object} governanceAdjusted Adjusted governance (governance object)
  * @return {number} Estimated coverage value
  */
 function estimate(
@@ -23,7 +23,7 @@ function estimate(
   grpcObserved,
   grpcAdjusted,
   governanceObserved,
-  governancedAdjusted,
+  governanceAdjusted,
 ) {
   const coverageCalculated = coverageCalculator(
     grpcObserved,
@@ -31,7 +31,7 @@ function estimate(
   );
   const coverageAdjustedCalculated = coverageCalculator(
     grpcAdjusted,
-    governancedAdjusted,
+    governanceAdjusted,
   );
   const coverageAdjustedEstimated = applyResidual(
     coverageObserved,
@@ -99,7 +99,7 @@ export const electricity = curry(estimate, measures.electricity.calculate);
  * @param {number} grpcObserved Observed absolute monetary value of GRPC
  * @param {number} grpcAdjusted Adjusted absolute monetary  of GRPC
  * @param {object} governanceObserved Observed governance (governance object)
- * @param {object} governancedAdjusted Adjusted governance (governance object)
+ * @param {object} governanceAdjusted Adjusted governance (governance object)
  * @return {number} Estimated coverage value
  */
 export function stunting(
@@ -113,7 +113,7 @@ export function stunting(
     measures.stuntingInverse.stuntingToStuntingInverse(coverageObserved);
   const estimatedStuntingInverse = estimate(
     measures.stuntingInverse.calculate,
-    coverageObserved,
+    stuntingInverseObserved,
     grpcObserved,
     grpcAdjusted,
     governanceObserved,

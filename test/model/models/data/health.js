@@ -3,13 +3,13 @@
 /* eslint-disable max-len */
 export const input = [
   {
-    countryyearcode: 'BGD2002',
-    countryname: 'Bangladesh',
-    countrycode: 'BGD',
+    'countryyearcode': 'BGD2002',
+    'countryname': 'Bangladesh',
+    'countrycode': 'BGD',
     'Government revenue per capita (constant 2015 USD)': 59.74,
-    year: 2002,
-    region: 'SAS',
-    incomelevel: 'LMC',
+    'year': 2002,
+    'region': 'SAS',
+    'incomelevel': 'LMC',
     'People using at least basic sanitation services (% of population)': 26.65,
     'People using safely managed sanitation services (% of population)': 19.82,
     'People using at least basic drinking water services (% of population)': 95.08,
@@ -56,19 +56,19 @@ export const input = [
     'Lower school teachers to pupils': 0.017261962,
     'Lower school pupils to teachers': 57.93084199,
     'Upper school teachers to pupils': 0.013575601,
-    'Upper school pupils to teachers': 73.66156173
-  }
+    'Upper school pupils to teachers': 73.66156173,
+  },
 ];
 
 export const expectedResult = [
   {
-    countryyearcode: 'BGD2002',
-    countryname: 'Bangladesh',
-    countrycode: 'BGD',
+    'countryyearcode': 'BGD2002',
+    'countryname': 'Bangladesh',
+    'countrycode': 'BGD',
     'Government revenue per capita (constant 2015 USD)': 59.74,
-    year: 2002,
-    region: 'SAS',
-    incomelevel: 'LMC',
+    'year': 2002,
+    'region': 'SAS',
+    'incomelevel': 'LMC',
     'People using at least basic sanitation services (% of population)': 26.65,
     'People using safely managed sanitation services (% of population)': 19.82,
     'People using at least basic drinking water services (% of population)': 95.08,
@@ -174,7 +174,7 @@ export const expectedResult = [
     'Upper school pupils to teachers: Improved': 70.75114086849028,
     'Additional teachers of primary school-age children': 8062.557109646469,
     'Additional teachers of lower school-age children': 5581.599474387083,
-    'Additional teachers of upper school-age children': 6637.179260397189
-  }
+    'Additional teachers of upper school-age children': 6637.179260397189,
+  },
 ]
 ;

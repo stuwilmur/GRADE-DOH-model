@@ -15,7 +15,7 @@
     "clear_jest": "jest --clearCache",
     "make-badges": "istanbul-badges-readme",
     "build": "parcel build",
-    "lint": "eslint src/*.js",
+    "lint": "eslint . --ext .js",
     "clean": "rm -rf dist/*",
     "prepublish": "npm run build",
     "prebuild": "npm run test && npm run clean",

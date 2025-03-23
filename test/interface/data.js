@@ -71,5 +71,5 @@ export const data = {
   'Lower school teachers to pupils': 0.017261962,
   'Lower school pupils to teachers': 57.93084199,
   'Upper school teachers to pupils': 0.013575601,
-  'Upper school pupils to teachers': 73.66156173
+  'Upper school pupils to teachers': 73.66156173,
 };
