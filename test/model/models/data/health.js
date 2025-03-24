@@ -1,4 +1,6 @@
 // Base data for Bangladesh 2002, from GRADE-DOH-DATA
+// Values for access to electricity and clean fuels and
+// prevalence of stunting are dummy values
 
 /* eslint-disable max-len */
 export const input = [
@@ -57,6 +59,9 @@ export const input = [
     'Lower school pupils to teachers': 57.93084199,
     'Upper school teachers to pupils': 0.013575601,
     'Upper school pupils to teachers': 73.66156173,
+    'Access to clean fuels and technologies for cooking (% of population)': 60,
+    'Access to electricity (% of population)': 60,
+    'Prevalence of stunting, height for age (% of children under 5)': 10,
   },
 ];
 
@@ -116,6 +121,9 @@ export const expectedResult = [
     'Lower school pupils to teachers': 57.93084199,
     'Upper school teachers to pupils': 0.013575601,
     'Upper school pupils to teachers': 73.66156173,
+    'Access to clean fuels and technologies for cooking (% of population)': 60,
+    'Access to electricity (% of population)': 60,
+    'Prevalence of stunting, height for age (% of children under 5)': 10,
     'grpc percentage increase': 10,
     'improved grpc': 65.714,
     'additional revenue per capita': 5.973999999999997,
@@ -177,5 +185,15 @@ export const expectedResult = [
     'Additional teachers of primary school-age children': 8062.557109646469,
     'Additional teachers of lower school-age children': 5581.599474387083,
     'Additional teachers of upper school-age children': 6637.179260397189,
+    'Access to electricity (% of population): Improved': 62.583029973034925,
+    'People with increased access to Electricity (SDG 7)': 3464871.9113568957,
+    'Females 15-49 with increased access to Electricity (SDG 7)': 894185.9802601071,
+    'Children < 5 with increased access to Electricity (SDG 7)': 446315.67892026814,
+    'Access to clean fuels and technologies for cooking (% of population): Improved': 60.76396037296475,
+    'People with increased access to Clean fuels (SDG 7)': 1024775.115003871,
+    'Females 15-49 with increased access to Clean fuels (SDG 7)': 264465.6322654791,
+    'Children < 5 with increased access to Clean fuels (SDG 7)': 132002.91753770324,
+    'Prevalence of Stunting : Improved': 9.235637100729363,
+    'Children < 5 who no longer experience Stunting': 1595803.1073241297,
   },
 ];

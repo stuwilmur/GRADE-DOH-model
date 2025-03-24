@@ -2,7 +2,7 @@
 // An exception of primary teachers to pupils/pupils to
 // teachers, which is null in the original data, so a dummy
 // value used here.
-// Values for access to electricity and clean fuels and 
+// Values for access to electricity and clean fuels and
 // prevalence of stunting are also dummy values.
 
 export const data = {
