@@ -146,8 +146,10 @@ export const expectedResult = [
     'Females 15-49 with increased access to Safe sanitation (SDG 6)': 2896.4337370980948,
     'People using safely managed drinking water services (% of population): Improved': 55.182317577626534,
     'People with increased access to Safe water (SDG 6)': -90789.08360435178,
-    'Children < 5 with increased access to Safe water (SDG 6)': -11694.686708218536,
-    'Females 15-49 with increased access to Safe water (SDG 6)': -23430.108759166767,
+    'Children < 5 with increased access to Safe water (SDG 6)':
+      -11694.686708218536,
+    'Females 15-49 with increased access to Safe water (SDG 6)':
+      -23430.108759166767,
     'School percent: Improved': 45.87373764927428,
     'Additional child school years': 2080.4552353691693,
     'U5 survival %: Improved': 92.35990914765367,
@@ -176,5 +178,4 @@ export const expectedResult = [
     'Additional teachers of lower school-age children': 5581.599474387083,
     'Additional teachers of upper school-age children': 6637.179260397189,
   },
-]
-;
+];

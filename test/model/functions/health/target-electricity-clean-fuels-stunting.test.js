@@ -5,7 +5,7 @@ import {electricityCleanFuelsStuntingTestData} from './data';
 const digitsTolerance = 5;
 
 const measuresToTest = new Map([
-  ['electricity', coverage.target. electricity],
+  ['electricity', coverage.target.electricity],
   ['cleanFuels', coverage.target.cleanFuels],
   ['stunting', coverage.target.stunting],
 ]);
@@ -39,6 +39,9 @@ measuresToTest.forEach((targeter, measure) => {
         electricityCleanFuelsStuntingTestData.grpcAdjusted[measure],
         governanceObserved,
       ),
-    ).toBeCloseTo(electricityCleanFuelsStuntingTestData.grpcAdjusted.grpc, digitsTolerance);
+    ).toBeCloseTo(
+      electricityCleanFuelsStuntingTestData.grpcAdjusted.grpc,
+      digitsTolerance,
+    );
   });
 });

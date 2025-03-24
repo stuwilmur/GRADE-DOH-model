@@ -1,6 +1,5 @@
 // Data for Afghanistan 2007, from teachers_check_spreadsheet.xlsx
 
-
 export const teacherRatioTestData = {
   observed: {
     INVPRIMARY: 0.02313136,
