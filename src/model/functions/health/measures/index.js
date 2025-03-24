@@ -9,9 +9,11 @@ import * as underFiveSurvival from './under-five-survival';
 import * as primarySchoolAttendance from './primary-school-attendance';
 import * as lowerSchoolAttendance from './lower-school-attendance';
 import * as upperSchoolAttendance from './upper-school-attendance';
+/* eslint-disable */ // reason - allow long line
 import * as primarySchoolTeacherToPupilRatio from './primary-school-teacher-to-pupil-ratio';
 import * as lowerSchoolTeacherToPupilRatio from './lower-school-teacher-to-pupil-ratio';
 import * as upperSchoolTeacherToPupilRatio from './upper-school-teacher-to-pupil-ratio';
+/* eslint-enable */
 import * as cleanFuels from './clean-fuels';
 import * as electricity from './electricity';
 import * as stunting from './stunting';
