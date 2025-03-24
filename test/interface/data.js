@@ -1,7 +1,9 @@
-// Data for Bangladesh 2002, from GRADE-DOH-DATA, with
-// the exception of primary teachers to pupils/pupils to
+// Data for Bangladesh 2002, from GRADE-DOH-DATA.
+// An exception of primary teachers to pupils/pupils to
 // teachers, which is null in the original data, so a dummy
-// value used here
+// value used here.
+// Values for access to electricity and clean fuels and 
+// prevalence of stunting are also dummy values.
 
 export const data = {
   'countryyearcode': 'BGD2002',
@@ -72,4 +74,7 @@ export const data = {
   'Lower school pupils to teachers': 57.93084199,
   'Upper school teachers to pupils': 0.013575601,
   'Upper school pupils to teachers': 73.66156173,
+  'Access to clean fuels and technologies for cooking (% of population)': 60,
+  'Access to electricity (% of population)': 60,
+  'Prevalence of stunting, height for age (% of children under 5)': 10,
 };
