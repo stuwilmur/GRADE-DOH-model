@@ -30,7 +30,6 @@ export function calculate(grpc, governance) {
               0.221598174524 * governance.voiceAndAccountability)),
       ));
   return result;
-  return result;
 }
 
 /**
