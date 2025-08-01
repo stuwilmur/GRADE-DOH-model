@@ -90,6 +90,11 @@ const tests = [
     f: health.target.stunting,
     value: data[model.constants.columnNames.STUNTING_COVERAGE],
   },
+  {
+    name: model.functions.health.measuresNames.hospitalBeds,
+    f: health.target.hospitalBeds,
+    value: data[model.constants.columnNames.HOSPITAL_BEDS],
+  },
 ];
 
 tests.forEach((aTest) => {

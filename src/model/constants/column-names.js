@@ -63,3 +63,4 @@ export const CLEAN_FUELS_COVERAGE =
 export const ELECTRICITY_COVERAGE = 'Access to electricity (% of population)';
 export const STUNTING_COVERAGE =
   'Prevalence of stunting, height for age (% of children under 5)';
+export const HOSPITAL_BEDS = 'Hospital beds (per 1,000 people)';

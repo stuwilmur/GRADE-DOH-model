@@ -140,6 +140,11 @@ const stuntingInverse = curry2(
   measures.stuntingInverse.calculate,
   measures.stuntingInverse.invert,
 );
+const hospitalBedsInverse = curry2(
+  targetCoverage,
+  measures.hospitalBedsInverse.calculate,
+  measures.hospitalBedsInverse.invert,
+);
 
 /**
  * Estimate required grpc to achieve a target prevalence of stunting
@@ -166,6 +171,40 @@ export function stunting(
     stuntingInverseObserved,
     grpcObserved,
     stuntingInverseTarget,
+    governanceObserved,
+  );
+}
+
+/**
+ * Estimate required grpc to achieve a target hospital beds per 1,000 people
+ * from the model equations: this is necessary as to calculate hospital beds,
+ * the working variable must be transformed to hospital beds inverse.
+ * @param {number} coverageObserved Observed value of hospital beds per
+ * 1,000 people
+ * @param {number} grpcObserved Observed absolute monetary value of GRPC
+ * @param {number} coverageTarget Target value of hospital beds per 1,000 people
+ * @param {object} governanceObserved Observed governance (governance object)
+ * @return {number} Absolute monetary value of grpc required to achieve target
+ */
+export function hospitalBeds(
+  coverageObserved,
+  grpcObserved,
+  coverageTarget,
+  governanceObserved,
+) {
+  const hospitalBedsInverseObserved =
+    measures.hospitalBedsInverse.hospitalBedsToHospitalBedsInverse(
+      coverageObserved,
+    );
+  const hospitalBedsInverseTarget =
+    measures.hospitalBedsInverse.hospitalBedsToHospitalBedsInverse(
+      coverageTarget,
+    );
+
+  return hospitalBedsInverse(
+    hospitalBedsInverseObserved,
+    grpcObserved,
+    hospitalBedsInverseTarget,
     governanceObserved,
   );
 }

@@ -241,3 +241,16 @@ export const stunting = curry2(
   model.functions.health.target.stunting,
   model.constants.columnNames.STUNTING_COVERAGE,
 );
+
+/**
+ * Calculate revenue necessary to achieve target value of number of
+ * number of hospital beds per 1,000 people
+ * @param {number} target target value of hospital beds per 1,000 people
+ * @param {array} data the base data rows for which to calculate
+ * @return {array} result data, including values for target revenue
+ */
+export const hospitalBeds = curry2(
+  calcGrpcForTargetCoverage,
+  model.functions.health.target.hospitalBeds,
+  model.constants.columnNames.HOSPITAL_BEDS,
+);

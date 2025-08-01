@@ -123,3 +123,38 @@ export function stunting(
     estimatedStuntingInverse,
   );
 }
+
+/**
+ * Estimate hospital beds per 1,000 people from the model equations:
+ * this is necessary as to calculate hospital beds, the working
+ * variable must be transformed to hospital beds inverse.
+ * @param {number} coverageObserved Obvserved value of coverage
+ * @param {number} grpcObserved Observed absolute monetary value of GRPC
+ * @param {number} grpcAdjusted Adjusted absolute monetary  of GRPC
+ * @param {object} governanceObserved Observed governance (governance object)
+ * @param {object} governanceAdjusted Adjusted governance (governance object)
+ * @return {number} Estimated coverage value
+ */
+export function hospitalBeds(
+  coverageObserved,
+  grpcObserved,
+  grpcAdjusted,
+  governanceObserved,
+  governanceAdjusted,
+) {
+  const hospitalBedsInverseObserved =
+    measures.hospitalBedsInverse.hospitalBedsToHospitalBedsInverse(
+      coverageObserved,
+    );
+  const estimatedHospitalBedsInverse = estimate(
+    measures.hospitalBedsInverse.calculate,
+    hospitalBedsInverseObserved,
+    grpcObserved,
+    grpcAdjusted,
+    governanceObserved,
+    governanceAdjusted,
+  );
+  return measures.hospitalBedsInverse.hospitalBedsInverseToHospitalBeds(
+    estimatedHospitalBedsInverse,
+  );
+}

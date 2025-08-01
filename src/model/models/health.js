@@ -686,5 +686,25 @@ export function createCoverageModel() {
         r[constants.computedColumnNames.IMPROVED_STUNTING_COVERAGE],
       ),
     )
+    .end()
+    .calc()
+    .called(constants.computedColumnNames.IMPROVED_HOSPITAL_BEDS)
+    .does((r) =>
+      estimate(
+        coverage.estimate.hospitalBeds,
+        constants.columnNames.HOSPITAL_BEDS,
+        r,
+      ),
+    )
+    .end()
+    .calc()
+    .called(constants.computedColumnNames.ADDITIONAL_HOSPITAL_BEDS)
+    .does((r) =>
+      calculateAffectedPopulation(
+        r[constants.columnNames.HOSPITAL_BEDS],
+        r[constants.columnNames.POPTOTAL],
+        r[constants.computedColumnNames.IMPROVED_HOSPITAL_BEDS],
+      ),
+    )
     .end();
 }

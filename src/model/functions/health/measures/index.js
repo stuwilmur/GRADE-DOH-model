@@ -18,6 +18,8 @@ import * as cleanFuels from './clean-fuels';
 import * as electricity from './electricity';
 import * as stunting from './stunting';
 import * as stuntingInverse from './stunting-inverse';
+import * as hospitalBeds from './hospital-beds';
+import * as hospitalBedsInverse from './hospital-beds-inverse';
 
 export {
   basicSanitation,
@@ -38,4 +40,6 @@ export {
   electricity,
   stunting,
   stuntingInverse,
+  hospitalBeds,
+  hospitalBedsInverse,
 };

@@ -19,6 +19,7 @@ export const target = {
   cleanFuels: t.cleanFuels,
   electricity: t.electricity,
   stunting: t.stunting,
+  hospitalBeds: t.hospitalBeds,
 };
 
 export const GrpcMethod = {

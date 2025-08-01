@@ -2,12 +2,12 @@ export const name = 'Stunting inverse';
 
 /**
  * Calculate stunting inverse from the model equations.
- * Stunting inverse (is) is derived from the prevalence of
+ * Stunting inverse (si) is derived from the prevalence of
  * stunting (s) by the following formula:
  * si = 100 - 100 / 65 * s.
  * @param {number} grpc Government revenue per capita in USD
  * @param {object} governance Governance object
- * @return {number} stunting inverse value
+ * @return {number} Stunting inverse value
  */
 export function calculate(grpc, governance) {
   const result =
@@ -35,7 +35,7 @@ export function calculate(grpc, governance) {
 /**
  * Estimate grpc necessary to achieve target stunting inverse
  * from the model equations.
- * Stunting inverse (is) is derived from the prevalence of
+ * Stunting inverse (si) is derived from the prevalence of
  * stunting (s) by the following formula:
  * si = 100 - 100 / 65 * s.
  * @param {number} target Target value of stunting inverse

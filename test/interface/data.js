@@ -77,4 +77,5 @@ export const data = {
   'Access to clean fuels and technologies for cooking (% of population)': 60,
   'Access to electricity (% of population)': 60,
   'Prevalence of stunting, height for age (% of children under 5)': 10,
+  'Hospital beds (per 1,000 people)': 0.34,
 };

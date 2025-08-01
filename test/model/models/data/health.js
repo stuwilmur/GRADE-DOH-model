@@ -62,6 +62,7 @@ export const input = [
     'Access to clean fuels and technologies for cooking (% of population)': 60,
     'Access to electricity (% of population)': 60,
     'Prevalence of stunting, height for age (% of children under 5)': 10,
+    'Hospital beds (per 1,000 people)': 0.34,
   },
 ];
 
@@ -195,5 +196,8 @@ export const expectedResult = [
     'Children < 5 with increased access to Clean fuels (SDG 7)': 132002.91753770324,
     'Prevalence of Stunting : Improved': 9.235637100729363,
     'Children < 5 who no longer experience Stunting': 1595803.1073241297,
+    'Hospital beds (per 1,000 people)': 0.34,
+    'Hospital beds (per 1,000 people): Improved': 0.35760548119290597,
+    'Additional hospital beds': 479691.36902276817,
   },
 ];
