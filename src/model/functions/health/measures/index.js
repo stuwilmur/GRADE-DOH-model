@@ -20,7 +20,7 @@ import * as stunting from './stunting';
 import * as stuntingInverse from './stunting-inverse';
 import * as hospitalBeds from './hospital-beds';
 import * as hospitalBedsInverse from './hospital-beds-inverse';
-import * as nureses from './nurses';
+import * as nurses from './nurses';
 import * as nursesInverse from './nurses-inverse';
 
 export {
@@ -45,5 +45,5 @@ export {
   hospitalBeds,
   hospitalBedsInverse,
   nurses,
-  nursesInverse
+  nursesInverse,
 };

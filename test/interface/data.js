@@ -78,4 +78,5 @@ export const data = {
   'Access to electricity (% of population)': 60,
   'Prevalence of stunting, height for age (% of children under 5)': 10,
   'Hospital beds (per 1,000 people)': 0.34,
+  'Nurses (per 1000 people)': 0.5,
 };

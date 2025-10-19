@@ -45,5 +45,5 @@ export {
   hospitalBeds,
   hospitalBedsInverse,
   nurses,
-  nuresesInverse
+  nursesInverse,
 };

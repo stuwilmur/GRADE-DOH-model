@@ -12,23 +12,20 @@ export const name = 'Nurses per 1,000 people';
 export function calculate(grpc, governance) {
   const result =
     8.0 /
-      (1.0 +
-       Math.exp(
-		-(
-          0.197193860745 -
-          0.0244300078342 * governance.controlOfCorruption -
-          0.103694236387 * governance.ruleOfLaw +
-          0.0362146804208 * governance.governmentEffectiveness +
-          0.0942335582254 * governance.voiceAndAccountability
-		  ) *
-		(Math.log(grpc) -
-		 (4.65656784328 +
-              0.958363387674 * governance.controlOfCorruption -
-              0.808120140928 * governance.politicalStability -
-              1.62279877246 * governance.ruleOfLaw +
-		  1.65628078968 * governance.voiceAndAccountability)),
-		));
-
+    (1.0 +
+      Math.exp(
+        -(
+          0.302830708013 +
+          0.0554357864654 * governance.controlOfCorruption -
+          0.0522345181898 * governance.governmentEffectiveness +
+          0.0158111987836 *
+            governance.voiceAndAccountability) *
+            (Math.log(grpc) -
+              (5.44629383701 +
+                0.469540956936 * governance.controlOfCorruption -
+                0.231057562813 * governance.politicalStability)
+            ),
+      ));
   return result;
 }
 
@@ -43,20 +40,18 @@ export function calculate(grpc, governance) {
  * @return {number} Estimated government revenue per capita in USD
  */
 export function invert(target, governance) {
-    const A = -(
-    0.197193860745 -
-    0.0244300078342 * governance.controlOfCorruption -
-    0.103694236387 * governance.ruleOfLaw +
-    0.0362146804208 * governance.governmentEffectiveness +
-    0.0942335582254 * governance.voiceAndAccountability
-		);
+  const A = -(
+    0.302830708013 +
+    0.0554357864654 * governance.controlOfCorruption -
+    0.0522345181898 * governance.governmentEffectiveness +
+    0.0158111987836 * governance.voiceAndAccountability
+  );
   const B =
-    4.65656784328 +
-    0.958363387674 * governance.controlOfCorruption -
-    0.808120140928 * governance.politicalStability -
-    1.62279877246 * governance.ruleOfLaw +
-      1.65628078968 * governance.voiceAndAccountability;
+    5.44629383701 +
+    0.469540956936 * governance.controlOfCorruption -
+    0.231057562813 * governance.politicalStability;
   const result = Math.exp(Math.log(8.0 / target - 1.0) / A + B);
+
   return result;
 }
 
@@ -67,7 +62,7 @@ export function invert(target, governance) {
  * @return {number} Nurses per 1,000 people inverse
  */
 export function nursesToNursesInverse(nurses) {
-    return Math.log(nurses) + 4.0;
+  return Math.log(nurses) + 4.0;
 }
 
 /**
@@ -78,5 +73,5 @@ export function nursesToNursesInverse(nurses) {
  * @return {number} Nurses per 1,000 people
  */
 export function nursesInverseToNurses(nursesInverse) {
-    return Math.exp(nursesInverse - 4.0);
+  return Math.exp(nursesInverse - 4.0);
 }
