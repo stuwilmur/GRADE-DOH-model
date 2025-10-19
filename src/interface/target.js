@@ -254,3 +254,16 @@ export const hospitalBeds = curry2(
   model.functions.health.target.hospitalBeds,
   model.constants.columnNames.HOSPITAL_BEDS,
 );
+
+/**
+ * Calculate revenue necessary to achieve target value of number of
+ * number of nurses per 1,000 people
+ * @param {number} target target value of nurses per 1,000 people
+ * @param {array} data the base data rows for which to calculate
+ * @return {array} result data, including values for target revenue
+ */
+export const nurses = curry2(
+  calcGrpcForTargetCoverage,
+  model.functions.health.target.nurses,
+  model.constants.columnNames.NURSES,
+);

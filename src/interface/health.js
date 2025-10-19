@@ -20,6 +20,7 @@ export const target = {
   electricity: t.electricity,
   stunting: t.stunting,
   hospitalBeds: t.hospitalBeds,
+  nurses: t.nurses,
 };
 
 export const GrpcMethod = {

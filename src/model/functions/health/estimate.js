@@ -158,3 +158,38 @@ export function hospitalBeds(
     estimatedHospitalBedsInverse,
   );
 }
+
+/**
+ * Estimate nurses per 1,000 people from the model equations:
+ * this is necessary as to calculate nurses, the working
+ * variable must be transformed to nurses inverse.
+ * @param {number} coverageObserved Obvserved value of coverage
+ * @param {number} grpcObserved Observed absolute monetary value of GRPC
+ * @param {number} grpcAdjusted Adjusted absolute monetary  of GRPC
+ * @param {object} governanceObserved Observed governance (governance object)
+ * @param {object} governanceAdjusted Adjusted governance (governance object)
+ * @return {number} Estimated coverage value
+ */
+export function nurses(
+  coverageObserved,
+  grpcObserved,
+  grpcAdjusted,
+  governanceObserved,
+  governanceAdjusted,
+) {
+  const nursesInverseObserved =
+    measures.nursesInverse.nursesToNursesInverse(
+      coverageObserved,
+    );
+  const estimatedNursesInverse = estimate(
+    measures.nursesInverse.calculate,
+    nursesInverseObserved,
+    grpcObserved,
+    grpcAdjusted,
+    governanceObserved,
+    governanceAdjusted,
+  );
+  return measures.nursesInverse.nursesInverseToNurses(
+    estimatedNursesInverse,
+  );
+}

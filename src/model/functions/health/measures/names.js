@@ -20,6 +20,8 @@ import {name as stunting} from './stunting';
 import {name as stuntingInverse} from './stunting-inverse';
 import {name as hospitalBeds} from './hospital-beds';
 import {name as hospitalBedsInverse} from './hospital-beds-inverse';
+import {name as nurses} from './nurses';
+import {name as nursesInverse} from './nurses-inverse';
 
 export {
   basicSanitation,
@@ -42,4 +44,6 @@ export {
   stuntingInverse,
   hospitalBeds,
   hospitalBedsInverse,
+  nurses,
+  nuresesInverse
 };

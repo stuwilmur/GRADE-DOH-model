@@ -95,6 +95,11 @@ const tests = [
     f: health.target.hospitalBeds,
     value: data[model.constants.columnNames.HOSPITAL_BEDS],
   },
+  {
+    name: model.functions.health.measuresNames.nurses,
+    f: health.target.nurses,
+    value: data[model.constants.columnNames.NURSES],
+  },
 ];
 
 tests.forEach((aTest) => {

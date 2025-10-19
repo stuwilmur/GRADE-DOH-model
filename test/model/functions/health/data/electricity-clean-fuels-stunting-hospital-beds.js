@@ -2,6 +2,7 @@
 // electricity_clean_fuels_stunting_check_spreadsheet.xlsx
 // and stunting_check_spreadsheet.xlsx
 // and hospital_beds_check_spreadsheet.xlsx
+// and nurses_spreadsheet.xlsx
 
 export const elecFuelsStuntBedsTestData = {
   observed: {
@@ -9,6 +10,7 @@ export const elecFuelsStuntBedsTestData = {
     cleanFuels: 19.9,
     stunting: 47.4,
     hospitalBeds: 0.34,
+    nurses: NaN,
     grpc: 61.23055997,
     CORRUPTION: -1.645391107,
     GOVEFFECT: -1.478315592,
@@ -22,6 +24,7 @@ export const elecFuelsStuntBedsTestData = {
     cleanFuels: 21.01611313,
     stunting: 46.62886283,
     hospitalBeds: 0.362090274,
+    nurses: NaN,
     grpc: 70,
     CORRUPTION: -1.645391107,
     GOVEFFECT: -1.478315592,
@@ -35,6 +38,7 @@ export const elecFuelsStuntBedsTestData = {
     cleanFuels: 18.56221512,
     stunting: 48.54200735,
     hospitalBeds: 0.309356955,
+    nurses: NaN,
     grpc: 50,
     CORRUPTION: -1.645391107,
     GOVEFFECT: -1.478315592,
@@ -48,6 +52,7 @@ export const elecFuelsStuntBedsTestData = {
     cleanFuels: 19.64173807,
     stunting: 47.8970377,
     hospitalBeds: 0.336820837,
+    nurses: NaN,
     grpc: 61.23055997,
     CORRUPTION: -1.545391107,
     GOVEFFECT: -1.378315592,

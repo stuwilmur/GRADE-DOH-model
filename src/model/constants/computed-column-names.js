@@ -149,3 +149,5 @@ export const IMPROVED_STUNTING_COVERAGE = `Prevalence of ${STUNTING_NAME} ${impr
 export const IMPROVED_STUNTING_CHILDREN_UNDER_5 = `${CHILDREN_UNDER_5} ${WHO_NO_LONGER_EXPERIENCE} ${STUNTING_NAME}`;
 export const IMPROVED_HOSPITAL_BEDS = columnNames.HOSPITAL_BEDS + improved;
 export const ADDITIONAL_HOSPITAL_BEDS = 'Additional hospital beds';
+export const IMPROVED_NURSES = columnNames.NURSES + improved;
+export const ADDITIONAL_NURSES = 'Additional nurses';

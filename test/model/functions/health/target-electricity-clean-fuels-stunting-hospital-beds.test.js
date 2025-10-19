@@ -9,6 +9,7 @@ const measuresToTest = new Map([
   ['cleanFuels', coverage.target.cleanFuels],
   ['stunting', coverage.target.stunting],
   ['hospitalBeds', coverage.target.hospitalBeds],
+  ['nurses', coverage.target.nurses],
 ]);
 
 const governanceObserved = governanceObject(
