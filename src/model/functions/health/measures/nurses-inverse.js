@@ -18,13 +18,12 @@ export function calculate(grpc, governance) {
           0.302830708013 +
           0.0554357864654 * governance.controlOfCorruption -
           0.0522345181898 * governance.governmentEffectiveness +
-          0.0158111987836 *
-            governance.voiceAndAccountability) *
-            (Math.log(grpc) -
-              (5.44629383701 +
-                0.469540956936 * governance.controlOfCorruption -
-                0.231057562813 * governance.politicalStability)
-            ),
+          0.0158111987836 * governance.voiceAndAccountability
+        ) *
+          (Math.log(grpc) -
+            (5.44629383701 +
+              0.469540956936 * governance.controlOfCorruption -
+              0.231057562813 * governance.politicalStability)),
       ));
   return result;
 }

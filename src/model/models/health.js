@@ -710,11 +710,7 @@ export function createCoverageModel() {
     .calc()
     .called(constants.computedColumnNames.IMPROVED_NURSES)
     .does((r) =>
-      estimate(
-        coverage.estimate.nurses,
-        constants.columnNames.NURSES,
-        r,
-      ),
+      estimate(coverage.estimate.nurses, constants.columnNames.NURSES, r),
     )
     .end()
     .calc()

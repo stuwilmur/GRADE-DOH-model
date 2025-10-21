@@ -232,13 +232,9 @@ export function nurses(
   governanceObserved,
 ) {
   const nursesInverseObserved =
-    measures.nursesInverse.nursesToNursesInverse(
-      coverageObserved,
-    );
+    measures.nursesInverse.nursesToNursesInverse(coverageObserved);
   const nursesInverseTarget =
-    measures.nursesInverse.nursesToNursesInverse(
-      coverageTarget,
-    );
+    measures.nursesInverse.nursesToNursesInverse(coverageTarget);
 
   return nursesInverse(
     nursesInverseObserved,

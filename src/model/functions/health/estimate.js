@@ -178,9 +178,7 @@ export function nurses(
   governanceAdjusted,
 ) {
   const nursesInverseObserved =
-    measures.nursesInverse.nursesToNursesInverse(
-      coverageObserved,
-    );
+    measures.nursesInverse.nursesToNursesInverse(coverageObserved);
   const estimatedNursesInverse = estimate(
     measures.nursesInverse.calculate,
     nursesInverseObserved,
@@ -189,7 +187,5 @@ export function nurses(
     governanceObserved,
     governanceAdjusted,
   );
-  return measures.nursesInverse.nursesInverseToNurses(
-    estimatedNursesInverse,
-  );
+  return measures.nursesInverse.nursesInverseToNurses(estimatedNursesInverse);
 }
