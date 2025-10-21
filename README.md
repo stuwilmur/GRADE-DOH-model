@@ -40,6 +40,6 @@ Suitable data is provided by the [GRADE-DOH-data package](https://github.com/stu
 
 ## Try it
 
-[JSFiddle](https://jsfiddle.net/5732nc8y/3/)
+[JSFiddle](https://jsfiddle.net/1y9nt48o/)
 
 [Observable](https://observablehq.com/@grade/model-user-guide)
