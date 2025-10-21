@@ -50,10 +50,7 @@ measuresToTest.forEach((estimator, measure) => {
         governanceObserved,
         governanceObserved,
       ),
-    ).toBeCloseTo(
-      teacherRatioTestData.grpcAdjusted[measure],
-      digitsTolerance,
-    );
+    ).toBeCloseTo(teacherRatioTestData.grpcAdjusted[measure], digitsTolerance);
   });
 
   test(`Tests ${measure} estimator: reduced grpc, observed governance`, () => {
@@ -65,10 +62,7 @@ measuresToTest.forEach((estimator, measure) => {
         governanceObserved,
         governanceObserved,
       ),
-    ).toBeCloseTo(
-      teacherRatioTestData.grpcReduced[measure],
-      digitsTolerance,
-    );
+    ).toBeCloseTo(teacherRatioTestData.grpcReduced[measure], digitsTolerance);
   });
 
   test(`Tests ${measure} estimator: observed grpc, adjusted governance`, () => {

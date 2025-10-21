@@ -19,6 +19,10 @@ The model may be used to calculate the additional revenue which is required to a
 - **primarySchoolTeacherToPupilRatio**(*coverage, data*)
 - **lowerSchoolTeacherToPupilRatio**(*coverage, data*)
 - **upperSchoolTeacherToPupilRatio**(*coverage, data*)
+- **cleanFuels**(*coverage, data*)
+- **electricity**(*coverage, data*)
+- **stunting**(*coverage, data*)
+- **hospitalBeds**(*coverage, data*)
 
 Here, *coverage* is the target coverage percentage, and *data* is an array of base data: the calculation is performed for every row in the supplied data independently.
 

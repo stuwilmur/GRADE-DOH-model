@@ -1,6 +1,5 @@
 // Data for Afghanistan 2007, from teachers_check_spreadsheet.xlsx
 
-									
 export const teacherRatioTestData = {
   observed: {
     INVPRIMARY: 0.02313136,
@@ -39,9 +38,9 @@ export const teacherRatioTestData = {
     VOICE: 0.972129,
   },
   governanceAdjusted: {
-    INVPRIMARY:0.023170376,
-    INVLOWER:0.012091998,
-    INVUPPER:0.005434157,
+    INVPRIMARY: 0.023170376,
+    INVLOWER: 0.012091998,
+    INVUPPER: 0.005434157,
     grpc: 33.859059,
     CORRUPTION: 1.46187,
     GOVEFFECT: 1.4461,

@@ -1,4 +1,3 @@
-import * as model from '../../../src/model';
 import * as data from './data/health';
 import * as health from '../../../src/interface';
 

@@ -125,3 +125,121 @@ export const upperSchoolTeacherToPupilRatio = curry2(
   measures.upperSchoolTeacherToPupilRatio.calculate,
   measures.upperSchoolTeacherToPupilRatio.invert,
 );
+export const cleanFuels = curry2(
+  targetCoverage,
+  measures.cleanFuels.calculate,
+  measures.cleanFuels.invert,
+);
+export const electricity = curry2(
+  targetCoverage,
+  measures.electricity.calculate,
+  measures.electricity.invert,
+);
+const stuntingInverse = curry2(
+  targetCoverage,
+  measures.stuntingInverse.calculate,
+  measures.stuntingInverse.invert,
+);
+const hospitalBedsInverse = curry2(
+  targetCoverage,
+  measures.hospitalBedsInverse.calculate,
+  measures.hospitalBedsInverse.invert,
+);
+const nursesInverse = curry2(
+  targetCoverage,
+  measures.nursesInverse.calculate,
+  measures.nursesInverse.invert,
+);
+
+/**
+ * Estimate required grpc to achieve a target prevalence of stunting
+ * from the model equations: this is necessary as to calculate stunting,
+ * the working variable must be transformed to stunting inverse.
+ * @param {number} coverageObserved Observed value of stunting
+ * @param {number} grpcObserved Observed absolute monetary value of GRPC
+ * @param {number} coverageTarget Target value of stunting
+ * @param {object} governanceObserved Observed governance (governance object)
+ * @return {number} Absolute monetary value of grpc required to achieve target
+ */
+export function stunting(
+  coverageObserved,
+  grpcObserved,
+  coverageTarget,
+  governanceObserved,
+) {
+  const stuntingInverseObserved =
+    measures.stuntingInverse.stuntingToStuntingInverse(coverageObserved);
+  const stuntingInverseTarget =
+    measures.stuntingInverse.stuntingToStuntingInverse(coverageTarget);
+
+  return stuntingInverse(
+    stuntingInverseObserved,
+    grpcObserved,
+    stuntingInverseTarget,
+    governanceObserved,
+  );
+}
+
+/**
+ * Estimate required grpc to achieve a target hospital beds per 1,000 people
+ * from the model equations: this is necessary as to calculate hospital beds,
+ * the working variable must be transformed to hospital beds inverse.
+ * @param {number} coverageObserved Observed value of hospital beds per
+ * 1,000 people
+ * @param {number} grpcObserved Observed absolute monetary value of GRPC
+ * @param {number} coverageTarget Target value of hospital beds per 1,000 people
+ * @param {object} governanceObserved Observed governance (governance object)
+ * @return {number} Absolute monetary value of grpc required to achieve target
+ */
+export function hospitalBeds(
+  coverageObserved,
+  grpcObserved,
+  coverageTarget,
+  governanceObserved,
+) {
+  const hospitalBedsInverseObserved =
+    measures.hospitalBedsInverse.hospitalBedsToHospitalBedsInverse(
+      coverageObserved,
+    );
+  const hospitalBedsInverseTarget =
+    measures.hospitalBedsInverse.hospitalBedsToHospitalBedsInverse(
+      coverageTarget,
+    );
+
+  return hospitalBedsInverse(
+    hospitalBedsInverseObserved,
+    grpcObserved,
+    hospitalBedsInverseTarget,
+    governanceObserved,
+  );
+}
+
+/**
+ * Estimate required grpc to achieve a target nurses per 1,000 people
+ * from the model equations: this is necessary as to calculate nurses,
+ * the working variable must be transformed to nurses inverse.
+ * @param {number} coverageObserved Observed value of nurses per
+ * 1,000 people
+ * @param {number} grpcObserved Observed absolute monetary value of GRPC
+ * @param {number} coverageTarget Target value of nurses per 1,000 people
+ * @param {object} governanceObserved Observed governance (governance object)
+ * @return {number} Absolute monetary value of grpc required to achieve target
+ */
+export function nurses(
+  coverageObserved,
+  grpcObserved,
+  coverageTarget,
+  governanceObserved,
+) {
+  const nursesInverseObserved =
+    measures.nursesInverse.nursesToNursesInverse(coverageObserved);
+  const nursesInverseTarget =
+    measures.nursesInverse.nursesToNursesInverse(coverageTarget);
+
+  return nursesInverse(
+    nursesInverseObserved,
+    grpcObserved,
+    nursesInverseTarget,
+    governanceObserved,
+  );
+}

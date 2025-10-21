@@ -14,7 +14,7 @@ import {curry, applyResidual} from '../../../utils';
  * @param {number} grpcObserved Observed absolute monetary value of GRPC
  * @param {number} grpcAdjusted Adjusted absolute monetary  of GRPC
  * @param {object} governanceObserved Observed governance (governance object)
- * @param {object} governancedAdjusted Adjusted governance (governance object)
+ * @param {object} governanceAdjusted Adjusted governance (governance object)
  * @return {number} Estimated coverage value
  */
 function estimate(
@@ -23,7 +23,7 @@ function estimate(
   grpcObserved,
   grpcAdjusted,
   governanceObserved,
-  governancedAdjusted,
+  governanceAdjusted,
 ) {
   const coverageCalculated = coverageCalculator(
     grpcObserved,
@@ -31,7 +31,7 @@ function estimate(
   );
   const coverageAdjustedCalculated = coverageCalculator(
     grpcAdjusted,
-    governancedAdjusted,
+    governanceAdjusted,
   );
   const coverageAdjustedEstimated = applyResidual(
     coverageObserved,
@@ -88,4 +88,104 @@ export const upperSchoolTeacherToPupilRatio = curry(
   estimate,
   measures.upperSchoolTeacherToPupilRatio.calculate,
 );
+export const cleanFuels = curry(estimate, measures.cleanFuels.calculate);
+export const electricity = curry(estimate, measures.electricity.calculate);
 
+/**
+ * Estimate stunting prevalence from the model equations:
+ * this is necessary as to calculate stunting, the working
+ * variable must be transformed to stunting inverse.
+ * @param {number} coverageObserved Obvserved value of coverage
+ * @param {number} grpcObserved Observed absolute monetary value of GRPC
+ * @param {number} grpcAdjusted Adjusted absolute monetary  of GRPC
+ * @param {object} governanceObserved Observed governance (governance object)
+ * @param {object} governanceAdjusted Adjusted governance (governance object)
+ * @return {number} Estimated coverage value
+ */
+export function stunting(
+  coverageObserved,
+  grpcObserved,
+  grpcAdjusted,
+  governanceObserved,
+  governanceAdjusted,
+) {
+  const stuntingInverseObserved =
+    measures.stuntingInverse.stuntingToStuntingInverse(coverageObserved);
+  const estimatedStuntingInverse = estimate(
+    measures.stuntingInverse.calculate,
+    stuntingInverseObserved,
+    grpcObserved,
+    grpcAdjusted,
+    governanceObserved,
+    governanceAdjusted,
+  );
+  return measures.stuntingInverse.stuntingInverseToStunting(
+    estimatedStuntingInverse,
+  );
+}
+
+/**
+ * Estimate hospital beds per 1,000 people from the model equations:
+ * this is necessary as to calculate hospital beds, the working
+ * variable must be transformed to hospital beds inverse.
+ * @param {number} coverageObserved Obvserved value of coverage
+ * @param {number} grpcObserved Observed absolute monetary value of GRPC
+ * @param {number} grpcAdjusted Adjusted absolute monetary  of GRPC
+ * @param {object} governanceObserved Observed governance (governance object)
+ * @param {object} governanceAdjusted Adjusted governance (governance object)
+ * @return {number} Estimated coverage value
+ */
+export function hospitalBeds(
+  coverageObserved,
+  grpcObserved,
+  grpcAdjusted,
+  governanceObserved,
+  governanceAdjusted,
+) {
+  const hospitalBedsInverseObserved =
+    measures.hospitalBedsInverse.hospitalBedsToHospitalBedsInverse(
+      coverageObserved,
+    );
+  const estimatedHospitalBedsInverse = estimate(
+    measures.hospitalBedsInverse.calculate,
+    hospitalBedsInverseObserved,
+    grpcObserved,
+    grpcAdjusted,
+    governanceObserved,
+    governanceAdjusted,
+  );
+  return measures.hospitalBedsInverse.hospitalBedsInverseToHospitalBeds(
+    estimatedHospitalBedsInverse,
+  );
+}
+
+/**
+ * Estimate nurses per 1,000 people from the model equations:
+ * this is necessary as to calculate nurses, the working
+ * variable must be transformed to nurses inverse.
+ * @param {number} coverageObserved Obvserved value of coverage
+ * @param {number} grpcObserved Observed absolute monetary value of GRPC
+ * @param {number} grpcAdjusted Adjusted absolute monetary  of GRPC
+ * @param {object} governanceObserved Observed governance (governance object)
+ * @param {object} governanceAdjusted Adjusted governance (governance object)
+ * @return {number} Estimated coverage value
+ */
+export function nurses(
+  coverageObserved,
+  grpcObserved,
+  grpcAdjusted,
+  governanceObserved,
+  governanceAdjusted,
+) {
+  const nursesInverseObserved =
+    measures.nursesInverse.nursesToNursesInverse(coverageObserved);
+  const estimatedNursesInverse = estimate(
+    measures.nursesInverse.calculate,
+    nursesInverseObserved,
+    grpcObserved,
+    grpcAdjusted,
+    governanceObserved,
+    governanceAdjusted,
+  );
+  return measures.nursesInverse.nursesInverseToNurses(estimatedNursesInverse);
+}

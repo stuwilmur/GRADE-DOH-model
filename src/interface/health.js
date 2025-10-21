@@ -13,9 +13,14 @@ export const target = {
   primarySchoolAttendance: t.primarySchoolAttendance,
   lowerSchoolAttendance: t.lowerSchoolAttendance,
   upperSchoolAttendance: t.upperSchoolAttendance,
-  primarySchoolTeacherToPupilRatio: t. primarySchoolTeacherToPupilRatio,
-  lowerSchoolTeacherToPupilRatio: t. lowerSchoolTeacherToPupilRatio,
-  upperSchoolTeacherToPupilRatio: t. upperSchoolTeacherToPupilRatio,
+  primarySchoolTeacherToPupilRatio: t.primarySchoolTeacherToPupilRatio,
+  lowerSchoolTeacherToPupilRatio: t.lowerSchoolTeacherToPupilRatio,
+  upperSchoolTeacherToPupilRatio: t.upperSchoolTeacherToPupilRatio,
+  cleanFuels: t.cleanFuels,
+  electricity: t.electricity,
+  stunting: t.stunting,
+  hospitalBeds: t.hospitalBeds,
+  nurses: t.nurses,
 };
 
 export const GrpcMethod = {

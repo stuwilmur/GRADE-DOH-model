@@ -202,3 +202,68 @@ export const upperSchoolTeacherToPupilRatio = curry2(
   model.functions.health.target.upperSchoolTeacherToPupilRatio,
   model.constants.columnNames.UPPER_TEACHERS_TO_PUPILS,
 );
+
+/**
+ * Calculate revenue necessary to achieve target value of access
+ * to clean fuels
+ * @param {number} target target value of access to clean fuels
+ * @param {array} data the base data rows for which to calculate
+ * @return {array} result data, including values for target revenue
+ */
+export const cleanFuels = curry2(
+  calcGrpcForTargetCoverage,
+  model.functions.health.target.cleanFuels,
+  model.constants.columnNames.CLEAN_FUELS_COVERAGE,
+);
+
+/**
+ * Calculate revenue necessary to achieve target value of access
+ * to electricity
+ * @param {number} target target value of access to electricity
+ * @param {array} data the base data rows for which to calculate
+ * @return {array} result data, including values for target revenue
+ */
+export const electricity = curry2(
+  calcGrpcForTargetCoverage,
+  model.functions.health.target.electricity,
+  model.constants.columnNames.ELECTRICITY_COVERAGE,
+);
+
+/**
+ * Calculate revenue necessary to achieve target value of prevalence
+ * of stunting
+ * @param {number} target target value of prevalence of stunting
+ * @param {array} data the base data rows for which to calculate
+ * @return {array} result data, including values for target revenue
+ */
+export const stunting = curry2(
+  calcGrpcForTargetCoverage,
+  model.functions.health.target.stunting,
+  model.constants.columnNames.STUNTING_COVERAGE,
+);
+
+/**
+ * Calculate revenue necessary to achieve target value of number of
+ * number of hospital beds per 1,000 people
+ * @param {number} target target value of hospital beds per 1,000 people
+ * @param {array} data the base data rows for which to calculate
+ * @return {array} result data, including values for target revenue
+ */
+export const hospitalBeds = curry2(
+  calcGrpcForTargetCoverage,
+  model.functions.health.target.hospitalBeds,
+  model.constants.columnNames.HOSPITAL_BEDS,
+);
+
+/**
+ * Calculate revenue necessary to achieve target value of number of
+ * number of nurses per 1,000 people
+ * @param {number} target target value of nurses per 1,000 people
+ * @param {array} data the base data rows for which to calculate
+ * @return {array} result data, including values for target revenue
+ */
+export const nurses = curry2(
+  calcGrpcForTargetCoverage,
+  model.functions.health.target.nurses,
+  model.constants.columnNames.NURSES,
+);
