@@ -680,10 +680,10 @@ export function createCoverageModel() {
     .calc()
     .called(constants.computedColumnNames.IMPROVED_STUNTING_CHILDREN_UNDER_5)
     .does((r) =>
-      calculateAffectedPopulation(
+      - calculateAffectedPopulation(
         r[constants.columnNames.STUNTING_COVERAGE],
-        r[constants.columnNames.POPULATION_CHILDREN_UNDER_5],
         r[constants.computedColumnNames.IMPROVED_STUNTING_COVERAGE],
+        r[constants.columnNames.POPULATION_CHILDREN_UNDER_5],
       ),
     )
     .end()
@@ -702,8 +702,8 @@ export function createCoverageModel() {
     .does((r) =>
       calculateAffectedPopulation(
         r[constants.columnNames.HOSPITAL_BEDS],
-        r[constants.columnNames.POPTOTAL] / 1000,
         r[constants.computedColumnNames.IMPROVED_HOSPITAL_BEDS],
+        r[constants.columnNames.POPTOTAL] / 1000,
       ),
     )
     .end()
@@ -718,8 +718,8 @@ export function createCoverageModel() {
     .does((r) =>
       calculateAffectedPopulation(
         r[constants.columnNames.NURSES],
-        r[constants.columnNames.POPTOTAL] / 1000,
         r[constants.computedColumnNames.IMPROVED_NURSES],
+        r[constants.columnNames.POPTOTAL] / 1000,
       ),
     )
     .end();
