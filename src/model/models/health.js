@@ -6,7 +6,7 @@ import * as governance from '../functions/governance';
 /**
  * Helper function to calculate the number of people in a population affected
  * by a change in coverage percentage
- * @param {number}   originalCoveragePercentage: Original coverage Percentage
+ * @param {number} originalCoveragePercentage: Original coverage Percentage
  * @param {number} improvedCoveragePercentrage: Improved coverage Percentage
  * @param {number} population: The number of people in the population affected
  * @return {number} Number of people who experience the improvement
@@ -679,12 +679,13 @@ export function createCoverageModel() {
     .end()
     .calc()
     .called(constants.computedColumnNames.IMPROVED_STUNTING_CHILDREN_UNDER_5)
-    .does((r) =>
-      - calculateAffectedPopulation(
-        r[constants.columnNames.STUNTING_COVERAGE],
-        r[constants.computedColumnNames.IMPROVED_STUNTING_COVERAGE],
-        r[constants.columnNames.POPULATION_CHILDREN_UNDER_5],
-      ),
+    .does(
+      (r) =>
+        -calculateAffectedPopulation(
+          r[constants.columnNames.STUNTING_COVERAGE],
+          r[constants.computedColumnNames.IMPROVED_STUNTING_COVERAGE],
+          r[constants.columnNames.POPULATION_CHILDREN_UNDER_5],
+        ),
     )
     .end()
     .calc()
@@ -703,7 +704,8 @@ export function createCoverageModel() {
       calculateAffectedPopulation(
         ratioToPercentage(r[constants.columnNames.HOSPITAL_BEDS]),
         ratioToPercentage(
-          r[constants.computedColumnNames.IMPROVED_HOSPITAL_BEDS]),
+          r[constants.computedColumnNames.IMPROVED_HOSPITAL_BEDS],
+        ),
         r[constants.columnNames.POPTOTAL] / 1000,
       ),
     )
@@ -719,8 +721,7 @@ export function createCoverageModel() {
     .does((r) =>
       calculateAffectedPopulation(
         ratioToPercentage(r[constants.columnNames.NURSES]),
-        ratioToPercentage(
-          r[constants.computedColumnNames.IMPROVED_NURSES]),
+        ratioToPercentage(r[constants.computedColumnNames.IMPROVED_NURSES]),
         r[constants.columnNames.POPTOTAL] / 1000,
       ),
     )
