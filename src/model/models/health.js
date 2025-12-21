@@ -701,8 +701,9 @@ export function createCoverageModel() {
     .called(constants.computedColumnNames.ADDITIONAL_HOSPITAL_BEDS)
     .does((r) =>
       calculateAffectedPopulation(
-        r[constants.columnNames.HOSPITAL_BEDS],
-        r[constants.computedColumnNames.IMPROVED_HOSPITAL_BEDS],
+        ratioToPercentage(r[constants.columnNames.HOSPITAL_BEDS]),
+        ratioToPercentage(
+          r[constants.computedColumnNames.IMPROVED_HOSPITAL_BEDS]),
         r[constants.columnNames.POPTOTAL] / 1000,
       ),
     )
@@ -717,8 +718,9 @@ export function createCoverageModel() {
     .called(constants.computedColumnNames.ADDITIONAL_NURSES)
     .does((r) =>
       calculateAffectedPopulation(
-        r[constants.columnNames.NURSES],
-        r[constants.computedColumnNames.IMPROVED_NURSES],
+        ratioToPercentage(r[constants.columnNames.NURSES]),
+        ratioToPercentage(
+          r[constants.computedColumnNames.IMPROVED_NURSES]),
         r[constants.columnNames.POPTOTAL] / 1000,
       ),
     )

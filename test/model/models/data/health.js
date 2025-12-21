@@ -199,9 +199,9 @@ export const expectedResult = [
     'Children < 5 who no longer experience Stunting': 132072.46911216003,
     'Hospital beds (per 1,000 people)': 0.34,
     'Hospital beds (per 1,000 people): Improved': 0.35760548119290597,
-    'Additional hospital beds': 23.615961838626763,
+    'Additional hospital beds': 2361.596183862679,
     'Nurses (per 1000 people)': 0.5,
     'Nurses (per 1000 people): Improved': 0.5244625035353428,
-    'Additional nurses': 32.81395967755275,
+    'Additional nurses': 3281.3959677552707,
   },
 ];
