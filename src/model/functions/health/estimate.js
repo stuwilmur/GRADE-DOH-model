@@ -1,22 +1,6 @@
 import * as measures from './measures';
-import {curry, applyResidual} from '../../../utils';
-
-const maxUnderFiveSurvival = 99.9; // mortality of 1 in 1,000
-const maxPupilToTeacherRatio = 0.1; // 10 pupils per teacher
-const minimumStunting = 0.0;
-const maxHopspitalBedsPerThousand = 16;
-const maxNursesPerThousand = 20;
-
-/**
- * Clamps a value
- * @param {number} min: minimum
- * @param {number} max: maximum
- * @param {number} value to clamp
- * @return {number} clamped value
- */
-function clamp(min, max, value) {
-  return Math.max(min, Math.min(max, value));
-}
+import {curry, applyResidual, clamp} from '../../../utils';
+import * as constants from './estimate-constants';
 
 /**
  * Wraps an estimate function with limits
@@ -104,7 +88,7 @@ export const schoolAttendance = limitEstimate(
 export const underFiveSurvival = limitEstimate(
   curry(estimate, measures.underFiveSurvival.calculate),
   0,
-  maxUnderFiveSurvival,
+  constants.MaxUnderFiveSurvival,
 );
 
 export const primarySchoolAttendance = limitEstimate(
@@ -128,19 +112,19 @@ export const upperSchoolAttendance = limitEstimate(
 export const primarySchoolTeacherToPupilRatio = limitEstimate(
   curry(estimate, measures.primarySchoolTeacherToPupilRatio.calculate),
   0,
-  maxPupilToTeacherRatio,
+  constants.MaxPupilToTeacherRatio,
 );
 
 export const lowerSchoolTeacherToPupilRatio = limitEstimate(
   curry(estimate, measures.lowerSchoolTeacherToPupilRatio.calculate),
   0,
-  maxPupilToTeacherRatio,
+  constants.MaxPupilToTeacherRatio,
 );
 
 export const upperSchoolTeacherToPupilRatio = limitEstimate(
   curry(estimate, measures.upperSchoolTeacherToPupilRatio.calculate),
   0,
-  maxPupilToTeacherRatio,
+  constants.MaxPupilToTeacherRatio,
 );
 
 export const cleanFuels = limitEstimate(
@@ -182,7 +166,7 @@ export function stunting(
   const stuntingValue = measures.stuntingInverse.stuntingInverseToStunting(
     estimatedStuntingInverse,
   );
-  return clamp(minimumStunting, 100.0, stuntingValue);
+  return clamp(constants.MinimumStunting, 100.0, stuntingValue);
 }
 
 /**
@@ -219,7 +203,7 @@ export function hospitalBeds(
     measures.hospitalBedsInverse.hospitalBedsInverseToHospitalBeds(
       estimatedHospitalBedsInverse,
     );
-  return clamp(0, maxHopspitalBedsPerThousand, hospitalBedsValue);
+  return clamp(0, constants.MaxHospitalBedsPerThousand, hospitalBedsValue);
 }
 
 /**
@@ -253,5 +237,5 @@ export function nurses(
   const nursesValue = measures.nursesInverse.nursesInverseToNurses(
     estimatedNursesInverse,
   );
-  return clamp(0, maxNursesPerThousand, nursesValue);
+  return clamp(0, constants.MaxNursesPerThousand, nursesValue);
 }

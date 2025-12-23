@@ -34,7 +34,7 @@ const measuresToTest = new Map([
   ['nurses', coverage.estimate.nurses],
 ]);
 
-const observed = {
+const observedMax = {
   grpc: 10000.0,
   basicSanitation: 100.0,
   basicWater: 100.0,
@@ -57,26 +57,59 @@ const observed = {
   nurses: 20,
 };
 
+const observedMin = {
+  grpc: 10000.0,
+  basicSanitation: 0,
+  basicWater: 0,
+  immunisation: 0,
+  maternalSurvival: 0,
+  underFiveSurvival: 0,
+  safeSanitation: 0,
+  safeWater: 0,
+  schoolAttendance: 0,
+  primarySchoolAttendance: 0,
+  lowerSchoolAttendance: 0,
+  upperSchoolAttendance: 0,
+  primarySchoolTeacherToPupilRatio: 0,
+  lowerSchoolTeacherToPupilRatio: 0,
+  upperSchoolTeacherToPupilRatio: 0,
+  electricity: 0,
+  cleanFuels: 0,
+  stunting: 100.0,
+  hospitalBeds: 0,
+  nurses: 0,
+};
+
 const governanceObserved = governanceObject(0, 0, 0, 0, 0, 0);
-const grpcImproved = 2.0 * observed['grpc'];
+
+const grpcImprovedMax = 2.0 * observedMax['grpc'];
 
 measuresToTest.forEach((estimator, measure) => {
-  console.log(
-    '$$$',
-    observed[measure],
-    observed['grpc'],
-    grpcImproved,
-    governanceObserved,
-  );
-  test(`Tests ${measure} estimator with observed grpc and governance`, () => {
+  test(`Tests ${measure} estimator is clamped when GRPC is increased`, () => {
     expect(
       estimator(
-        observed[measure],
-        observed['grpc'],
-        grpcImproved,
+        observedMax[measure],
+        observedMax['grpc'],
+        grpcImprovedMax,
         governanceObserved,
         governanceObserved,
       ),
-    ).toBeCloseTo(observed[measure], digitsTolerance);
+    ).toBeCloseTo(observedMax[measure], digitsTolerance);
+  });
+});
+
+const grpcImprovedMin = 0.5 * observedMax['grpc'];
+
+measuresToTest.forEach((estimator, measure) => {
+  test(`Tests ${measure} estimator is clamped when GRPC is increased`, () => {
+    expect(
+      estimator(
+        observedMin[measure],
+        observedMin['grpc'],
+        grpcImprovedMin,
+        governanceObserved,
+        governanceObserved,
+      ),
+    ).toBeCloseTo(observedMin[measure], digitsTolerance);
   });
 });
