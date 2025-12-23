@@ -3,6 +3,7 @@ import {curry, applyResidual} from '../../../utils';
 
 const maxUnderFiveSurvival = 99.9; // mortality of 1 in 1,000
 const maxPupilToTeacherRatio = 0.1; // 10 pupils per teacher
+const minimumStunting = 0.0;
 const maxHopspitalBedsPerThousand = 16;
 const maxNursesPerThousand = 20;
 
@@ -26,7 +27,7 @@ function clamp(min, max, value) {
  */
 function limitEstimate(estimateFn, min = 0, max = 100) {
   return (...args) => clamp(min, max, estimateFn(...args));
-};
+}
 
 /**
  * Estimate coverage from the model equations:
@@ -73,129 +74,81 @@ function estimate(
 
 // Default limits (0-100):
 export const basicSanitation = limitEstimate(
-  curry(
-    estimate,
-    measures.basicSanitation.calculate,
-  ),
+  curry(estimate, measures.basicSanitation.calculate),
 );
 
 export const basicWater = limitEstimate(
-  curry(
-    estimate,
-    measures.basicWater.calculate,
-  ),
+  curry(estimate, measures.basicWater.calculate),
 );
 
 export const immunisation = limitEstimate(
-  curry(
-    estimate,
-    measures.immunisation.calculate,
-  ),
+  curry(estimate, measures.immunisation.calculate),
 );
 
 export const maternalSurvival = limitEstimate(
-  curry(
-    estimate,
-    measures.maternalSurvival.calculate,
-  ),
+  curry(estimate, measures.maternalSurvival.calculate),
 );
 
 export const safeSanitation = limitEstimate(
-  curry(
-    estimate,
-    measures.safeSanitation.calculate,
-  ),
+  curry(estimate, measures.safeSanitation.calculate),
 );
 
 export const safeWater = limitEstimate(
-  curry(
-    estimate,
-    measures.safeWater.calculate,
-  ),
+  curry(estimate, measures.safeWater.calculate),
 );
 
 export const schoolAttendance = limitEstimate(
-  curry(
-    estimate,
-    measures.schoolAttendance.calculate,
-  ),
+  curry(estimate, measures.schoolAttendance.calculate),
 );
 
 export const underFiveSurvival = limitEstimate(
-  curry(
-    estimate,
-    measures.underFiveSurvival.calculate,
-  ),
+  curry(estimate, measures.underFiveSurvival.calculate),
   0,
   maxUnderFiveSurvival,
 );
 
 export const primarySchoolAttendance = limitEstimate(
-  curry(
-    estimate,
-    measures.primarySchoolAttendance.calculate,
-  ),
+  curry(estimate, measures.primarySchoolAttendance.calculate),
   0,
   1.0,
 );
 
 export const lowerSchoolAttendance = limitEstimate(
-  curry(
-    estimate,
-    measures.lowerSchoolAttendance.calculate,
-  ),
+  curry(estimate, measures.lowerSchoolAttendance.calculate),
   0,
   1.0,
 );
 
 export const upperSchoolAttendance = limitEstimate(
-  curry(
-    estimate,
-    measures.upperSchoolAttendance.calculate,
-  ),
+  curry(estimate, measures.upperSchoolAttendance.calculate),
   0,
   1.0,
 );
 
 export const primarySchoolTeacherToPupilRatio = limitEstimate(
-  curry(
-    estimate,
-    measures.primarySchoolTeacherToPupilRatio.calculate,
-  ),
+  curry(estimate, measures.primarySchoolTeacherToPupilRatio.calculate),
   0,
   maxPupilToTeacherRatio,
 );
 
 export const lowerSchoolTeacherToPupilRatio = limitEstimate(
-  curry(
-    estimate,
-    measures.lowerSchoolTeacherToPupilRatio.calculate,
-  ),
+  curry(estimate, measures.lowerSchoolTeacherToPupilRatio.calculate),
   0,
   maxPupilToTeacherRatio,
 );
 
 export const upperSchoolTeacherToPupilRatio = limitEstimate(
-  curry(
-    estimate,
-    measures.upperSchoolTeacherToPupilRatio.calculate,
-  ),
+  curry(estimate, measures.upperSchoolTeacherToPupilRatio.calculate),
   0,
   maxPupilToTeacherRatio,
 );
 
 export const cleanFuels = limitEstimate(
-  curry(
-    estimate,
-    measures.cleanFuels.calculate,
-  ),
+  curry(estimate, measures.cleanFuels.calculate),
 );
 
 export const electricity = limitEstimate(
-  curry(
-    estimate,
-    measures.electricity.calculate,
-  ),
+  curry(estimate, measures.electricity.calculate),
 );
 
 /**
@@ -226,9 +179,10 @@ export function stunting(
     governanceObserved,
     governanceAdjusted,
   );
-  return measures.stuntingInverse.stuntingInverseToStunting(
+  const stuntingValue = measures.stuntingInverse.stuntingInverseToStunting(
     estimatedStuntingInverse,
   );
+  return clamp(minimumStunting, 100.0, stuntingValue);
 }
 
 /**
@@ -261,11 +215,11 @@ export function hospitalBeds(
     governanceObserved,
     governanceAdjusted,
   );
-  const hospitalBeds =
-  measures.hospitalBedsInverse.hospitalBedsInverseToHospitalBeds(
-    estimatedHospitalBedsInverse,
-  );
-  return clamp(0, maxHopspitalBedsPerThousand, hospitalBeds);
+  const hospitalBedsValue =
+    measures.hospitalBedsInverse.hospitalBedsInverseToHospitalBeds(
+      estimatedHospitalBedsInverse,
+    );
+  return clamp(0, maxHopspitalBedsPerThousand, hospitalBedsValue);
 }
 
 /**
@@ -296,8 +250,8 @@ export function nurses(
     governanceObserved,
     governanceAdjusted,
   );
-  const nurses = measures.nursesInverse.nursesInverseToNurses(
+  const nursesValue = measures.nursesInverse.nursesInverseToNurses(
     estimatedNursesInverse,
   );
-  return clamp(0, maxNursesPerThousand, nurses);
+  return clamp(0, maxNursesPerThousand, nursesValue);
 }
