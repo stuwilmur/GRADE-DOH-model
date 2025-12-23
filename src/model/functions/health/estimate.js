@@ -1,5 +1,17 @@
 import * as measures from './measures';
-import {curry, applyResidual} from '../../../utils';
+import {curry, applyResidual, clamp} from '../../../utils';
+import * as constants from './estimate-constants';
+
+/**
+ * Wraps an estimate function with limits
+ * @param {function} estimateFn: estimator
+ * @param {number} min: minimum coverage value
+ * @param {number} max: maximum coverage value
+ * @return {function} limited estimate function
+ */
+function limitEstimate(estimateFn, min = 0, max = 100) {
+  return (...args) => clamp(min, max, estimateFn(...args));
+}
 
 /**
  * Estimate coverage from the model equations:
@@ -29,67 +41,99 @@ function estimate(
     grpcObserved,
     governanceObserved,
   );
+
   const coverageAdjustedCalculated = coverageCalculator(
     grpcAdjusted,
     governanceAdjusted,
   );
+
   const coverageAdjustedEstimated = applyResidual(
     coverageObserved,
     coverageCalculated,
     coverageAdjustedCalculated,
   );
+
   return coverageAdjustedEstimated;
 }
 
-export const basicSanitation = curry(
-  estimate,
-  measures.basicSanitation.calculate,
+// Default limits (0-100):
+export const basicSanitation = limitEstimate(
+  curry(estimate, measures.basicSanitation.calculate),
 );
-export const basicWater = curry(estimate, measures.basicWater.calculate);
-export const immunisation = curry(estimate, measures.immunisation.calculate);
-export const maternalSurvival = curry(
-  estimate,
-  measures.maternalSurvival.calculate,
+
+export const basicWater = limitEstimate(
+  curry(estimate, measures.basicWater.calculate),
 );
-export const safeSanitation = curry(
-  estimate,
-  measures.safeSanitation.calculate,
+
+export const immunisation = limitEstimate(
+  curry(estimate, measures.immunisation.calculate),
 );
-export const safeWater = curry(estimate, measures.safeWater.calculate);
-export const schoolAttendance = curry(
-  estimate,
-  measures.schoolAttendance.calculate,
+
+export const maternalSurvival = limitEstimate(
+  curry(estimate, measures.maternalSurvival.calculate),
 );
-export const underFiveSurvival = curry(
-  estimate,
-  measures.underFiveSurvival.calculate,
+
+export const safeSanitation = limitEstimate(
+  curry(estimate, measures.safeSanitation.calculate),
 );
-export const primarySchoolAttendance = curry(
-  estimate,
-  measures.primarySchoolAttendance.calculate,
+
+export const safeWater = limitEstimate(
+  curry(estimate, measures.safeWater.calculate),
 );
-export const lowerSchoolAttendance = curry(
-  estimate,
-  measures.lowerSchoolAttendance.calculate,
+
+export const schoolAttendance = limitEstimate(
+  curry(estimate, measures.schoolAttendance.calculate),
 );
-export const upperSchoolAttendance = curry(
-  estimate,
-  measures.upperSchoolAttendance.calculate,
+
+export const underFiveSurvival = limitEstimate(
+  curry(estimate, measures.underFiveSurvival.calculate),
+  0,
+  constants.MaxUnderFiveSurvival,
 );
-export const primarySchoolTeacherToPupilRatio = curry(
-  estimate,
-  measures.primarySchoolTeacherToPupilRatio.calculate,
+
+export const primarySchoolAttendance = limitEstimate(
+  curry(estimate, measures.primarySchoolAttendance.calculate),
+  0,
+  1.0,
 );
-export const lowerSchoolTeacherToPupilRatio = curry(
-  estimate,
-  measures.lowerSchoolTeacherToPupilRatio.calculate,
+
+export const lowerSchoolAttendance = limitEstimate(
+  curry(estimate, measures.lowerSchoolAttendance.calculate),
+  0,
+  1.0,
 );
-export const upperSchoolTeacherToPupilRatio = curry(
-  estimate,
-  measures.upperSchoolTeacherToPupilRatio.calculate,
+
+export const upperSchoolAttendance = limitEstimate(
+  curry(estimate, measures.upperSchoolAttendance.calculate),
+  0,
+  1.0,
 );
-export const cleanFuels = curry(estimate, measures.cleanFuels.calculate);
-export const electricity = curry(estimate, measures.electricity.calculate);
+
+export const primarySchoolTeacherToPupilRatio = limitEstimate(
+  curry(estimate, measures.primarySchoolTeacherToPupilRatio.calculate),
+  0,
+  constants.MaxPupilToTeacherRatio,
+);
+
+export const lowerSchoolTeacherToPupilRatio = limitEstimate(
+  curry(estimate, measures.lowerSchoolTeacherToPupilRatio.calculate),
+  0,
+  constants.MaxPupilToTeacherRatio,
+);
+
+export const upperSchoolTeacherToPupilRatio = limitEstimate(
+  curry(estimate, measures.upperSchoolTeacherToPupilRatio.calculate),
+  0,
+  constants.MaxPupilToTeacherRatio,
+);
+
+export const cleanFuels = limitEstimate(
+  curry(estimate, measures.cleanFuels.calculate),
+);
+
+export const electricity = limitEstimate(
+  curry(estimate, measures.electricity.calculate),
+);
 
 /**
  * Estimate stunting prevalence from the model equations:
@@ -119,9 +163,10 @@ export function stunting(
     governanceObserved,
     governanceAdjusted,
   );
-  return measures.stuntingInverse.stuntingInverseToStunting(
+  const stuntingValue = measures.stuntingInverse.stuntingInverseToStunting(
     estimatedStuntingInverse,
   );
+  return clamp(constants.MinimumStunting, 100.0, stuntingValue);
 }
 
 /**
@@ -154,9 +199,11 @@ export function hospitalBeds(
     governanceObserved,
     governanceAdjusted,
   );
-  return measures.hospitalBedsInverse.hospitalBedsInverseToHospitalBeds(
-    estimatedHospitalBedsInverse,
-  );
+  const hospitalBedsValue =
+    measures.hospitalBedsInverse.hospitalBedsInverseToHospitalBeds(
+      estimatedHospitalBedsInverse,
+    );
+  return clamp(0, constants.MaxHospitalBedsPerThousand, hospitalBedsValue);
 }
 
 /**
@@ -187,5 +234,8 @@ export function nurses(
     governanceObserved,
     governanceAdjusted,
   );
-  return measures.nursesInverse.nursesInverseToNurses(estimatedNursesInverse);
+  const nursesValue = measures.nursesInverse.nursesInverseToNurses(
+    estimatedNursesInverse,
+  );
+  return clamp(0, constants.MaxNursesPerThousand, nursesValue);
 }
