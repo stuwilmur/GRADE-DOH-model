@@ -54,7 +54,7 @@ const observedMax = {
   cleanFuels: 100.0,
   stunting: 0.0,
   hospitalBeds: 16,
-  nurses: 20,
+  nurses: 30,
 };
 
 const observedMin = {
