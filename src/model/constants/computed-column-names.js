@@ -14,6 +14,7 @@ const SAFE_SANITATION_NAME = 'Safe sanitation (SDG 6)';
 const CLEAN_FUELS_NAME = 'Clean fuels (SDG 7)';
 const ELECTRICITY_NAME = 'Electricity (SDG 7)';
 const STUNTING_NAME = 'Stunting';
+const SOCIAL_PROTECTION_NAME = 'Social protection';
 const PEOPLE = 'People';
 const CHILDREN_UNDER_5 = 'Children < 5';
 const FEMALES_15_49 = 'Females 15-49';
@@ -151,3 +152,8 @@ export const IMPROVED_HOSPITAL_BEDS = columnNames.HOSPITAL_BEDS + improved;
 export const ADDITIONAL_HOSPITAL_BEDS = 'Additional hospital beds';
 export const IMPROVED_NURSES = columnNames.NURSES + improved;
 export const ADDITIONAL_NURSES = 'Additional nurses';
+export const IMPROVED_SOCIAL_PROTECTION =
+  columnNames.SOCIAL_PROTECTION + improved;
+export const IMPROVED_SOCIAL_PROTECTION_PEOPLE = `${PEOPLE} ${WITH_INCREASED_ACCESS_TO} ${SOCIAL_PROTECTION_NAME}`;
+export const IMPROVED_SOCIAL_PROTECTION_CHILDREN_UNDER_5 = `${CHILDREN_UNDER_5} ${WITH_INCREASED_ACCESS_TO} ${SOCIAL_PROTECTION_NAME}`;
+export const IMPROVED_SOCIAL_PROTECTION_FEMALES_15_49 = `${FEMALES_15_49} ${WITH_INCREASED_ACCESS_TO} ${SOCIAL_PROTECTION_NAME}`;

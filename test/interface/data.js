@@ -1,9 +1,9 @@
-// Data for Bangladesh 2002, from GRADE-DOH-DATA.
-// An exception of primary teachers to pupils/pupils to
-// teachers, which is null in the original data, so a dummy
-// value used here.
-// Values for access to electricity, clean fuels, stunting,
-// hospital beds and nurses are also dummy values.
+// Data for Bangladesh 2002, from GRADE-DOH-DATA,
+// or in the following cases, arbitrary values:
+// - primary teachers to pupils/pupils to teachers;
+// - access to electricity, clean fuels, stunting;
+// - hospital beds and nurses;
+// - social protection.
 
 export const data = {
   'countryyearcode': 'BGD2002',
@@ -79,4 +79,5 @@ export const data = {
   'Prevalence of stunting, height for age (% of children under 5)': 10,
   'Hospital beds (per 1,000 people)': 0.34,
   'Nurses (per 1000 people)': 0.5,
+  'People with at least one social protection (% of population)': 50,
 };

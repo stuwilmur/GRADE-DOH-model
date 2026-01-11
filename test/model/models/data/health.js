@@ -1,6 +1,5 @@
 // Base data for Bangladesh 2002, from GRADE-DOH-DATA
-// Values for access to electricity and clean fuels and
-// prevalence of stunting are dummy values
+// Dummy values are used where data is unavailable
 
 /* eslint-disable max-len */
 export const input = [
@@ -64,6 +63,7 @@ export const input = [
     'Prevalence of stunting, height for age (% of children under 5)': 10,
     'Hospital beds (per 1,000 people)': 0.34,
     'Nurses (per 1000 people)': 0.5,
+    'People with at least one social protection (% of population)': 50,
   },
 ];
 
@@ -203,5 +203,10 @@ export const expectedResult = [
     'Nurses (per 1000 people)': 0.5,
     'Nurses (per 1000 people): Improved': 0.5244625035353428,
     'Additional nurses': 3281.3959677552707,
+    'People with at least one social protection (% of population)': 50,
+    'People with at least one social protection (% of population): Improved': 50.59259738650896,
+    'Children < 5 with increased access to Social protection': 102393.50981102545,
+    'Females 15-49 with increased access to Social protection': 205143.68028509518,
+    'People with increased access to Social protection': 794909.1031436706,
   },
 ];

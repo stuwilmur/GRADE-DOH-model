@@ -32,6 +32,7 @@ const measuresToTest = new Map([
   ['stunting', coverage.estimate.stunting],
   ['hospitalBeds', coverage.estimate.hospitalBeds],
   ['nurses', coverage.estimate.nurses],
+  ['socialProtection', coverage.estimate.socialProtection],
 ]);
 
 const observedMax = {
@@ -55,6 +56,7 @@ const observedMax = {
   stunting: 0.0,
   hospitalBeds: 16,
   nurses: 30,
+  socialProtection: 100,
 };
 
 const observedMin = {
@@ -78,6 +80,7 @@ const observedMin = {
   stunting: 100.0,
   hospitalBeds: 0,
   nurses: 0,
+  socialProtection: 0,
 };
 
 const governanceObserved = governanceObject(0, 0, 0, 0, 0, 0);

@@ -13,6 +13,7 @@ const measuresToTest = new Map([
   ['safeWater', coverage.target.safeWater],
   ['schoolAttendance', coverage.target.schoolAttendance],
   ['underFiveSurvival', coverage.target.underFiveSurvival],
+  ['socialProtection', coverage.target.socialProtection],
 ]);
 
 const governanceObserved = governanceObject(

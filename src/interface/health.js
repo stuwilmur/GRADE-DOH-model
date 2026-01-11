@@ -21,6 +21,7 @@ export const target = {
   stunting: t.stunting,
   hospitalBeds: t.hospitalBeds,
   nurses: t.nurses,
+  socialProtection: t.socialProtection,
 };
 
 export const GrpcMethod = {
