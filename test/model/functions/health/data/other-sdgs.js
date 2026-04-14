@@ -1,4 +1,5 @@
 // Data for Afghanistan 2010, from health_check_spreadsheet.xlsx
+// and social_prtection_check_spreadsheet.xlsx
 
 export const testData = {
   observed: {
@@ -10,6 +11,7 @@ export const testData = {
     safeWater: 40,
     schoolAttendance: 53.16671,
     underFiveSurvival: 91.2,
+    socialProtection: 10.0,
     grpc: 60.2629,
     CORRUPTION: -1.635723,
     GOVEFFECT: -1.454683,
@@ -27,6 +29,7 @@ export const testData = {
     safeWater: 38.47602737,
     schoolAttendance: 53.33761751,
     underFiveSurvival: 92.52186747,
+    socialProtection: 20.07162855,
     grpc: 300,
     CORRUPTION: -1.635723,
     GOVEFFECT: -1.454683,
@@ -44,6 +47,7 @@ export const testData = {
     safeWater: 40.19182192,
     schoolAttendance: 53.14514248,
     underFiveSurvival: 91.02147696,
+    socialProtection: 6.704448814,
     grpc: 30,
     CORRUPTION: -1.635723,
     GOVEFFECT: -1.454683,
@@ -61,6 +65,7 @@ export const testData = {
     safeSanitation: 23.8941846,
     schoolAttendance: 54.65295384,
     underFiveSurvival: 91.89284213,
+    socialProtection: 9.535876548,
     grpc: 60.2629,
     CORRUPTION: -1.535723,
     GOVEFFECT: -1.354683,

@@ -243,3 +243,9 @@ export function nurses(
     governanceObserved,
   );
 }
+
+export const socialProtection = curry2(
+  targetCoverage,
+  measures.socialProtection.calculate,
+  measures.socialProtection.invert,
+);

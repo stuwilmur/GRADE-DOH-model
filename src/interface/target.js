@@ -267,3 +267,16 @@ export const nurses = curry2(
   model.functions.health.target.nurses,
   model.constants.columnNames.NURSES,
 );
+
+/**
+ * Calculate revenue necessary to achieve target value of
+ * social protection
+ * @param {number} target target value of access to social protection
+ * @param {array} data the base data rows for which to calculate
+ * @return {array} result data, including values for target revenue
+ */
+export const socialProtection = curry2(
+  calcGrpcForTargetCoverage,
+  model.functions.health.target.socialProtection,
+  model.constants.columnNames.SOCIAL_PROTECTION,
+);

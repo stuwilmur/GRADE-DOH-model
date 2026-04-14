@@ -1,11 +1,12 @@
-![GRADE project logo](https://github.com/stuwilmur/GRADE-DOH-model/blob/main/grade-logo.png?raw=true)
+<img src="grade-logo.png" width="200" height="200"/>
+
 # GRADE-DOH-model
 
 [![npm](https://img.shields.io/npm/v/grade-doh-model)](https://www.npmjs.com/package/grade-doh-model) [![](https://data.jsdelivr.com/v1/package/npm/grade-doh-model/badge)](https://www.jsdelivr.com/package/npm/grade-doh-model)  [![DeepScan grade](https://deepscan.io/api/teams/24725/projects/27879/branches/892755/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=24725&pid=27879&bid=892755)
 
 | Statements                  | Branches                | Functions                 | Lines             |
 | --------------------------- | ----------------------- | ------------------------- | ----------------- |
-| ![Statements](https://img.shields.io/badge/statements-95.65%25-brightgreen.svg?style=flat) | ![Branches](https://img.shields.io/badge/branches-50.98%25-red.svg?style=flat) | ![Functions](https://img.shields.io/badge/functions-97.86%25-brightgreen.svg?style=flat) | ![Lines](https://img.shields.io/badge/lines-95.78%25-brightgreen.svg?style=flat) |
+| ![Statements](https://img.shields.io/badge/statements-95.77%25-brightgreen.svg?style=flat) | ![Branches](https://img.shields.io/badge/branches-50.98%25-red.svg?style=flat) | ![Functions](https://img.shields.io/badge/functions-97.92%25-brightgreen.svg?style=flat) | ![Lines](https://img.shields.io/badge/lines-95.9%25-brightgreen.svg?style=flat) |
 
 ## What is this?
 

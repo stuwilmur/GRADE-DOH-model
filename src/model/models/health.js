@@ -725,5 +725,49 @@ export function createCoverageModel() {
         r[constants.columnNames.POPTOTAL] / 1000,
       ),
     )
+    .end()
+    .calc()
+    .called(constants.computedColumnNames.IMPROVED_SOCIAL_PROTECTION)
+    .does((r) =>
+      estimate(
+        coverage.estimate.socialProtection,
+        constants.columnNames.SOCIAL_PROTECTION,
+        r,
+      ),
+    )
+    .end()
+    .calc()
+    .called(constants.computedColumnNames.IMPROVED_SOCIAL_PROTECTION_PEOPLE)
+    .does((r) =>
+      calculateAffectedPopulation(
+        r[constants.columnNames.SOCIAL_PROTECTION],
+        r[constants.computedColumnNames.IMPROVED_SOCIAL_PROTECTION],
+        r[constants.columnNames.POPTOTAL],
+      ),
+    )
+    .end()
+    .calc()
+    .called(
+      constants.computedColumnNames.IMPROVED_SOCIAL_PROTECTION_CHILDREN_UNDER_5,
+    )
+    .does((r) =>
+      calculateAffectedPopulation(
+        r[constants.columnNames.SOCIAL_PROTECTION],
+        r[constants.computedColumnNames.IMPROVED_SOCIAL_PROTECTION],
+        r[constants.columnNames.POPULATION_CHILDREN_UNDER_5],
+      ),
+    )
+    .end()
+    .calc()
+    .called(
+      constants.computedColumnNames.IMPROVED_SOCIAL_PROTECTION_FEMALES_15_49,
+    )
+    .does((r) =>
+      calculateAffectedPopulation(
+        r[constants.columnNames.SOCIAL_PROTECTION],
+        r[constants.computedColumnNames.IMPROVED_SOCIAL_PROTECTION],
+        r[constants.columnNames.POPULATION_FEMALES_15_49],
+      ),
+    )
     .end();
 }

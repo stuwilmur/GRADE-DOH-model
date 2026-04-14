@@ -100,6 +100,11 @@ const tests = [
     f: health.target.nurses,
     value: data[model.constants.columnNames.NURSES],
   },
+  {
+    name: model.functions.health.measuresNames.socialProtection,
+    f: health.target.socialProtection,
+    value: data[model.constants.columnNames.SOCIAL_PROTECTION],
+  },
 ];
 
 tests.forEach((aTest) => {

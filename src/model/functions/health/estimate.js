@@ -135,6 +135,10 @@ export const electricity = limitEstimate(
   curry(estimate, measures.electricity.calculate),
 );
 
+export const socialProtection = limitEstimate(
+  curry(estimate, measures.socialProtection.calculate),
+);
+
 /**
  * Estimate stunting prevalence from the model equations:
  * this is necessary as to calculate stunting, the working
