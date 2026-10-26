@@ -64,6 +64,8 @@ export const input = [
     'Hospital beds (per 1,000 people)': 0.34,
     'Nurses (per 1000 people)': 0.5,
     'People with at least one social protection (% of population)': 50,
+    'Neonatal survival (%)': 95,
+    'Number of neonatal deaths': 187899,
   },
 ];
 
@@ -208,5 +210,11 @@ export const expectedResult = [
     'Children < 5 with increased access to Social protection': 102393.50981102545,
     'Females 15-49 with increased access to Social protection': 205143.68028509518,
     'People with increased access to Social protection': 794909.1031436706,
+    'Neonatal deaths averted': 2646.5580330869275,
+    'Neonatal survival (%)': 95,
+    'Neonatal survival (%): Improved': 95.07042496022699,
+    'Cost per neonatal life saved': 302790.0051710972,
+    'Number of neonatal deaths': 187899,
+    'Neonatal deaths with additional revenue': 185252.44196691306,
   },
 ];

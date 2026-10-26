@@ -31,6 +31,7 @@ export const CHILDREN_SURVIVE_TO_1 = 'Number of infants surviving to 1yr';
 export const CHILDREN_SURVIVE_TO_5 = 'Number of children surviving to five ';
 export const UNDER_5_DEATHS = 'Number of under-five deaths';
 export const MATERNAL_DEATHS = 'Number of maternal deaths';
+export const NEONATAL_DEATHS = 'Number of neonatal deaths';
 export const IN_SCHOOL_PRIMARY_SCHOOL = 'In school: Primary school';
 export const IN_SCHOOL_LOWER_SCHOOL = 'In school: Lower school';
 export const IN_SCHOOL_UPPER_SCHOOL = 'In school: Upper school';
@@ -67,3 +68,4 @@ export const HOSPITAL_BEDS = 'Hospital beds (per 1,000 people)';
 export const NURSES = 'Nurses (per 1000 people)';
 export const SOCIAL_PROTECTION =
   'People with at least one social protection (% of population)';
+export const NEONATAL_SURVIVAL = 'Neonatal survival (%)';

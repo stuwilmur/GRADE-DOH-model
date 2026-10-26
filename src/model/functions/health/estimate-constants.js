@@ -3,3 +3,4 @@ export const MaxPupilToTeacherRatio = 0.1; // 10 pupils per teacher
 export const MinimumStunting = 0.0; // no children suffer from stunting
 export const MaxHospitalBedsPerThousand = 16; // > maximum in projected data
 export const MaxNursesPerThousand = 30; // > maximum value in projected data
+export const MinimumNeonatalSurvival = 0.0;

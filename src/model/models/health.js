@@ -203,6 +203,88 @@ export function createCoverageModel() {
     })
     .end()
     .calc()
+    .called(constants.computedColumnNames.IMPROVED_MATERNAL_SURVIVAL_COVERAGE)
+    .does((r) =>
+      estimate(
+        coverage.estimate.maternalSurvival,
+        constants.columnNames.MATERNAL_SURVIVAL_COVERAGE,
+        r,
+      ),
+    )
+    .end()
+    .calc()
+    .called(constants.computedColumnNames.MATERNAL_DEATHS_AVERTED)
+    .does((r) =>
+      calculateAffectedPopulation(
+        r[constants.columnNames.MATERNAL_SURVIVAL_COVERAGE],
+        r[constants.computedColumnNames.IMPROVED_MATERNAL_SURVIVAL_COVERAGE],
+        r[constants.columnNames.NUMBER_OF_BIRTHS],
+      ),
+    )
+    .end()
+    .calc()
+    .called(
+      constants.computedColumnNames.MATERNAL_DEATHS_WITH_ADDITIONAL_REVENUE,
+    )
+    .does(
+      (r) =>
+        r[constants.columnNames.MATERNAL_DEATHS] -
+        r[constants.computedColumnNames.MATERNAL_DEATHS_AVERTED],
+    )
+    .end()
+    .calc()
+    .called(constants.computedColumnNames.COST_PER_MATERNAL_LIFE_SAVED)
+    .does((r) => {
+      if (r[constants.computedColumnNames.MATERNAL_DEATHS_AVERTED] > 0) {
+        return (
+          r[constants.computedColumnNames.ABSOLUTE_ADDITIONAL_REVENUE] /
+          r[constants.computedColumnNames.MATERNAL_DEATHS_AVERTED]
+        );
+      } else return null;
+    })
+    .end()
+    .calc()
+    .called(constants.computedColumnNames.IMPROVED_NEONATAL_SURVIVAL)
+    .does((r) =>
+      estimate(
+        coverage.estimate.neonatalSurvival,
+        constants.columnNames.NEONATAL_SURVIVAL,
+        r,
+      ),
+    )
+    .end()
+    .calc()
+    .called(constants.computedColumnNames.NEONATAL_DEATHS_AVERTED)
+    .does((r) =>
+      calculateAffectedPopulation(
+        r[constants.columnNames.NEONATAL_SURVIVAL],
+        r[constants.computedColumnNames.IMPROVED_NEONATAL_SURVIVAL],
+        r[constants.columnNames.NUMBER_OF_BIRTHS],
+      ),
+    )
+    .end()
+    .calc()
+    .called(
+      constants.computedColumnNames.NEONATAL_DEATHS_WITH_ADDITIONAL_REVENUE,
+    )
+    .does(
+      (r) =>
+        r[constants.columnNames.NEONATAL_DEATHS] -
+        r[constants.computedColumnNames.NEONATAL_DEATHS_AVERTED],
+    )
+    .end()
+    .calc()
+    .called(constants.computedColumnNames.COST_PER_NEONATAL_LIFE_SAVED)
+    .does((r) => {
+      if (r[constants.computedColumnNames.NEONATAL_DEATHS_AVERTED] > 0) {
+        return (
+          r[constants.computedColumnNames.ABSOLUTE_ADDITIONAL_REVENUE] /
+          r[constants.computedColumnNames.NEONATAL_DEATHS_AVERTED]
+        );
+      } else return null;
+    })
+    .end()
+    .calc()
     .called(constants.computedColumnNames.IMPROVED_SAFE_SANITATION_COVERAGE)
     .does((r) =>
       estimate(

@@ -280,3 +280,15 @@ export const socialProtection = curry2(
   model.functions.health.target.socialProtection,
   model.constants.columnNames.SOCIAL_PROTECTION,
 );
+
+/**
+ * Calculate revenue necessary to achieve target value of neonatal survival
+ * @param {number} target target value of neonatal survival
+ * @param {array} data the base data rows for which to calculate
+ * @return {array} result data, including values for target revenue
+ */
+export const neonatalSurvival = curry2(
+  calcGrpcForTargetCoverage,
+  model.functions.health.target.neonatalSurvival,
+  model.constants.columnNames.NEONATAL_SURVIVAL,
+);

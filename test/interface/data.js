@@ -3,7 +3,8 @@
 // - primary teachers to pupils/pupils to teachers;
 // - access to electricity, clean fuels, stunting;
 // - hospital beds and nurses;
-// - social protection.
+// - social protection;
+// - neonatal survival.
 
 export const data = {
   'countryyearcode': 'BGD2002',
@@ -80,4 +81,5 @@ export const data = {
   'Hospital beds (per 1,000 people)': 0.34,
   'Nurses (per 1000 people)': 0.5,
   'People with at least one social protection (% of population)': 50,
+  'Neonatal survival (%)': 95.2,
 };

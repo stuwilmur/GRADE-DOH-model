@@ -150,6 +150,11 @@ const nursesInverse = curry2(
   measures.nursesInverse.calculate,
   measures.nursesInverse.invert,
 );
+const neonatalSurvivalInverse = curry2(
+  targetCoverage,
+  measures.neonatalSurvivalInverse.calculate,
+  measures.neonatalSurvivalInverse.invert,
+);
 
 /**
  * Estimate required grpc to achieve a target prevalence of stunting
@@ -249,3 +254,35 @@ export const socialProtection = curry2(
   measures.socialProtection.calculate,
   measures.socialProtection.invert,
 );
+
+/**
+ * Estimate required grpc to achieve a target neonatal survival
+ * from the model equations: this is necessary as to calculate neonatal
+ * survival, the working variable must be transformed to neonatal survival
+ * inverse.
+ * @param {number} coverageObserved Observed value of neonatal survival
+ * @param {number} grpcObserved Observed absolute monetary value of GRPC
+ * @param {number} coverageTarget Target value of neonatal survival
+ * @param {object} governanceObserved Observed governance (governance object)
+ * @return {number} Absolute monetary value of grpc required to achieve target
+ */
+export function neonatalSurvival(
+  coverageObserved,
+  grpcObserved,
+  coverageTarget,
+  governanceObserved,
+) {
+  const neonatalSurvivalInverseObserved =
+    measures.neonatalSurvivalInverse
+      .neonatalSurvivalToNeonatalSurvivalInverse(coverageObserved);
+  const neonatalSurvivalInverseTarget =
+    measures.neonatalSurvivalInverse
+      .neonatalSurvivalToNeonatalSurvivalInverse(coverageTarget);
+
+  return neonatalSurvivalInverse(
+    neonatalSurvivalInverseObserved,
+    grpcObserved,
+    neonatalSurvivalInverseTarget,
+    governanceObserved,
+  );
+}

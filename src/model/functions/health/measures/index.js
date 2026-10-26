@@ -23,6 +23,8 @@ import * as hospitalBedsInverse from './hospital-beds-inverse';
 import * as nurses from './nurses';
 import * as nursesInverse from './nurses-inverse';
 import * as socialProtection from './social-protection';
+import * as neonatalSurvival from './neonatal-survival';
+import * as neonatalSurvivalInverse from './neonatal-survival-inverse';
 
 export {
   basicSanitation,
@@ -48,4 +50,6 @@ export {
   nurses,
   nursesInverse,
   socialProtection,
+  neonatalSurvival,
+  neonatalSurvivalInverse,
 };

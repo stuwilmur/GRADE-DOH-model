@@ -57,6 +57,7 @@ const observedMax = {
   hospitalBeds: 16,
   nurses: 30,
   socialProtection: 100,
+  neonatalSurvival: 100,
 };
 
 const observedMin = {
@@ -81,6 +82,7 @@ const observedMin = {
   hospitalBeds: 0,
   nurses: 0,
   socialProtection: 0,
+  neonatalSurvival: 0,
 };
 
 const governanceObserved = governanceObject(0, 0, 0, 0, 0, 0);

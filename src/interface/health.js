@@ -22,6 +22,7 @@ export const target = {
   hospitalBeds: t.hospitalBeds,
   nurses: t.nurses,
   socialProtection: t.socialProtection,
+  neonatalSurvival: t.neonatalSurvival,
 };
 
 export const GrpcMethod = {

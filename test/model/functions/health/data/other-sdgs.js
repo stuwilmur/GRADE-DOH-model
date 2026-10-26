@@ -1,5 +1,6 @@
 // Data for Afghanistan 2010, from health_check_spreadsheet.xlsx
-// and social_prtection_check_spreadsheet.xlsx
+// and social_protection_check_spreadsheet.xlsx
+// and neonatal_survival_check_spreadsheet.xlsx
 
 export const testData = {
   observed: {
@@ -12,6 +13,7 @@ export const testData = {
     schoolAttendance: 53.16671,
     underFiveSurvival: 91.2,
     socialProtection: 10.0,
+    neonatalSurvival: 95,
     grpc: 60.2629,
     CORRUPTION: -1.635723,
     GOVEFFECT: -1.454683,
@@ -30,6 +32,7 @@ export const testData = {
     schoolAttendance: 53.33761751,
     underFiveSurvival: 92.52186747,
     socialProtection: 20.07162855,
+    neonatalSurvival: 95,
     grpc: 300,
     CORRUPTION: -1.635723,
     GOVEFFECT: -1.454683,
@@ -48,6 +51,7 @@ export const testData = {
     schoolAttendance: 53.14514248,
     underFiveSurvival: 91.02147696,
     socialProtection: 6.704448814,
+    neonatalSurvival: 95,
     grpc: 30,
     CORRUPTION: -1.635723,
     GOVEFFECT: -1.454683,
@@ -66,6 +70,7 @@ export const testData = {
     schoolAttendance: 54.65295384,
     underFiveSurvival: 91.89284213,
     socialProtection: 9.535876548,
+    neonatalSurvival: 95,
     grpc: 60.2629,
     CORRUPTION: -1.535723,
     GOVEFFECT: -1.354683,

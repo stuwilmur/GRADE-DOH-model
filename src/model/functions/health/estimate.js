@@ -22,7 +22,7 @@ function limitEstimate(estimateFn, min = 0, max = 100) {
  * @param {function} coverageCalculator Function which calculates coverage,
  * of the form:
  *    coverage = f(grpc, governance)
- * @param {number} coverageObserved Obvserved value of coverage
+ * @param {number} coverageObserved Observed value of coverage
  * @param {number} grpcObserved Observed absolute monetary value of GRPC
  * @param {number} grpcAdjusted Adjusted absolute monetary  of GRPC
  * @param {object} governanceObserved Observed governance (governance object)
@@ -143,7 +143,7 @@ export const socialProtection = limitEstimate(
  * Estimate stunting prevalence from the model equations:
  * this is necessary as to calculate stunting, the working
  * variable must be transformed to stunting inverse.
- * @param {number} coverageObserved Obvserved value of coverage
+ * @param {number} coverageObserved Observed value of coverage
  * @param {number} grpcObserved Observed absolute monetary value of GRPC
  * @param {number} grpcAdjusted Adjusted absolute monetary  of GRPC
  * @param {object} governanceObserved Observed governance (governance object)
@@ -177,7 +177,7 @@ export function stunting(
  * Estimate hospital beds per 1,000 people from the model equations:
  * this is necessary as to calculate hospital beds, the working
  * variable must be transformed to hospital beds inverse.
- * @param {number} coverageObserved Obvserved value of coverage
+ * @param {number} coverageObserved Observed value of coverage
  * @param {number} grpcObserved Observed absolute monetary value of GRPC
  * @param {number} grpcAdjusted Adjusted absolute monetary  of GRPC
  * @param {object} governanceObserved Observed governance (governance object)
@@ -214,7 +214,7 @@ export function hospitalBeds(
  * Estimate nurses per 1,000 people from the model equations:
  * this is necessary as to calculate nurses, the working
  * variable must be transformed to nurses inverse.
- * @param {number} coverageObserved Obvserved value of coverage
+ * @param {number} coverageObserved Observed value of coverage
  * @param {number} grpcObserved Observed absolute monetary value of GRPC
  * @param {number} grpcAdjusted Adjusted absolute monetary  of GRPC
  * @param {object} governanceObserved Observed governance (governance object)
@@ -242,4 +242,41 @@ export function nurses(
     estimatedNursesInverse,
   );
   return clamp(0, constants.MaxNursesPerThousand, nursesValue);
+}
+
+/**
+ * Estimate neonatal survival from the model equations:
+ * this is necessary as to calculate neonatal survival, the working
+ * variable must be transformed to neonatal survival inverse.
+ * @param {number} coverageObserved Observed value of coverage
+ * @param {number} grpcObserved Observed absolute monetary value of GRPC
+ * @param {number} grpcAdjusted Adjusted absolute monetary  of GRPC
+ * @param {object} governanceObserved Observed governance (governance object)
+ * @param {object} governanceAdjusted Adjusted governance (governance object)
+ * @return {number} Estimated coverage value
+ */
+export function neonatalSurvival(
+  coverageObserved,
+  grpcObserved,
+  grpcAdjusted,
+  governanceObserved,
+  governanceAdjusted,
+) {
+  const neonatalSurvivalInverseObserved =
+    measures.neonatalSurvivalInverse
+      .neonatalSurvivalToNeonatalSurvivalInverse(coverageObserved);
+  const estimatedNeonatalSurvivalInverse = estimate(
+    measures.neonatalSurvivalInverse.calculate,
+    neonatalSurvivalInverseObserved,
+    grpcObserved,
+    grpcAdjusted,
+    governanceObserved,
+    governanceAdjusted,
+  );
+
+  const neonatalSurvivalValue =
+    measures.neonatalSurvivalInverse.neonatalSurvivalInverseToNeonatalSurvival(
+      estimatedNeonatalSurvivalInverse,
+    );
+  return clamp(constants.MinimumNeonatalSurvival, 100.0, neonatalSurvivalValue);
 }
